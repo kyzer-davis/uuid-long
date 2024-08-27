@@ -17,8 +17,8 @@ venue:
   type: "Working Group"
   mail: "uuidrev@ietf.org"
   arch: https://mailarchive.ietf.org/arch/browse/uuidrev/
-  github: user/repo
-  latest: https://example.com/LATEST
+  github: kyzer-davis/uuid-long/
+  latest: https://github.com/kyzer-davis/uuid-long/blob/main/draft-davis-uuidrev-uuid-long.md
 
 author:
 - name: Kyzer R. Davis
