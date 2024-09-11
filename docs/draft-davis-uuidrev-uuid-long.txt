@@ -4,9 +4,9 @@
 
 uuidrev                                                      K. R. Davis
 Internet-Draft                                             Cisco Systems
-Updates: 9562 (if approved)                               27 August 2024
+Updates: 9562 (if approved)                            11 September 2024
 Intended status: Standards Track                                        
-Expires: 28 February 2025
+Expires: 15 March 2025
 
 
              Longer Universally Unique IDentifiers (UUIDs)
@@ -28,10 +28,10 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-davis-uuidrev-
-   uuid/.
+   The latest revision of this draft can be found at https://github.com/
+   kyzer-davis/uuid-long/blob/main/draft-davis-uuidrev-uuid-long.md.
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-davis-uuidrev-uuid/.
 
    Discussion of this document takes place on the Revise Universally
    Unique Identifier Definitions (uuidrev) Working Group mailing list
@@ -40,7 +40,7 @@ About This Document
    https://www.ietf.org/mailman/listinfo/uuidrev/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/user/repo.
+   https://github.com/kyzer-davis/uuid-long/.
 
 Status of This Memo
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Davis                   Expires 28 February 2025                [Page 1]
+Davis                     Expires 15 March 2025                 [Page 1]
 
-Internet-Draft                  UUID Long                    August 2024
+Internet-Draft                  UUID Long                 September 2024
 
 
    Internet-Drafts are working documents of the Internet Engineering
@@ -68,7 +68,7 @@ Internet-Draft                  UUID Long                    August 2024
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 February 2025.
+   This Internet-Draft will expire on 15 March 2025.
 
 Copyright Notice
 
@@ -88,46 +88,49 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
      1.1.  The Need for Increased Entropy  . . . . . . . . . . . . .   3
-     1.2.  Requirements Additional Embedded Data . . . . . . . . . .   3
+     1.2.  Requirements Additional Embedded Data . . . . . . . . . .   4
      1.3.  A better UUID sub-typing system . . . . . . . . . . . . .   4
    2.  Conventions and Definitions . . . . . . . . . . . . . . . . .   4
      2.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   4
    3.  UUID Long Format  . . . . . . . . . . . . . . . . . . . . . .   5
-     3.1.  Variant Field . . . . . . . . . . . . . . . . . . . . . .   7
-     3.2.  Sub-Typing Logic and Encoding Block . . . . . . . . . . .   8
-     3.3.  Sub-Variants  . . . . . . . . . . . . . . . . . . . . . .   9
-   4.  UUID Long Algorithms  . . . . . . . . . . . . . . . . . . . .   9
-     4.1.  Sub-Variant 0 . . . . . . . . . . . . . . . . . . . . . .  10
+     3.1.  Encoding  . . . . . . . . . . . . . . . . . . . . . . . .   8
+     3.2.  Variant Field . . . . . . . . . . . . . . . . . . . . . .   8
+     3.3.  Sub-Typing Logic and Encoding Block . . . . . . . . . . .   9
+     3.4.  Sub-Variants  . . . . . . . . . . . . . . . . . . . . . .   9
+   4.  UUID Long Algorithms  . . . . . . . . . . . . . . . . . . . .  10
+     4.1.  Sub-Variant 0 . . . . . . . . . . . . . . . . . . . . . .  11
        4.1.1.  sv0a8 . . . . . . . . . . . . . . . . . . . . . . . .  11
-     4.2.  Sub-Variant 1 . . . . . . . . . . . . . . . . . . . . . .  11
+     4.2.  Sub-Variant 1 . . . . . . . . . . . . . . . . . . . . . .  12
        4.2.1.  sv1a4 . . . . . . . . . . . . . . . . . . . . . . . .  12
-     4.3.  Sub-Variant 2 . . . . . . . . . . . . . . . . . . . . . .  12
-       4.3.1.  sv2a1 . . . . . . . . . . . . . . . . . . . . . . . .  13
+     4.3.  Sub-Variant 2 . . . . . . . . . . . . . . . . . . . . . .  13
+       4.3.1.  sv2a1 . . . . . . . . . . . . . . . . . . . . . . . .  14
        4.3.2.  sv2a6 . . . . . . . . . . . . . . . . . . . . . . . .  14
-       4.3.3.  sv2a7 . . . . . . . . . . . . . . . . . . . . . . . .  14
-     4.4.  Sub-Variant 3 . . . . . . . . . . . . . . . . . . . . . .  15
+       4.3.3.  sv2a7 . . . . . . . . . . . . . . . . . . . . . . . .  15
 
 
 
-Davis                   Expires 28 February 2025                [Page 2]
+Davis                     Expires 15 March 2025                 [Page 2]
 
-Internet-Draft                  UUID Long                    August 2024
+Internet-Draft                  UUID Long                 September 2024
 
 
-       4.4.1.  sv3a5 . . . . . . . . . . . . . . . . . . . . . . . .  17
-       4.4.2.  sv3a16 - sv3a23 . . . . . . . . . . . . . . . . . . .  17
-   5.  Compatibility with 128 Bit UUIDs  . . . . . . . . . . . . . .  18
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  18
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  19
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .  19
-   Appendix A.  Changelog  . . . . . . . . . . . . . . . . . . . . .  19
-   Appendix B.  Test Vectors . . . . . . . . . . . . . . . . . . . .  19
-     B.1.  Example sv1a4 values  . . . . . . . . . . . . . . . . . .  20
-     B.2.  Example sv3a5 Value . . . . . . . . . . . . . . . . . . .  20
-     B.3.  Example sv3a17 Value  . . . . . . . . . . . . . . . . . .  20
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  21
+     4.4.  Sub-Variant 3 . . . . . . . . . . . . . . . . . . . . . .  16
+       4.4.1.  sv3a5 . . . . . . . . . . . . . . . . . . . . . . . .  18
+       4.4.2.  sv3a16 - sv3a23 . . . . . . . . . . . . . . . . . . .  18
+   5.  Fixed-Length 192/256 bit UUID Long  . . . . . . . . . . . . .  19
+   6.  Compatibility with 128 Bit UUIDs  . . . . . . . . . . . . . .  19
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  20
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  20
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  20
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  21
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  21
+   Appendix A.  Changelog  . . . . . . . . . . . . . . . . . . . . .  21
+   Appendix B.  Test Vectors . . . . . . . . . . . . . . . . . . . .  22
+     B.1.  Example sv1a4 values  . . . . . . . . . . . . . . . . . .  22
+     B.2.  Example sv2a7 Value . . . . . . . . . . . . . . . . . . .  23
+     B.3.  Example sv3a5 Value . . . . . . . . . . . . . . . . . . .  24
+     B.4.  Example sv3a17 Value  . . . . . . . . . . . . . . . . . .  24
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  25
 
 1.  Introduction
 
@@ -153,6 +156,20 @@ Internet-Draft                  UUID Long                    August 2024
    generate a UUID with certainty that it is truly "unique across space
    and time".
 
+
+
+
+
+
+
+
+
+
+Davis                     Expires 15 March 2025                 [Page 3]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
 1.2.  Requirements Additional Embedded Data
 
    Some implementations require more than 128 bits to properly embed all
@@ -160,15 +177,6 @@ Internet-Draft                  UUID Long                    August 2024
    algorithm.  Some examples include database metadata like entity
    types, checksum values, shard/partition identifiers, and even node
    identifiers for distributed UUID generation.
-
-
-
-
-
-Davis                   Expires 28 February 2025                [Page 3]
-
-Internet-Draft                  UUID Long                    August 2024
-
 
    UUID Long provides ample bit space for an algorithm to properly embed
    all of the items required for the application logic to function.
@@ -187,7 +195,7 @@ Internet-Draft                  UUID Long                    August 2024
    on leveraging one of the few remaining versions for such an
    algorithm.
 
-   With UUID Long, as per section Section 3.2, there is ample room for
+   With UUID Long, as per section Section 3.3, there is ample room for
    future UUID Long Algorithms.
 
 2.  Conventions and Definitions
@@ -200,14 +208,23 @@ Internet-Draft                  UUID Long                    August 2024
 
 2.1.  Notational Conventions
 
-   "UUID Long" generally references any variable length UUID longer than
-   128 bits while "UUID Short" references fixed-length 128-bit UUIDs in
-   the prose of this document.
+   Throughout this document "UUID Long" generally references any
+   variable length UUID longer than 128 bits while "UUID Short"
+   references fixed-length 128-bit UUIDs in the prose of this document.
 
    Field and Bit Layout in this document use a custom format borrowed
    from [RFC9000] rather than those featured in [RFC9562].  The purpose
    of this format is to summarize, not define, protocol elements.  Prose
    defines the complete semantics and details of structures.
+
+
+
+
+
+Davis                     Expires 15 March 2025                 [Page 4]
+
+Internet-Draft                  UUID Long                 September 2024
+
 
    Layouts items are named and then followed by a list of fields
    surrounded by a pair of matching braces.  Each field in this list is
@@ -218,13 +235,6 @@ Internet-Draft                  UUID Long                    August 2024
    following notational conventions, with all lengths in bits:
 
    x (A):  Indicates that x is A bits long
-
-
-
-Davis                   Expires 28 February 2025                [Page 4]
-
-Internet-Draft                  UUID Long                    August 2024
-
 
    x (A..B):  Indicates that x can be any length from A to B; A can be
       omitted to indicate a minimum of zero bits, and B can be omitted
@@ -265,26 +275,22 @@ Internet-Draft                  UUID Long                    August 2024
    and UUID Long Data are separated by the dash character "-" in the
    textual representation of UUID Long.
 
+
+
+Davis                     Expires 15 March 2025                 [Page 5]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
    This separation allows at-a-glance readability around the encoding
    block and separation from the variable-length UUID Long Data.
 
    The generalized layout of UUID Long is Figure 2 and the UUID Encoding
    Block is found in Figure 3.
 
-
-
-
-
-
-
-Davis                   Expires 28 February 2025                [Page 5]
-
-Internet-Draft                  UUID Long                    August 2024
-
-
    UUID Long Structure {
      UUID Short Part A (64),
-     UUID Variant (4) = F,
+     UUID Variant (4) = 0xF,
      UUID Short Part B (60),
      UUID Long Encoding Block (48),
      UUID Long Data (8..16777215),
@@ -302,7 +308,7 @@ Internet-Draft                  UUID Long                    August 2024
 
    Further, the base UUID Short string format with hex and dashes is
    also found in the string format of UUID Long.  Including this in the
-   base syntax ensures backwards compatibility as per Section 5.  The
+   base syntax ensures backwards compatibility as per Section 6.  The
    UUID Long string representation is defined by Figure 4 and Table 1.
 
    xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-SVAAAALLLLLL-yy...zz
@@ -327,15 +333,9 @@ Internet-Draft                  UUID Long                    August 2024
 
 
 
-
-
-
-
-
-
-Davis                   Expires 28 February 2025                [Page 6]
+Davis                     Expires 15 March 2025                 [Page 6]
 
-Internet-Draft                  UUID Long                    August 2024
+Internet-Draft                  UUID Long                 September 2024
 
 
     +=========+===========================================+==========+
@@ -344,7 +344,7 @@ Internet-Draft                  UUID Long                    August 2024
     | x       | Short UUID Bits                           | 124      |
     +---------+-------------------------------------------+----------+
     | F       | Frozen Variant byte (for backwards        | 4        |
-    |         | compatibility).  See section Section 3.1. |          |
+    |         | compatibility).  See section Section 3.2. |          |
     +---------+-------------------------------------------+----------+
     | SV      | One Byte Sub-Variant with 256 possible    | 8        |
     |         | values                                    |          |
@@ -362,17 +362,54 @@ Internet-Draft                  UUID Long                    August 2024
 
                Table 1: UUID Long String Layout Descriptors
 
-   A properly constructed UUID Long value will be, at a minimum, 176
-   bits or 22 octets.  The maximum value for a UUID Long is computed as
+   A properly constructed UUID Long value will be, at a minimum, 184
+   bits or 23 octets.  The maximum value for a UUID Long is computed as
    UUID Short Length (128) + Long Encoding Block (48) + Maximum UUID
    Long Data Length (16,777,215) which is 16,777,391 bits (2,097,173
-   octets)
+   octets).
+
+   While a maximum UUID Long is likely never going to be realized, the
+   total length of UUID Long was chosen to be sufficiently large to
+   allow for any type of data that needs to implemented.  With a fixed-
+   length UUID, there is no room to grow as future protocols change.
+   Some example items that may change over time are, but not limited to,
+   hashing algorithms, signature algorithms, and post-quantum computing
+   related algorithms.  Any of these could exceed a limit if UUID long
+   does not select a big enough maximum value.  See Section 7 for more
+   considerations around generating and parsing UUID Long values.
 
    Applications MUST ensure that UUID Long values leverage natural byte
    boundaries and pad the least significant, right-most bits where
    required to achieve a proper byte boundary.
 
-3.1.  Variant Field
+
+
+
+
+
+
+
+Davis                     Expires 15 March 2025                 [Page 7]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
+3.1.  Encoding
+
+   The default, widely implemented, "hex and dash" text presentation
+   format of 128 bit UUID short values is already inefficient at
+   conveying the underlying bits of UUID.  This problem is only
+   extrapolated by creating 128+ bit UUIDs.
+
+   Implementations generating or parsing UUID Long values MUST utilize
+   [ALT-UUID-ENCODING] to create a more efficient UUID value.  The
+   "extended hex and dash" format MAY be utilized for UUID Long though
+   it is discouraged.  The usage of this format throughout this document
+   for illustrative purposes only.
+
+   TODO: When we select one of the encodings, show some examples here.
+
+3.2.  Variant Field
 
    This section updates [RFC9562], Section 4.1 to split the unused final
    variant of "111x" into two variants as described by the Table 2
@@ -380,19 +417,6 @@ Internet-Draft                  UUID Long                    August 2024
    variant may be used by future definitions while the "F" variant is
    used to signal a UUID Long Variant.  These "F"rozen variant bits are
    set to all 1's (b1111).
-
-
-
-
-
-
-
-
-
-Davis                   Expires 28 February 2025                [Page 7]
-
-Internet-Draft                  UUID Long                    August 2024
-
 
     +======+======+======+======+=========+==========================+
     | Msb0 | Msb1 | Msb2 | Msb3 | Variant | Description              |
@@ -410,15 +434,29 @@ Internet-Draft                  UUID Long                    August 2024
                       Table 2: UUID Variant Updates
 
    UUID Long algorithms featuring the frozen Variant F MUST use the sub-
-   typing logic and encoding block described in Section 3.2.
+   typing logic and encoding block described in Section 3.3.
 
-3.2.  Sub-Typing Logic and Encoding Block
+
+
+
+
+
+
+
+
+
+Davis                     Expires 15 March 2025                 [Page 8]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
+3.3.  Sub-Typing Logic and Encoding Block
 
    UUID Long does not re-use the "version" nomenclature (or bit
-   positions) from [RFC9562].  This serves to helps an implementations
-   easily distinguish 128 bit or 128+ bit UUIDs in text and provide an
-   opportunity for defining a better sub-typing system within this new
-   variant space.
+   positions unless otherwise noted) from [RFC9562].  This serves to
+   helps an implementations easily distinguish 128 bit or 128+ bit UUIDs
+   in text and provide an opportunity for defining a better sub-typing
+   system within this new variant space.
 
    Note that "UUIDv4" or "UUID Version 4" is usually used to reference
    an UUID algorithm as specified by [RFC9562], Section 5.4 and do not
@@ -442,14 +480,6 @@ Internet-Draft                  UUID Long                    August 2024
    With this in mind "Sub-Variant 0, Algorithm 4" can be expressed as
    "sv0a4" or "UUIDsv0a4" throughout this document.
 
-
-
-
-Davis                   Expires 28 February 2025                [Page 8]
-
-Internet-Draft                  UUID Long                    August 2024
-
-
    The final 3 bytes of the UUID Long Encoding Block includes a
    descriptor for the length of the variable-length UUID Long data which
    can be used by applications in order to understand where a UUID Long
@@ -458,10 +488,23 @@ Internet-Draft                  UUID Long                    August 2024
    The full 6 byte UUID Encoding block can be observed in Figure 3 or
    Figure 4 and described succinctly in Table 1.
 
-3.3.  Sub-Variants
+3.4.  Sub-Variants
 
    UUID Long defines four starting sub-variant groupings as defined by
    Table 3.
+
+
+
+
+
+
+
+
+
+Davis                     Expires 15 March 2025                 [Page 9]
+
+Internet-Draft                  UUID Long                 September 2024
+
 
             +================+================================+
             | Sub-Variant ID | Description                    |
@@ -490,7 +533,7 @@ Internet-Draft                  UUID Long                    August 2024
 
 4.  UUID Long Algorithms
 
-   As mentioned in Section 3.2, UUID Long Algorithms are grouped by at
+   As mentioned in Section 3.3, UUID Long Algorithms are grouped by at
    the Sub-Variant level.
 
    UUID Long first maps the [RFC9562] versions to algorithms in the
@@ -498,13 +541,6 @@ Internet-Draft                  UUID Long                    August 2024
    identifier has been 'smeared' for ease understanding when referencing
    the old values.  For example: "UUIDv4 == UUIDsv1a4" and "UUIDv7 ==
    UUIDsv2a7" where the final number in each abbreviation matches.
-
-
-
-Davis                   Expires 28 February 2025                [Page 9]
-
-Internet-Draft                  UUID Long                    August 2024
-
 
    The first 16 sub-variant algorithm values (a0-a15) in each sub-
    variant space are reserved for matching the appropriate [RFC9562]
@@ -519,6 +555,13 @@ Internet-Draft                  UUID Long                    August 2024
    mapping space; outstanding sub-variant algorithm identifiers MAY be
    used by future UUID Long specifications.
 
+
+
+Davis                     Expires 15 March 2025                [Page 10]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
    Other UUID sub-types that existing in other variant spaces MAY
    leverage unused sub-variant algorithm identifiers, starting at a16,
    for UUID Long versions of the existing algorithms.
@@ -527,7 +570,7 @@ Internet-Draft                  UUID Long                    August 2024
    versions; there are two main areas that need to be described:
 
    *  How to leverage the new UUID Long bits.
-   *  Define if the RFC9562 version bit handling.
+   *  Define the RFC9562 version bit handling.
 
    The following sections illustrates the current sub-variant algorithm
    mappings for UUID Long along with the methods for generating a UUID
@@ -536,7 +579,7 @@ Internet-Draft                  UUID Long                    August 2024
    For all algorithms the following two statements apply, even if they
    are based on an RFC9562-based algorithm.
 
-   *  The Variant bits are always overwritten to "F" as per Section 3.1.
+   *  The Variant bits are always overwritten to "F" as per Section 3.2.
    *  The UUID Long Encoding Block is encoded with the sub-variant id,
       algorithm id and long data length descriptor as per Figure 3.
 
@@ -552,16 +595,6 @@ Internet-Draft                  UUID Long                    August 2024
    algorithm identifier.  At which point the Algorithm Identifier in
    this sub-variant can be released for continued use.
 
-
-
-
-
-
-Davis                   Expires 28 February 2025               [Page 10]
-
-Internet-Draft                  UUID Long                    August 2024
-
-
    +=======+==============+========+=================+=================+
    | SV ID | Algorithm    | Name   | 9562 Version    | Algorithm       |
    |       | ID           |        | (if applicable) | Definition Link |
@@ -576,6 +609,15 @@ Internet-Draft                  UUID Long                    August 2024
    sv0a8 is based on UUIDv8 from [RFC9562], Section 5.8 with the
    following deltas:
 
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 11]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
    *  UUID Long Data can be leveraged as a new "custom_d" field of
       arbitrary size within the UUID Long data as shown in Figure 5.
       The length of this new data is calculated and inserted into the
@@ -588,7 +630,7 @@ Internet-Draft                  UUID Long                    August 2024
      custom_a (48),
      9562 Version (4),
      custom_b (12),
-     UUID Variant (4) = F,
+     UUID Variant (4) = 0xF,
      custom_c (60),
      UUID Long Encoding Block (48),
      custom_d (8..16777215),
@@ -600,7 +642,7 @@ Internet-Draft                  UUID Long                    August 2024
    are encouraged to apply for a sub-variant algorithm for their UUID
    Long Algorithm.
 
-   TODO Link to process section
+   TODO: Link to process section if this is finalized.
 
 4.2.  Sub-Variant 1
 
@@ -610,13 +652,6 @@ Internet-Draft                  UUID Long                    August 2024
 
    UUIDv4 has been mapped to UUIDsv1a4 in this document and is the only
    current algorithm in this space defined by Table 5.
-
-
-
-Davis                   Expires 28 February 2025               [Page 11]
-
-Internet-Draft                  UUID Long                    August 2024
-
 
    +=======+==============+========+=================+=================+
    | SV ID | Algorithm    | Name   | 9562 Version    | Algorithm       |
@@ -632,6 +667,13 @@ Internet-Draft                  UUID Long                    August 2024
    sv1a4 is based on UUIDv4 from [RFC9562], Section 5.4 with the
    following deltas:
 
+
+
+Davis                     Expires 15 March 2025                [Page 12]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
    *  UUID Long Data can be leveraged as a new "random_d" field of
       arbitrary size within the UUID Long data as shown in Figure 6.
       The length of this new data is calculated and inserted into the
@@ -644,7 +686,7 @@ Internet-Draft                  UUID Long                    August 2024
      random_a (48),
      9562 Version (4),
      random_b (12),
-     UUID Variant (4) = F,
+     UUID Variant (4) = 0xF,
      random_c (60),
      UUID Long Encoding Block (48),
      random_d (8..16777215),
@@ -661,18 +703,6 @@ Internet-Draft                  UUID Long                    August 2024
 
    UUIDv1, UUIDv6 and UUIDv7 have been mapped to UUIDsv2a1, UUIDsv2a6,
    UUIDsv2a7 where required as per Table 6.
-
-
-
-
-
-
-
-
-Davis                   Expires 28 February 2025               [Page 12]
-
-Internet-Draft                  UUID Long                    August 2024
-
 
    +=====+===========+============+=================+=================+
    | SV  | Algorithm | Name       | 9562 Version    | Algorithm       |
@@ -691,6 +721,20 @@ Internet-Draft                  UUID Long                    August 2024
 
                     Table 6: Sub-Variant 2 Algorithms
 
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 13]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
+   TODO: Discuss if we want sv2a16 as Unix Time-based (NS)... this
+   timestamp resolution was a big ask from the community.  TODO: Reserve
+   an sv2a17 for custom epoch, also a big item that came from the
+   community.
+
 4.3.1.  sv2a1
 
    sv2a1 is based on UUIDv1 from [RFC9562], Section 5.1 with the
@@ -703,16 +747,15 @@ Internet-Draft                  UUID Long                    August 2024
    *  The node value MAY feature IEEE 802 MAC address and random data of
       arbitrary size or be fully randomized using portions of the
       original node bits and variable-length UUID Long data.
-   *  The version behavior SHOULD remain the same as [RFC9562],
-      Section 4.2, the version bits MAY also be randomized since this
-      does not effect the sortability of this algorithm.
+   *  The version bits MAY also be randomized since this does not effect
+      the sortability of this algorithm.
 
    UUIDsv2a1 Structure {
      time_low (32),
      time_mid (16),
      9562 Version (4),
      time_high (12),
-     UUID Variant (4) = F,
+     UUID Variant (4) = 0xF,
      clock_seq (14),
      node (48),
      UUID Long Encoding Block (48),
@@ -720,15 +763,6 @@ Internet-Draft                  UUID Long                    August 2024
    }
 
                 Figure 7: Example sv2a1 Bit and Field Layout
-
-
-
-
-
-Davis                   Expires 28 February 2025               [Page 13]
-
-Internet-Draft                  UUID Long                    August 2024
-
 
 4.3.2.  sv2a6
 
@@ -742,6 +776,16 @@ Internet-Draft                  UUID Long                    August 2024
    *  The node value MAY feature IEEE 802 MAC address and random data of
       arbitrary size or be fully randomized using portions of the
       original node bits and variable-length UUID Long data.
+
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 14]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
    *  The version behavior MUST remain the same as [RFC9562],
       Section 4.2 to ensures proper sortability which is a key feature
       of this UUID's algorithm.
@@ -749,9 +793,9 @@ Internet-Draft                  UUID Long                    August 2024
    UUIDsv2a6 Structure {
      time_high (32),
      time_mid (16),
-     9562 Version (4) = 6,
+     9562 Version (4) = 0x6,
      time_low (12),
-     UUID Variant (4) = F,
+     UUID Variant (4) = 0xF,
      clock_seq (14),
      node (48),
      UUID Long Encoding Block (48),
@@ -772,25 +816,11 @@ Internet-Draft                  UUID Long                    August 2024
       Section 4.2 to ensures proper sortability which is a key feature
       of this UUID's algorithm.
 
-
-
-
-
-
-
-
-
-
-Davis                   Expires 28 February 2025               [Page 14]
-
-Internet-Draft                  UUID Long                    August 2024
-
-
    UUIDsv2a7 Structure {
      unix_ts_ms (48),
-     9562 Version (4) = 7,
+     9562 Version (4) = 0x7,
      rand_a (12),
-     UUID Variant (4) = F,
+     UUID Variant (4) = 0xF,
      rand_b (60),
      UUID Long Encoding Block (48),
      rand_c (8..16777215),
@@ -798,13 +828,26 @@ Internet-Draft                  UUID Long                    August 2024
 
                 Figure 9: Example sv2a7 Bit and Field Layout
 
+   An Example of UUIDsv2a7 can be seen in Appendix B.2.
+
+
+
+
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 15]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
 4.4.  Sub-Variant 3
 
    Algorithm Identifiers in this sub-variant space MUST be related to
    hash-based UUIDs computed using "names" and "namespaces" as defined
-   by [RFC9562], Section 6.5 UUIDv5 has been mapped to UUIDsv3a5 while
-   new hashing protocols utilize algorithms a16 through a27.  (TODO:
-   CITE NIST Docs)
+   by [RFC9562], Section 6.5.  UUIDv5 has been mapped to UUIDsv3a5 while
+   new hashing protocols utilize algorithms a16 through a27.
 
 
 
@@ -837,65 +880,78 @@ Internet-Draft                  UUID Long                    August 2024
 
 
 
-Davis                   Expires 28 February 2025               [Page 15]
+
+
+
+
+
+
+
+
+
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 16]
 
-Internet-Draft                  UUID Long                    August 2024
+Internet-Draft                  UUID Long                 September 2024
 
 
-   +=====+===========+=============+=================+=================+
-   | SV  | Algorithm | Name        | 9562 Version    | Algorithm       |
-   | ID  | ID        |             | (if applicable) | Definition      |
-   |     |           |             |                 | Link            |
-   +=====+===========+=============+=================+=================+
-   | sv3 | a5        | SHA-1       | UUIDv5          | Section         |
-   |     |           |             |                 | 4.4.1           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a16       | SHA-224     |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a17       | SHA-256     |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a18       | SHA-384     |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a19       | SHA-512     |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a20       | SHA-512/224 |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a21       | SHA-512/256 |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a22       | SHA3-224    |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a23       | SHA3-256    |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a24       | SHA3-384    |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a25       | SHA3-512    |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a26       | SHAKE128    |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
-   | sv3 | a27       | SHAKE256    |                 | Section         |
-   |     |           |             |                 | 4.4.2           |
-   +-----+-----------+-------------+-----------------+-----------------+
+   +===+=========+=============+=============+==========+=============+
+   |SV |Algorithm| Name        | 9562        |Algorithm | Reference   |
+   |ID |ID       |             | Version (if |Definition|             |
+   |   |         |             | applicable) |Link      |             |
+   +===+=========+=============+=============+==========+=============+
+   |sv3|a5       | SHA-1       | UUIDv5      |Section   | [FIPS180-4] |
+   |   |         |             |             |4.4.1     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a16      | SHA-224     |             |Section   | [FIPS180-4] |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a17      | SHA-256     |             |Section   | [FIPS180-4] |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a18      | SHA-384     |             |Section   | [FIPS180-4] |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a19      | SHA-512     |             |Section   | [FIPS180-4] |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a20      | SHA-512/224 |             |Section   | [FIPS180-4] |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a21      | SHA-512/256 |             |Section   | [FIPS180-4] |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a22      | SHA3-224    |             |Section   | [FIPS202]   |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a23      | SHA3-256    |             |Section   | [FIPS202]   |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a24      | SHA3-384    |             |Section   | [FIPS202]   |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a25      | SHA3-512    |             |Section   | [FIPS202]   |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a26      | SHAKE128    |             |Section   | [FIPS202]   |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
+   |sv3|a27      | SHAKE256    |             |Section   | [FIPS202]   |
+   |   |         |             |             |4.4.2     |             |
+   +---+---------+-------------+-------------+----------+-------------+
 
-                     Table 7: Sub-Variant 3 Algorithms
-
-
+                    Table 7: Sub-Variant 3 Algorithms
 
 
 
-Davis                   Expires 28 February 2025               [Page 16]
+
+
+Davis                     Expires 15 March 2025                [Page 17]
 
-Internet-Draft                  UUID Long                    August 2024
+Internet-Draft                  UUID Long                 September 2024
 
 
    Note that UUIDv3 has not been mapped to UUIDsv3a3 because the current
@@ -921,7 +977,7 @@ Internet-Draft                  UUID Long                    August 2024
      sha1_high (48),
      9562 Version (4),
      sha1_mid (12),
-     UUID Variant (4) = F,
+     UUID Variant (4) = 0xF,
      sha1_low (60),
      UUID Long Encoding Block (48),
      sha1_discard (8..16777215),
@@ -929,7 +985,7 @@ Internet-Draft                  UUID Long                    August 2024
 
                Figure 10: Example sv3a5 Bit and Field Layout
 
-   An Example of UUIDsv3a5 can be seen in Appendix B.2.
+   An Example of UUIDsv3a5 can be seen in Appendix B.3.
 
 4.4.2.  sv3a16 - sv3a23
 
@@ -949,14 +1005,14 @@ Internet-Draft                  UUID Long                    August 2024
 
 
 
-Davis                   Expires 28 February 2025               [Page 17]
+Davis                     Expires 15 March 2025                [Page 18]
 
-Internet-Draft                  UUID Long                    August 2024
+Internet-Draft                  UUID Long                 September 2024
 
 
    UUID Long Hash-Based Structure {
      hash_high (64),
-     UUID Variant (4) = F,
+     UUID Variant (4) = 0xF,
      hash_middle (60),
      UUID Long Encoding Block (48),
      hash_low (8..16777215),
@@ -964,9 +1020,34 @@ Internet-Draft                  UUID Long                    August 2024
 
         Figure 11: Example UUID Long Hash-Based Bit and Field Layout
 
-   Example of UUIDsv3a17, using SHA-256, can be seen in Appendix B.3.
+   Example of UUIDsv3a17, using SHA-256, can be seen in Appendix B.4.
 
-5.  Compatibility with 128 Bit UUIDs
+5.  Fixed-Length 192/256 bit UUID Long
+
+   Although UUID Long is variable length and features a very, very large
+   top end; implementations may end up generating fixed-length UUID Long
+   Values as described in this section.  See Section 7 for security
+   discussion about this topic.
+
+   A common UUID length requested by the community is 192 bit or 256 bit
+   UUID values.
+
+   With UUID long generating fixed-length 192 bit or 256 bit values is a
+   trivial task.
+
+   We can calculate the new bits by using the following logic (for
+   completeness up to 2048 has been illustrated.)
+
+192 - UUID Short Length (128) + UUID Encoding Block (48) = 16 bits of additional UUID Long data
+256 - UUID Short Length (128) + UUID Encoding Block (48) = 80 bits of additional UUID Long data
+512 - UUID Short Length (128) + UUID Encoding Block (48) = 336 bits of additional UUID Long data
+1024 - UUID Short Length (128) + UUID Encoding Block (48) = 848 bits of additional UUID Long data
+2048 - UUID Short Length (128) + UUID Encoding Block (48) = 1872 bits of additional UUID Long data
+
+   The appendix, Appendix B.1, details fixed length 192 bit and 256
+   UUIDs with Random data to further illustrate the examples above.
+
+6.  Compatibility with 128 Bit UUIDs
 
    Since the first 128 bits are a valid UUID Short, if some device does
    not understand UUID Long they can read the first 128 bit and still
@@ -975,13 +1056,23 @@ Internet-Draft                  UUID Long                    August 2024
    that a given UUID Long value can be easily transposed into a smaller
    value where required.
 
+
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 19]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
    Note that the version bit-space is not a requirement in UUID Long
    thus some UUID sub-variant algorithms may have varying data at this
-   position.  The bits still exist so for systems that do not read the
+   position.  The bits still exist, so for systems that do not read the
    variant bit first, they may see inconsistent results if trying to
    read only the version or version and then variant.
 
-6.  Security Considerations
+7.  Security Considerations
 
    UUID Long shared many of the same security considerations as
    [RFC9562].  The main security consideration with UUID Long is the
@@ -990,11 +1081,20 @@ Internet-Draft                  UUID Long                    August 2024
    UUIDs should not read beyond 128 bits.
 
    Implementations that plan to work with UUID Long values should use
-   the UUID Long Data Descriptor field within the UUID Long Encoding
-   block to gleam the total length of the UUID Long Data Field.
+   the UUID Long Data Length Descriptor field within the UUID Long
+   Encoding block to gleam the total length of the UUID Long Data Field.
    Implementations should also program safeguards as to not read more
-   data than is available in memory.  For example, setting an arbitrary
-   maximum on the amount of UUID Long data that is parsed.
+   data than is available in memory.  For example, it is encouraged to
+   set an arbitrary maximum on the amount of UUID Long data that is
+   parsed based on the application or implementation requirements.
+
+   Further, an implementation may choose to put limits on the length of
+   a UUID long values that are generated to protect from using UUID Long
+   as a conveyance mechanism to retrieve buffer overflowed data
+   exploited by other means.  For example, an implementation may choose
+   to generate UUID Long values of a maximum length of 1024 bits and no
+   more.  Thus limiting the potential for side-channel exploits that may
+   try to take advantage of the variable-length properties of UUID Long.
 
    By default the UUID Long value (and UUID short) do not feature any
    hash/signature method.  An attacker could modify the UUID Long Data
@@ -1002,26 +1102,32 @@ Internet-Draft                  UUID Long                    August 2024
    some buffer overflow condition or append data that was not part of
    the original algorithm.  An algorithm MAY choose create a hash/
    digital signature on the final UUID Long value and provide this hash
+   to a peer in order to provide some levels data integrity.
 
+   Further, where possible introspection into the UUID is discouraged as
+   per [RFC9562], Section 6.12.
 
-
-Davis                   Expires 28 February 2025               [Page 18]
-
-Internet-Draft                  UUID Long                    August 2024
-
-
-   to a peer in order to provide some levels data integrity.  Further,
-   where possible introspection into the UUID is discouraged as per
-   [RFC9562], Section 6.12.
-
-7.  IANA Considerations
+8.  IANA Considerations
 
    TODO: IANA when things are finalized.  Things like add sub-variant
    algorithms to sub-types section of UUID registry.
+   https://www.iana.org/assignments/uuid/uuid.xhtml#uuid-subtypes
 
-8.  References
+9.  References
 
-8.1.  Normative References
+
+
+Davis                     Expires 15 March 2025                [Page 20]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
+9.1.  Normative References
+
+   [ALT-UUID-ENCODING]
+              "New UUID Encoding Techniques", n.d.,
+              <https://github.com/uuid6/new-uuid-encoding-techniques-
+              ietf-draft>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1036,7 +1142,19 @@ Internet-Draft                  UUID Long                    August 2024
               IDentifiers (UUIDs)", RFC 9562, DOI 10.17487/RFC9562, May
               2024, <https://www.rfc-editor.org/rfc/rfc9562>.
 
-8.2.  Informative References
+9.2.  Informative References
+
+   [FIPS180-4]
+              National Institute of Standards and Technology, "Secure
+              Hash Standard", FIPS PUB 180-4, August 2015,
+              <https://nvlpubs.nist.gov/nistpubs/FIPS/
+              NIST.FIPS.180-4.pdf>.
+
+   [FIPS202]  National Institute of Standards and Technology, "SHA-3
+              Standard: Permutation-Based Hash and Extendable-Output
+              Functions", FIPS PUB 202, August 2015,
+              <https://nvlpubs.nist.gov/nistpubs/FIPS/
+              NIST.FIPS.202.pdf>.
 
    [RFC9000]  Iyengar, J., Ed. and M. Thomson, Ed., "QUIC: A UDP-Based
               Multiplexed and Secure Transport", RFC 9000,
@@ -1050,6 +1168,16 @@ Appendix A.  Changelog
    draft-00:
       *  Initial Release
 
+
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 21]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
 Appendix B.  Test Vectors
 
    Due to the variable length nature of the UUID Long Data field there
@@ -1057,34 +1185,112 @@ Appendix B.  Test Vectors
    attempt to summarize the key points of the sub-variant algorithms as
    described by the body of this document.
 
-
-
-
-
-Davis                   Expires 28 February 2025               [Page 19]
-
-Internet-Draft                  UUID Long                    August 2024
-
+   TODO: Add other test vectors as things are finalized.
 
 B.1.  Example sv1a4 values
 
-   +=======+======+======+==========================================================================+
-   |DOC    |Type  |Random|Example                                                                   |
-   |       |      |Bits  |                                                                          |
-   +=======+======+======+==========================================================================+
-   |RFC9562|UUIDv4|122   |73e94fe0-e951-4153-aaf3-50e4e6089d9d                                      |
-   +-------+------+------+--------------------------------------------------------------------------+
-   |DRAFT  |sv1a4 |160   |81783312-54db-bef3-f722-2515c8f3aceb-010004000022-2072a4623               |
-   +-------+------+------+--------------------------------------------------------------------------+
-   |DRAFT  |sv1a4 |192   |b6debb20-db1e-cdc7-f65f-c266fd5e25e9-010004000044-b1150e08ab9e81a11       |
-   +-------+------+------+--------------------------------------------------------------------------+
-   |DRAFT  |sv1a4 |256   |d0fda74d-                                                                 |
-   |       |      |      |59a7-76c9-fd30-587ea76c99e9-010004000083-63f93f97b7b47cc5c853ce09a87ded629|
-   +-------+------+------+--------------------------------------------------------------------------+
+   The table, Table 8, details varying levels of random bits, as well as
+   commonly requested UUID Long lengths (192/256) in attempt to
+   illustrate the difference between UUID length and Embedded Data
+   Length.  This is all compared to UUIDv4 as seen in the first row of
+   the table.
 
-                                  Table 8
+   For example, one can generate a fixed 256 bit UUID Long value with
+   random data and this UUID Long value will contain 204 bits of random.
+   Alternatively, One could generate 256 bits of random data and then
+   insert the UUID Long Encoding Block and Frozen Variant to create a
+   UUID Long of length 308 bits.
 
-B.2.  Example sv3a5 Value
+   Neither option is more correct than the other but largely depends on
+   the requirements of the application. 256 bit length with 204 bits of
+   random data is much larger than UUIDv2 122 bits of random data.
+   However, if guarantees are required around randomness and size of the
+   outputs are not a problem, then generating a 308 bit UUID which
+   features 256 bits of random data can also solve an applications
+   needs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 22]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
+   +=======+======+======+=======+======+======+=====+==========================================================================+
+   |DOC    |Type  |Random|Variant|Sub-  |UUID  |Long |Example                                                                   |
+   |       |      |      |       |Typing|Length|Data |                                                                          |
+   +=======+======+======+=======+======+======+=====+==========================================================================+
+   |RFC9562|UUIDv4|122   |2      |4     |128   |n/a  |73e94fe0-e951-4153-aaf3-50e4e6089d9d                                      |
+   +-------+------+------+-------+------+------+-----+--------------------------------------------------------------------------+
+   |DRAFT  |sv1a4 |140   |4      |48    |192   |16   |36eeb319-2ec5-5339-f300-31081e389258-010004000010-304e                    |
+   |       |      |      |       |      |      |(x10)|                                                                          |
+   +-------+------+------+-------+------+------+-----+--------------------------------------------------------------------------+
+   |DRAFT  |sv1a4 |160   |4      |48    |210   |36   |81783312-54db-bef3-f722-2515c8f3aceb-010004000024-54cd24e09               |
+   |       |      |      |       |      |      |(x24)|                                                                          |
+   +-------+------+------+-------+------+------+-----+--------------------------------------------------------------------------+
+   |DRAFT  |sv1a4 |192   |4      |48    |244   |68   |b6debb20-db1e-cdc7-f65f-c266fd5e25e9-010004000044-b1150e08ab9e81a11       |
+   |       |      |      |       |      |      |(x44)|                                                                          |
+   +-------+------+------+-------+------+------+-----+--------------------------------------------------------------------------+
+   |DRAFT  |sv1a4 |204   |4      |48    |256   |80   |ea001d59-655d-39d8-f23f-1de701e267f1-010004000050-1fa43595a8ddaf0b1d8e    |
+   |       |      |      |       |      |      |(x50)|                                                                          |
+   +-------+------+------+-------+------+------+-----+--------------------------------------------------------------------------+
+   |DRAFT  |sv1a4 |256   |4      |48    |308   |132  |d0fda74d-                                                                 |
+   |       |      |      |       |      |      |(x84)|59a7-76c9-fd30-587ea76c99e9-010004000084-7dc3f499bb12772984e9169bf521a8492|
+   +-------+------+------+-------+------+------+-----+--------------------------------------------------------------------------+
+
+                        Table 8: UUID Random Example
+
+B.2.  Example sv2a7 Value
+
+   This example UUIDsv2a7 test vector utilizes a well-known Unix epoch
+   timestamp with millisecond precision to fill the first 48 bits.
+
+   rand_a, rand_b, rand_c are filled with random data.
+
+   The timestamp is Tuesday, February 22, 2022 2:22:22.00 PM GMT-05:00
+   represented as 0x017F22E279B0 or 1645557742000
+
+   UUIDsv2a7 Test Vector {
+     unix_ts_ms (48) = 0x017F22E279B0,
+     9562 Version (4) = 0x7,
+     rand_a (12) = 0xFE6,
+     UUID Variant (4) = 0xF,
+     rand_b (60) = 0x76E2B86F151FB04,
+     UUID Long Encoding Block (48) = 0x020007000040,
+     rand_c (64) = 0xE6B4400B21E888CD,
+   }
+
+   Final:
+   017F22E2-79B0-7FE6-F76E-2B86F151FB04-020007000040-E6B4400B21E888CD
+
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 23]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
+B.3.  Example sv3a5 Value
 
    Namespace (DNS):  6ba7b810-9dad-11d1-80b4-00c04fd430c8
    Name:             www.example.com
@@ -1095,8 +1301,8 @@ B.2.  Example sv3a5 Value
    B: xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx
    C: 2ed6657d-e927-468b-f5e1-2665a8aea6a2
    D:                                     -2dee3e35
-   E: 2ed6657d-e927-468b-f5e1-2665a8aea6a2-03000500001e
-   F: 2ed6657d-e927-468b-f5e1-2665a8aea6a2-03000500001e-2dee3e35
+   E: 2ed6657d-e927-468b-f5e1-2665a8aea6a2-030005000020
+   F: 2ed6657d-e927-468b-f5e1-2665a8aea6a2-030005000020-2dee3e35
 
    *  Line A details the full SHA-1 as a hexadecimal value with the
       dashes inserted.
@@ -1105,22 +1311,14 @@ B.2.  Example sv3a5 Value
    *  Line C details the final value after the variant has been
       overwritten.
    *  Line D details the leftover values from the original SHA-1
-      computation (Note that these have a length of 30 bits)
+      computation (Note that these have a length of 32 bits)
    *  Line E details adding the UUID Long encoding block of Sub-Variant
       3, and algorithm 5 (RFC 9562's version 5), and long data length of
-      30 bits as hex with leading 0s included.
+      32 bits as hex (x20) with leading 0s included.
    *  Line F details the leftover values appended to form the full UUID
       Long of form sv3a5.
 
-B.3.  Example sv3a17 Value
-
-
-
-
-Davis                   Expires 28 February 2025               [Page 20]
-
-Internet-Draft                  UUID Long                    August 2024
-
+B.4.  Example sv3a17 Value
 
 Namespace (DNS): 6ba7b810-9dad-11d1-80b4-00c04fd430c8
 Name:            www.example.com
@@ -1140,11 +1338,19 @@ F: 5c146b14-3c52-4afd-f38a-375d0df1fbf6-030011000080-fe12a66b645f72f6158759387e5
       overwritten.
    *  Line C details the final value after the variant has been
       overwritten.
+
+
+
+Davis                     Expires 15 March 2025                [Page 24]
+
+Internet-Draft                  UUID Long                 September 2024
+
+
    *  Line D details the leftover values from the original SHA-256
       computation (Note that these have a length of 128 bits)
    *  Line E details adding the UUID Long encoding block of Sub-Variant
       3, and algorithm 7 (SHA-256), and long data length of 128 bits as
-      hex with leading 0s included.
+      hex (x80) with leading 0s included.
    *  Line F details the leftover values appended to form the full UUID
       Long of form sv3a17.
 
@@ -1173,4 +1379,22 @@ Author's Address
 
 
 
-Davis                   Expires 28 February 2025               [Page 21]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Davis                     Expires 15 March 2025                [Page 25]
