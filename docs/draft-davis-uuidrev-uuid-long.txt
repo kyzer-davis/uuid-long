@@ -4,9 +4,9 @@
 
 uuidrev                                                      K. R. Davis
 Internet-Draft                                             Cisco Systems
-Updates: 9562 (if approved)                            11 September 2024
+Updates: 9562 (if approved)                              8 December 2025
 Intended status: Standards Track                                        
-Expires: 15 March 2025
+Expires: 11 June 2026
 
 
              Longer Universally Unique IDentifiers (UUIDs)
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Davis                     Expires 15 March 2025                 [Page 1]
+Davis                     Expires 11 June 2026                  [Page 1]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    Internet-Drafts are working documents of the Internet Engineering
@@ -68,11 +68,11 @@ Internet-Draft                  UUID Long                 September 2024
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 March 2025.
+   This Internet-Draft will expire on 11 June 2026.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -95,7 +95,7 @@ Table of Contents
    3.  UUID Long Format  . . . . . . . . . . . . . . . . . . . . . .   5
      3.1.  Encoding  . . . . . . . . . . . . . . . . . . . . . . . .   8
      3.2.  Variant Field . . . . . . . . . . . . . . . . . . . . . .   8
-     3.3.  Sub-Typing Logic and Encoding Block . . . . . . . . . . .   9
+     3.3.  Sub-Typing Logic and Encoding Block . . . . . . . . . . .   8
      3.4.  Sub-Variants  . . . . . . . . . . . . . . . . . . . . . .   9
    4.  UUID Long Algorithms  . . . . . . . . . . . . . . . . . . . .  10
      4.1.  Sub-Variant 0 . . . . . . . . . . . . . . . . . . . . . .  11
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Davis                     Expires 15 March 2025                 [Page 2]
+Davis                     Expires 11 June 2026                  [Page 2]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
      4.4.  Sub-Variant 3 . . . . . . . . . . . . . . . . . . . . . .  16
@@ -165,9 +165,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                 [Page 3]
+Davis                     Expires 11 June 2026                  [Page 3]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
 1.2.  Requirements Additional Embedded Data
@@ -221,9 +221,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                 [Page 4]
+Davis                     Expires 11 June 2026                  [Page 4]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    Layouts items are named and then followed by a list of fields
@@ -277,9 +277,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                 [Page 5]
+Davis                     Expires 11 June 2026                  [Page 5]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    This separation allows at-a-glance readability around the encoding
@@ -333,9 +333,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                 [Page 6]
+Davis                     Expires 11 June 2026                  [Page 6]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
     +=========+===========================================+==========+
@@ -389,9 +389,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                 [Page 7]
+Davis                     Expires 11 June 2026                  [Page 7]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
 3.1.  Encoding
@@ -402,12 +402,10 @@ Internet-Draft                  UUID Long                 September 2024
    extrapolated by creating 128+ bit UUIDs.
 
    Implementations generating or parsing UUID Long values MUST utilize
-   [ALT-UUID-ENCODING] to create a more efficient UUID value.  The
+   [ALT_UUID_ENCODING] to create a more efficient UUID value.  The
    "extended hex and dash" format MAY be utilized for UUID Long though
    it is discouraged.  The usage of this format throughout this document
    for illustrative purposes only.
-
-   TODO: When we select one of the encodings, show some examples here.
 
 3.2.  Variant Field
 
@@ -436,20 +434,6 @@ Internet-Draft                  UUID Long                 September 2024
    UUID Long algorithms featuring the frozen Variant F MUST use the sub-
    typing logic and encoding block described in Section 3.3.
 
-
-
-
-
-
-
-
-
-
-Davis                     Expires 15 March 2025                 [Page 8]
-
-Internet-Draft                  UUID Long                 September 2024
-
-
 3.3.  Sub-Typing Logic and Encoding Block
 
    UUID Long does not re-use the "version" nomenclature (or bit
@@ -457,6 +441,14 @@ Internet-Draft                  UUID Long                 September 2024
    helps an implementations easily distinguish 128 bit or 128+ bit UUIDs
    in text and provide an opportunity for defining a better sub-typing
    system within this new variant space.
+
+
+
+
+Davis                     Expires 11 June 2026                  [Page 8]
+
+Internet-Draft                  UUID Long                  December 2025
+
 
    Note that "UUIDv4" or "UUID Version 4" is usually used to reference
    an UUID algorithm as specified by [RFC9562], Section 5.4 and do not
@@ -501,9 +493,17 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                 [Page 9]
+
+
+
+
+
+
+
+
+Davis                     Expires 11 June 2026                  [Page 9]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
             +================+================================+
@@ -557,9 +557,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 10]
+Davis                     Expires 11 June 2026                 [Page 10]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    Other UUID sub-types that existing in other variant spaces MAY
@@ -613,9 +613,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 11]
+Davis                     Expires 11 June 2026                 [Page 11]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    *  UUID Long Data can be leveraged as a new "custom_d" field of
@@ -669,9 +669,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 12]
+Davis                     Expires 11 June 2026                 [Page 12]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    *  UUID Long Data can be leveraged as a new "random_d" field of
@@ -725,15 +725,15 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 13]
+Davis                     Expires 11 June 2026                 [Page 13]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
-   TODO: Discuss if we want sv2a16 as Unix Time-based (NS)... this
-   timestamp resolution was a big ask from the community.  TODO: Reserve
-   an sv2a17 for custom epoch, also a big item that came from the
-   community.
+   TODO: Discuss if we want sv2a16 as Unix Time-based (Nanosecond time
+   resolution)... this timestamp resolution was a big ask from the
+   community.  TODO: Reserve an sv2a17 for custom epoch time, also a big
+   item that came from the community.
 
 4.3.1.  sv2a1
 
@@ -781,9 +781,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 14]
+Davis                     Expires 11 June 2026                 [Page 14]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    *  The version behavior MUST remain the same as [RFC9562],
@@ -837,9 +837,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 15]
+Davis                     Expires 11 June 2026                 [Page 15]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
 4.4.  Sub-Variant 3
@@ -893,9 +893,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 16]
+Davis                     Expires 11 June 2026                 [Page 16]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    +===+=========+=============+=============+==========+=============+
@@ -949,9 +949,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 17]
+Davis                     Expires 11 June 2026                 [Page 17]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    Note that UUIDv3 has not been mapped to UUIDsv3a3 because the current
@@ -1005,9 +1005,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 18]
+Davis                     Expires 11 June 2026                 [Page 18]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    UUID Long Hash-Based Structure {
@@ -1061,9 +1061,9 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 19]
+Davis                     Expires 11 June 2026                 [Page 19]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    Note that the version bit-space is not a requirement in UUID Long
@@ -1117,15 +1117,15 @@ Internet-Draft                  UUID Long                 September 2024
 
 
 
-Davis                     Expires 15 March 2025                [Page 20]
+Davis                     Expires 11 June 2026                 [Page 20]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
 9.1.  Normative References
 
-   [ALT-UUID-ENCODING]
-              "New UUID Encoding Techniques", n.d.,
+   [ALT_UUID_ENCODING]
+              "Alternate UUID Encoding Methods", n.d.,
               <https://github.com/uuid6/new-uuid-encoding-techniques-
               ietf-draft>.
 
@@ -1163,8 +1163,6 @@ Internet-Draft                  UUID Long                 September 2024
 
 Appendix A.  Changelog
 
-   This section is to be removed before publishing as an RFC.
-
    draft-00:
       *  Initial Release
 
@@ -1173,9 +1171,11 @@ Appendix A.  Changelog
 
 
 
-Davis                     Expires 15 March 2025                [Page 21]
+
+
+Davis                     Expires 11 June 2026                 [Page 21]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
 Appendix B.  Test Vectors
@@ -1229,9 +1229,9 @@ B.1.  Example sv1a4 values
 
 
 
-Davis                     Expires 15 March 2025                [Page 22]
+Davis                     Expires 11 June 2026                 [Page 22]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    +=======+======+======+=======+======+======+=====+==========================================================================+
@@ -1285,9 +1285,9 @@ B.2.  Example sv2a7 Value
 
 
 
-Davis                     Expires 15 March 2025                [Page 23]
+Davis                     Expires 11 June 2026                 [Page 23]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
 B.3.  Example sv3a5 Value
@@ -1341,9 +1341,9 @@ F: 5c146b14-3c52-4afd-f38a-375d0df1fbf6-030011000080-fe12a66b645f72f6158759387e5
 
 
 
-Davis                     Expires 15 March 2025                [Page 24]
+Davis                     Expires 11 June 2026                 [Page 24]
 
-Internet-Draft                  UUID Long                 September 2024
+Internet-Draft                  UUID Long                  December 2025
 
 
    *  Line D details the leftover values from the original SHA-256
@@ -1397,4 +1397,4 @@ Author's Address
 
 
 
-Davis                     Expires 15 March 2025                [Page 25]
+Davis                     Expires 11 June 2026                 [Page 25]
