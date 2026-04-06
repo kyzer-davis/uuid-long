@@ -7,26 +7,26 @@
 <title>Longer Universally Unique IDentifiers (UUIDs)</title>
 <meta content="Kyzer R. Davis" name="author">
 <meta content='
-       This document extends Universally Unique Identifiers (UUIDs) beyond 128 bits to facilitate enhanced collision resistance and proper room for embedding additional data within a given UUID algorithm.
-These longer variable-length UUIDs ("UUID Long") leverage a previously unused variant bit "F" and feature a new sub-typing mechanisms created to ensure there is enough space to define many future UUID algorithms within this new variant of UUIDs. 
-       This document updates  . 
+       This document extends Universally Unique Identifiers (UUIDs) beyond 128 bits to facilitate enhanced collision resistance and proper room for embedding additional data within a given UUID algorithm. 
+       These longer variable-length UUIDs ("UUID Long") leverage a previously unused variant bit "F" and feature a new sub-typing mechanism created to ensure there is enough space to define many future UUID algorithms within this new variant of UUIDs. 
+       This document updates RFC9562. 
     ' name="description">
-<meta content="xml2rfc 3.31.0" name="generator">
+<meta content="xml2rfc 3.32.0" name="generator">
 <meta content="uuid" name="keyword">
 <meta content="draft-davis-uuidrev-uuid-long" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.31.0
+  xml2rfc 3.32.0
     Python 3.12.3
     ConfigArgParse 1.7.1
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.0.2
-    platformdirs 4.5.0
-    pycountry 24.6.1
+    platformdirs 4.9.2
+    pycountry 26.2.16
     PyYAML 6.0.3
     requests 2.32.5
-    wcwidth 0.2.14
+    wcwidth 0.6.0
     weasyprint 65.0
 -->
 <link href="draft-davis-uuidrev-uuid-long.xml" rel="alternate" type="application/rfc+xml">
@@ -1218,11 +1218,11 @@ li > p:last-of-type:only-child {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">UUID Long</td>
-<td class="right">December 2025</td>
+<td class="right">April 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Davis</td>
-<td class="center">Expires 11 June 2026</td>
+<td class="center">Expires 8 October 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1238,12 +1238,12 @@ li > p:last-of-type:only-child {
 <a href="https://www.rfc-editor.org/rfc/rfc9562" class="eref">9562</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-12-08" class="published">8 December 2025</time>
+<time datetime="2026-04-06" class="published">6 April 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-06-11">11 June 2026</time></dd>
+<dd class="expires"><time datetime="2026-10-08">8 October 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1256,9 +1256,9 @@ li > p:last-of-type:only-child {
 <h1 id="title">Longer Universally Unique IDentifiers (UUIDs)</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document extends Universally Unique Identifiers (UUIDs) beyond 128 bits to facilitate enhanced collision resistance and proper room for embedding additional data within a given UUID algorithm.
-These longer variable-length UUIDs ("UUID Long") leverage a previously unused variant bit "F" and feature a new sub-typing mechanisms created to ensure there is enough space to define many future UUID algorithms within this new variant of UUIDs.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
-<p id="section-abstract-2">This document updates <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document extends Universally Unique Identifiers (UUIDs) beyond 128 bits to facilitate enhanced collision resistance and proper room for embedding additional data within a given UUID algorithm.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">These longer variable-length UUIDs ("UUID Long") leverage a previously unused variant bit "F" and feature a new sub-typing mechanism created to ensure there is enough space to define many future UUID algorithms within this new variant of UUIDs.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+<p id="section-abstract-3">This document updates RFC9562.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1295,7 +1295,7 @@ These longer variable-length UUIDs ("UUID Long") leverage a previously unused va
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1304,7 +1304,7 @@ These longer variable-length UUIDs ("UUID Long") leverage a previously unused va
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1331,7 +1331,7 @@ These longer variable-length UUIDs ("UUID Long") leverage a previously unused va
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-the-need-for-increased-entr" class="internal xref">The Need for Increased Entropy</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
-                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-requirements-additional-emb" class="internal xref">Requirements Additional Embedded Data</a></p>
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-requirements-for-additional" class="internal xref">Requirements for Additional Embedded Data</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
                 <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-a-better-uuid-sub-typing-sy" class="internal xref">A better UUID sub-typing system</a></p>
@@ -1350,73 +1350,84 @@ These longer variable-length UUIDs ("UUID Long") leverage a previously unused va
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-uuid-long-format" class="internal xref">UUID Long Format</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-encoding" class="internal xref">Encoding</a></p>
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-variant-field" class="internal xref">Variant Field</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-variant-field" class="internal xref">Variant Field</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-sub-typing-logic-and-encodi" class="internal xref">Sub-Typing Logic and Encoding Block</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-sub-typing-logic-and-encodi" class="internal xref">Sub-Typing Logic and Encoding Block</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-sub-variants" class="internal xref">Sub-Variants</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-sub-variants" class="internal xref">Sub-Variants</a></p>
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-encoding" class="internal xref">Encoding</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-uuid-long-algorithms" class="internal xref">UUID Long Algorithms</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-fixed-length-192-256-bit-uu" class="internal xref">Fixed-Length 192/256 bit UUID Long</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-uuid-long-algorithms" class="internal xref">UUID Long Algorithms</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-sub-variant-0" class="internal xref">Sub-Variant 0</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-sub-variant-0-experimental-" class="internal xref">Sub-Variant 0 (Experimental/Custom)</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
-                    <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-sv0a8" class="internal xref">sv0a8</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.1">
+                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-sv0a8" class="internal xref">sv0a8</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-sub-variant-1" class="internal xref">Sub-Variant 1</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-sub-variant-1-random" class="internal xref">Sub-Variant 1 (Random)</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
-                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-sv1a4" class="internal xref">sv1a4</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-sv1a4" class="internal xref">sv1a4</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-sub-variant-2" class="internal xref">Sub-Variant 2</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-sub-variant-2-time" class="internal xref">Sub-Variant 2 (Time)</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.1">
-                    <p id="section-toc.1-1.4.2.3.2.1.1"><a href="#section-4.3.1" class="auto internal xref">4.3.1</a>.  <a href="#name-sv2a1" class="internal xref">sv2a1</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.1">
+                    <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="auto internal xref">5.3.1</a>.  <a href="#name-sv2a1" class="internal xref">sv2a1</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.2">
-                    <p id="section-toc.1-1.4.2.3.2.2.1"><a href="#section-4.3.2" class="auto internal xref">4.3.2</a>.  <a href="#name-sv2a6" class="internal xref">sv2a6</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.2">
+                    <p id="section-toc.1-1.5.2.3.2.2.1"><a href="#section-5.3.2" class="auto internal xref">5.3.2</a>.  <a href="#name-sv2a6" class="internal xref">sv2a6</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3.2.3">
-                    <p id="section-toc.1-1.4.2.3.2.3.1"><a href="#section-4.3.3" class="auto internal xref">4.3.3</a>.  <a href="#name-sv2a7" class="internal xref">sv2a7</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.3">
+                    <p id="section-toc.1-1.5.2.3.2.3.1"><a href="#section-5.3.3" class="auto internal xref">5.3.3</a>.  <a href="#name-sv2a7" class="internal xref">sv2a7</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-sub-variant-3" class="internal xref">Sub-Variant 3</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-sub-variant-3-hashing" class="internal xref">Sub-Variant 3 (Hashing)</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4.2.1">
-                    <p id="section-toc.1-1.4.2.4.2.1.1"><a href="#section-4.4.1" class="auto internal xref">4.4.1</a>.  <a href="#name-sv3a5" class="internal xref">sv3a5</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4.2.1">
+                    <p id="section-toc.1-1.5.2.4.2.1.1"><a href="#section-5.4.1" class="auto internal xref">5.4.1</a>.  <a href="#name-sv3a5" class="internal xref">sv3a5</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4.2.2">
-                    <p id="section-toc.1-1.4.2.4.2.2.1"><a href="#section-4.4.2" class="auto internal xref">4.4.2</a>.  <a href="#name-sv3a16-sv3a23" class="internal xref">sv3a16 - sv3a23</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4.2.2">
+                    <p id="section-toc.1-1.5.2.4.2.2.1"><a href="#section-5.4.2" class="auto internal xref">5.4.2</a>.  <a href="#name-sv3a16-sv3a27" class="internal xref">sv3a16 - sv3a27</a></p>
 </li>
                 </ul>
 </li>
             </ul>
-</li>
-          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-fixed-length-192-256-bit-uu" class="internal xref">Fixed-Length 192/256 bit UUID Long</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-compatibility-with-128-bit-" class="internal xref">Compatibility with 128 Bit UUIDs</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-parsing-and-length-validati" class="internal xref">Parsing and Length Validation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-generation-limits" class="internal xref">Generation Limits</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-data-integrity" class="internal xref">Data Integrity</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
@@ -1450,6 +1461,17 @@ These longer variable-length UUIDs ("UUID Long") leverage a previously unused va
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.4">
                 <p id="section-toc.1-1.11.2.4.1"><a href="#appendix-B.4" class="auto internal xref">B.4</a>.  <a href="#name-example-sv3a17-value" class="internal xref">Example sv3a17 Value</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.5">
+                <p id="section-toc.1-1.11.2.5.1"><a href="#appendix-B.5" class="auto internal xref">B.5</a>.  <a href="#name-boundary-encoding-examples" class="internal xref">Boundary Encoding Examples</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.5.2.1">
+                    <p id="section-toc.1-1.11.2.5.2.1.1"><a href="#appendix-B.5.1" class="auto internal xref">B.5.1</a>.  <a href="#name-minimum-uuid-long-160-bits-" class="internal xref">Minimum UUID Long (160 bits) All 0s</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.5.2.2">
+                    <p id="section-toc.1-1.11.2.5.2.2.1"><a href="#appendix-B.5.2" class="auto internal xref">B.5.2</a>.  <a href="#name-minimum-uuid-long-160-bits-a" class="internal xref">Minimum UUID Long (160 bits) All 1s</a></p>
+</li>
+                </ul>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
@@ -1471,7 +1493,7 @@ These longer variable-length UUIDs ("UUID Long") leverage a previously unused va
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-the-need-for-increased-entr" class="section-name selfRef">The Need for Increased Entropy</a>
         </h3>
 <p id="section-1.1-1">While existing UUID formats provide sufficient entropy for most use cases;
-there exists scenarios where even more entropy is required to further reduce collision probabilities or guessability.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+there exist scenarios where even more entropy is required to further reduce collision probabilities or guessability.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 <p id="section-1.1-2">Further, while creating UUIDv7 during the draft phases of RFC9562, a common discussion point surrounded the number of bits allocated to entropy vs the number of bits allocated to the embedded timestamp.
 The 128 bit limits on UUID created a situation where the community had to balance timestamp granularity vs entropy.
 This resulted in "sliding" bits one way or other trying to find a happy medium.
@@ -1481,11 +1503,11 @@ While in the end a fine balance was achieved; the entire problem could have been
 </div>
 <div id="data">
 <section id="section-1.2">
-        <h3 id="name-requirements-additional-emb">
-<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-requirements-additional-emb" class="section-name selfRef">Requirements Additional Embedded Data</a>
+        <h3 id="name-requirements-for-additional">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-requirements-for-additional" class="section-name selfRef">Requirements for Additional Embedded Data</a>
         </h3>
 <p id="section-1.2-1">Some implementations require more than 128 bits to properly embed all of the application specific data they require for a given UUID algorithm.
-Some examples include database metadata like entity types, checksum values, shard/partition identifiers, and even node identifiers for distributed UUID generation.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+Some examples include database metadata like entity types, checksum values, shard/partition identifiers (see <span>[<a href="#OrderlyID" class="cite xref">OrderlyID</a>]</span>), and even node identifiers for distributed UUID generation.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 <p id="section-1.2-2">UUID Long provides ample bit space for an algorithm to properly embed all of the items required for the application logic to function.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1498,7 +1520,7 @@ Some examples include database metadata like entity types, checksum values, shar
 This version limit artificially inhibits innovation of new UUID algorithms (a problem partly solved by UUIDv8).<a href="#section-1.3-1" class="pilcrow">¶</a></p>
 <p id="section-1.3-2">This drawback of the "OSF DCE / IETF" variant space was observed while working on <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>, in particular to future name-based UUID layouts that replace "UUIDv3" and "UUIDv5".
 With the number of hashing algorithms available and the possibility that at any point one may be deprecated; there was little chance of getting consensus on leveraging one of the few remaining versions for such an algorithm.<a href="#section-1.3-2" class="pilcrow">¶</a></p>
-<p id="section-1.3-3">With UUID Long, as per section <a href="#subtypes" class="auto internal xref">Section 3.3</a>, there is ample room for future UUID Long Algorithms.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
+<p id="section-1.3-3">With UUID Long, as per section <a href="#subtypes" class="auto internal xref">Section 3.2</a>, there is ample room for future UUID Long Algorithms.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1521,30 +1543,27 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <p id="section-2.1-2">Field and Bit Layout in this document use a custom format borrowed from <span>[<a href="#RFC9000" class="cite xref">RFC9000</a>]</span> rather than those featured in <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.
 The purpose of this format is to summarize, not define, protocol elements.
 Prose defines the complete semantics and details of structures.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
-<p id="section-2.1-3">Layouts items are named and then followed by a list of fields surrounded by a pair of matching braces.
+<p id="section-2.1-3">Layout items are named and then followed by a list of fields surrounded by a pair of matching braces.
 Each field in this list is separated by commas.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
 <p id="section-2.1-4">Individual fields include length information, plus indications about fixed value, optionality, or repetitions.
 Individual fields use the following notational conventions, with all lengths in bits:<a href="#section-2.1-4" class="pilcrow">¶</a></p>
-<span class="break"></span><dl class="dlParallel" id="section-2.1-5">
-          <dt id="section-2.1-5.1">x (A):</dt>
-          <dd style="margin-left: 1.5em" id="section-2.1-5.2">
-            <p id="section-2.1-5.2.1">Indicates that x is A bits long<a href="#section-2.1-5.2.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-2.1-5.3">x (A..B):</dt>
-          <dd style="margin-left: 1.5em" id="section-2.1-5.4">
-            <p id="section-2.1-5.4.1">Indicates that x can be any length from A to B; A can be omitted to indicate
-a minimum of zero bits, and B can be omitted to indicate no set upper limit;
-values in this format always end on a byte boundary<a href="#section-2.1-5.4.1" class="pilcrow">¶</a></p>
-</dd>
-          <dd class="break"></dd>
-<dt id="section-2.1-5.5">x (L) = C:</dt>
-          <dd style="margin-left: 1.5em" id="section-2.1-5.6">
-            <p id="section-2.1-5.6.1">Indicates that x has a fixed value of C; the length of x is described by
-L, which can use any of the length forms above<a href="#section-2.1-5.6.1" class="pilcrow">¶</a></p>
-</dd>
-        <dd class="break"></dd>
-</dl>
+<div class="alignLeft art-text artwork" id="section-2.1-5">
+<pre>
+x (A):
+: Indicates that x is A bits long
+
+x (L) = C:
+: Indicates that x has a fixed value of C; the length of x is described by
+  L, which can use any of the length forms above
+
+x (..):
+: Indicates that x has a variable length with no fixed upper limit
+
+x (A..B):
+: Indicates that x can be any length from A to B; A can be omitted to indicate
+  a minimum of zero bits, and B can be omitted to indicate no set upper limit
+</pre><a href="#section-2.1-5" class="pilcrow">¶</a>
+</div>
 <p id="section-2.1-6">This document uses network byte order (that is, big endian) values.
 Fields are placed starting from the high-order bits of each byte.<a href="#section-2.1-6" class="pilcrow">¶</a></p>
 <p id="section-2.1-7">By convention, individual fields reference a complex field by using the name of the complex field.<a href="#section-2.1-7" class="pilcrow">¶</a></p>
@@ -1578,20 +1597,18 @@ Example Structure {
       </h2>
 <p id="section-3-1">At the core UUID Long features the same base characteristics as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4" class="relref">Section 4</a></span> featured in UUID Short.
 UUID Long may be represented in all of the same ways as you would expect with a UUID (e.g text, integer, binary, UUID URN, etc.)<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">The UUID Long Encoding Block starts at bit 129 with the actual UUID Long Data starting at Bit 177.
-The 48 bit UUID Long Encoding block and UUID Long Data are separated by the dash character "-" in the textual representation of UUID Long.<a href="#section-3-2" class="pilcrow">¶</a></p>
-<p id="section-3-3">This separation allows at-a-glance readability around the encoding block and separation from the variable-length UUID Long Data.<a href="#section-3-3" class="pilcrow">¶</a></p>
-<p id="section-3-4">The generalized layout of UUID Long is <a href="#ex-uuid-long" class="auto internal xref">Figure 2</a> and the UUID Encoding Block is found in <a href="#ex-ul-block" class="auto internal xref">Figure 3</a>.<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-2">The UUID Long Data Block starts at bit 129 separated by the dash character "-" in the textual representation of UUID Long.
+This separation allows at-a-glance readability around the variable-length UUID Long Data.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">The generalized layout of UUID Long is <a href="#ex-uuid-long" class="auto internal xref">Figure 2</a>.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <span id="name-example-uuid-long-bit-and-f"></span><div id="ex-uuid-long">
 <figure id="figure-2">
-        <div class="alignLeft art-text artwork" id="section-3-5.1">
+        <div class="alignLeft art-text artwork" id="section-3-4.1">
 <pre>
 UUID Long Structure {
   UUID Short Part A (64),
   UUID Variant (4) = 0xF,
   UUID Short Part B (60),
-  UUID Long Encoding Block (48),
-  UUID Long Data (8..16777215),
+  UUID Long Data (32..3968),
 }
 </pre>
 </div>
@@ -1599,32 +1616,17 @@ UUID Long Structure {
 <a href="#name-example-uuid-long-bit-and-f" class="selfRef">Example UUID Long Bit and Field Layout</a>
         </figcaption></figure>
 </div>
-<span id="name-example-uuid-long-encoding-"></span><div id="ex-ul-block">
+<p id="section-3-5">Further, the base UUID Short string format with hex and dashes is also found in the string format of UUID Long.
+Including this in the base syntax ensures backwards compatibility as per <a href="#compatibility" class="auto internal xref">Section 6</a>.
+The UUID Long string representation is defined by <a href="#ulLayout" class="auto internal xref">Figure 3</a> and <a href="#ulDescription" class="auto internal xref">Table 1</a>.<a href="#section-3-5" class="pilcrow">¶</a></p>
+<span id="name-uuid-long-field-layout-in-h"></span><div id="ulLayout">
 <figure id="figure-3">
         <div class="alignLeft art-text artwork" id="section-3-6.1">
 <pre>
-UUID Long Encoding Block {
-  Sub-Variant Encoding (8),
-  Algorithm Encoding (16),
-  UUID Long Data Length Descriptor (24)
-}
+xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-yy..zz
 </pre>
 </div>
 <figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
-<a href="#name-example-uuid-long-encoding-" class="selfRef">Example UUID Long Encoding Block Bit and Field Layout</a>
-        </figcaption></figure>
-</div>
-<p id="section-3-7">Further, the base UUID Short string format with hex and dashes is also found in the string format of UUID Long.
-Including this in the base syntax ensures backwards compatibility as per <a href="#compatibility" class="auto internal xref">Section 6</a>.
-The UUID Long string representation is defined by <a href="#ulLayout" class="auto internal xref">Figure 4</a> and <a href="#ulDescription" class="auto internal xref">Table 1</a>.<a href="#section-3-7" class="pilcrow">¶</a></p>
-<span id="name-uuid-long-field-layout-in-h"></span><div id="ulLayout">
-<figure id="figure-4">
-        <div class="alignLeft art-text artwork" id="section-3-8.1">
-<pre>
-xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-SVAAAALLLLLL-yy...zz
-</pre>
-</div>
-<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
 <a href="#name-uuid-long-field-layout-in-h" class="selfRef">UUID Long Field Layout in Hex</a>
         </figcaption></figure>
 </div>
@@ -1649,60 +1651,34 @@ xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-SVAAAALLLLLL-yy...zz
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">F</td>
-            <td class="text-left" rowspan="1" colspan="1">Frozen Variant byte (for backwards compatibility). See section <a href="#variant" class="auto internal xref">Section 3.2</a>.</td>
+            <td class="text-left" rowspan="1" colspan="1">Frozen Variant byte (for backwards compatibility). See <a href="#variant" class="auto internal xref">Section 3.1</a>
+</td>
             <td class="text-left" rowspan="1" colspan="1">4</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">SV</td>
-            <td class="text-left" rowspan="1" colspan="1">One Byte Sub-Variant with 256 possible values</td>
-            <td class="text-left" rowspan="1" colspan="1">8</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">AAAA</td>
-            <td class="text-left" rowspan="1" colspan="1">Two Byte Algorithm with 65,536 possible values</td>
-            <td class="text-left" rowspan="1" colspan="1">16</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">LLLLLL</td>
-            <td class="text-left" rowspan="1" colspan="1">Three Byte length descriptor of 16,777,215 max length for UUID Long data</td>
-            <td class="text-left" rowspan="1" colspan="1">24</td>
-          </tr>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">yy...zz</td>
-            <td class="text-left" rowspan="1" colspan="1">Variable length UUID Long Data with length described by LLLLLL. Minimum one byte, maximum  2,097,151 bytes</td>
-            <td class="text-left" rowspan="1" colspan="1">Variable</td>
+            <td class="text-left" rowspan="1" colspan="1">yy..zz</td>
+            <td class="text-left" rowspan="1" colspan="1">Variable length UUID Long Data with length described by LLLL. Minimum one byte, maximum 496 bytes</td>
+            <td class="text-left" rowspan="1" colspan="1">32..3968</td>
           </tr>
         </tbody>
       </table>
 </div>
-<p id="section-3-10">A properly constructed UUID Long value will be, at a minimum, 184 bits or 23 octets.
-The maximum value for a UUID Long is computed as UUID Short Length (128) + Long Encoding Block (48) + Maximum UUID Long Data Length (16,777,215) which is 16,777,391 bits (2,097,173 octets).<a href="#section-3-10" class="pilcrow">¶</a></p>
-<p id="section-3-11">While a maximum UUID Long is likely never going to be realized, the total length of UUID Long was chosen to be sufficiently large to allow for any type of data that needs to implemented.
-With a fixed-length UUID, there is no room to grow as future protocols change.
+<p id="section-3-8">A properly constructed UUID Long value will be, at a minimum, 160 bits or 20 octets.
+The maximum value for a UUID Long is computed as UUID Short Length (128) + Maximum UUID Long Data Length (3,968) which is 4,096 bits (512 octets).<a href="#section-3-8" class="pilcrow">¶</a></p>
+<p id="section-3-9">While it is theoretically possible to extend UUID Long beyond the maximum total length of 4,096 bits; this value was chosen to be sufficiently large to allow for any type of data that needs to be implemented.
+If the time comes when UUID Long needs to be extended beyond 4,096 bits; this specification can easily be updated to allow for larger values due to the nature of the variable-length design of UUID Long.<a href="#section-3-9" class="pilcrow">¶</a></p>
+<p id="section-3-10">With a fixed-length UUID, there is no room to grow as future protocols change.
 Some example items that may change over time are, but not limited to, hashing algorithms, signature algorithms, and post-quantum computing related algorithms.
-Any of these could exceed a limit if UUID long does not select a big enough maximum value.
-See <a href="#security" class="auto internal xref">Section 7</a> for more considerations around generating and parsing UUID Long values.<a href="#section-3-11" class="pilcrow">¶</a></p>
-<p id="section-3-12">Applications <span class="bcp14">MUST</span> ensure that UUID Long values leverage natural byte boundaries and pad the least significant, right-most bits where required to achieve a proper byte boundary.<a href="#section-3-12" class="pilcrow">¶</a></p>
-<div id="encoding">
-<section id="section-3.1">
-        <h3 id="name-encoding">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-encoding" class="section-name selfRef">Encoding</a>
-        </h3>
-<p id="section-3.1-1">The default, widely implemented, "hex and dash" text presentation format of 128 bit UUID short values is already inefficient at conveying the underlying bits of UUID.
-This problem is only extrapolated by creating 128+ bit UUIDs.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1-2">Implementations generating or parsing UUID Long values <span class="bcp14">MUST</span> utilize <span>[<a href="#ALT_UUID_ENCODING" class="cite xref">ALT_UUID_ENCODING</a>]</span> to create a more efficient UUID value.
-The "extended hex and dash" format <span class="bcp14">MAY</span> be utilized for UUID Long though it is discouraged.
-The usage of this format throughout this document for illustrative purposes only.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
-</section>
-</div>
+Any of these could exceed a limit if UUID Long does not select a big enough maximum value.
+See <a href="#security" class="auto internal xref">Section 7</a> for more considerations around generating and parsing UUID Long values.<a href="#section-3-10" class="pilcrow">¶</a></p>
 <div id="variant">
-<section id="section-3.2">
+<section id="section-3.1">
         <h3 id="name-variant-field">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-variant-field" class="section-name selfRef">Variant Field</a>
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-variant-field" class="section-name selfRef">Variant Field</a>
         </h3>
-<p id="section-3.2-1">This section updates <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.1" class="relref">Section 4.1</a></span> to split the unused final variant of "111x" into two variants as described by the <a href="#variantUpdate" class="auto internal xref">Table 2</a> table.
-Splitting the final variant space ensures that the "E" variant may be used by future definitions while the "F" variant is used to signal a UUID Long Variant.
-These "F"rozen variant bits are set to all 1's (b1111).<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">This section updates <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.1" class="relref">Section 4.1</a></span> to split the unused final variant of "111x" into two variants as described by the <a href="#variantUpdate" class="auto internal xref">Table 2</a> table.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">Splitting the final variant space ensures that the "E" variant may be used by future UUID Short definitions while the "F" variant is used to signal a UUID Long Variant and maximum value for UUID Short as per <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.10" class="relref">Section 5.10</a></span>.<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1-3">These "F"rozen variant bits are set to all 1's (b1111).<a href="#section-3.1-3" class="pilcrow">¶</a></p>
 <span id="name-uuid-variant-updates"></span><div id="variantUpdate">
 <table class="center" id="table-2">
           <caption>
@@ -1739,39 +1715,95 @@ These "F"rozen variant bits are set to all 1's (b1111).<a href="#section-3.2-1" 
           </tbody>
         </table>
 </div>
-<p id="section-3.2-3">UUID Long algorithms featuring the frozen Variant F <span class="bcp14">MUST</span> use the sub-typing logic and encoding block described in <a href="#subtypes" class="auto internal xref">Section 3.3</a>.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.1-5">UUID Long algorithms featuring the frozen Variant F <span class="bcp14">MUST</span> use the sub-typing logic and encoding block described in <a href="#subtypes" class="auto internal xref">Section 3.2</a>.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="subtypes">
-<section id="section-3.3">
+<section id="section-3.2">
         <h3 id="name-sub-typing-logic-and-encodi">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-sub-typing-logic-and-encodi" class="section-name selfRef">Sub-Typing Logic and Encoding Block</a>
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-sub-typing-logic-and-encodi" class="section-name selfRef">Sub-Typing Logic and Encoding Block</a>
         </h3>
-<p id="section-3.3-1">UUID Long does not re-use the "version" nomenclature (or bit positions unless otherwise noted) from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.
-This serves to helps an implementations easily distinguish 128 bit or 128+ bit UUIDs in text and provide an opportunity for defining a better sub-typing system within this new variant space.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.3-2">Note that "UUIDv4" or "UUID Version 4" is usually used to reference an UUID algorithm as specified by <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.4" class="relref">Section 5.4</a></span> and do not represent UUID Long algorithms in this document.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
-<p id="section-3.3-3">UUID Long instead moves the sub-typing logic to a new 6 byte UUID Long Encoding Block placed immediately after the 128th bit in the original UUID layout.
-This move of the sub-typing bit ensures the first 64 bits of the UUID Long are uninterrupted up to the frozen Variant bits.
-This move also allows UUID Long to avoid the 4 bit version space that comes with drawbacks as alluded to in <a href="#versions" class="auto internal xref">Section 1.3</a>.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
-<p id="section-3.3-4">The first 3 bytes of the UUID Long Encoding Block features sub-typing system with two levels of hierarchy.
+<p id="section-3.2-1">UUID Long does not re-use the "version" nomenclature (or bit positions unless otherwise noted) from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.
+This serves to help implementations easily distinguish 128 bit or 128+ bit UUIDs in text and provide an opportunity for defining a better sub-typing system within this new variant space.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">UUID Long instead moves the sub-typing logic to a new 4 byte UUID Long Encoding Block placed at the start of the encoded UUID Long algorithm and prefixed after the UUID sub-variant algorithm is computed and the underlying UUID Long value is created.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-3">The first 2 bytes of the UUID Long Encoding Block feature a sub-typing system with two levels of hierarchy.
 The first is a "Sub-Variant" abbreviated "sv" which indicates the grouping of UUID Long algorithm types.
 The second level of UUID Long sub-typing is defined as simply the "algorithm" which can be abbreviated "a".
-The Sub-Variant plus Algorithm (SV+A) serve as the identity behind a particular a UUID Long value.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
-<p id="section-3.3-5">With this in mind "Sub-Variant 0, Algorithm 4" can be expressed as "sv0a4" or "UUIDsv0a4" throughout this document.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
-<p id="section-3.3-6">The final 3 bytes of the UUID Long Encoding Block includes a descriptor for the length of the variable-length UUID Long data which can be used by applications in order to understand where a UUID Long value ends.<a href="#section-3.3-6" class="pilcrow">¶</a></p>
-<p id="section-3.3-7">The full 6 byte UUID Encoding block can be observed in <a href="#ex-ul-block" class="auto internal xref">Figure 3</a> or <a href="#ulLayout" class="auto internal xref">Figure 4</a> and described succinctly in <a href="#ulDescription" class="auto internal xref">Table 1</a>.<a href="#section-3.3-7" class="pilcrow">¶</a></p>
-</section>
+The Sub-Variant plus Algorithm (SV+A) serve as the identity behind a particular UUID Long value.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.2-4">With this in mind "Sub-Variant 1, Algorithm 4" can be expressed as "sv1a4" or "UUIDsv1a4" throughout this document.  Note that "UUIDv4" or "UUID Version 4" is usually used to reference a UUID algorithm as specified by <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.4" class="relref">Section 5.4</a></span> and does not represent UUID Long algorithms in this document.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.2-5">The final 2 bytes of the UUID Long Encoding Block include a descriptor for the length of the variable-length UUID Long data which can be used by applications in order to understand where a UUID Long value ends.
+The length descriptor <span class="bcp14">MUST NOT</span> take into account the UUID Long Encoding Block itself and only describe the length of the variable-length UUID Long data.<a href="#section-3.2-5" class="pilcrow">¶</a></p>
+<p id="section-3.2-6">The full 4 byte UUID Encoding block can be observed in <a href="#ex-ul-block" class="auto internal xref">Figure 4</a> or <a href="#ex-ul-block-layout" class="auto internal xref">Figure 5</a> and described succinctly in <a href="#ex-ul-desc-layout" class="auto internal xref">Table 3</a>.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
+<span id="name-example-uuid-long-encoding-"></span><div id="ex-ul-block">
+<figure id="figure-4">
+          <div class="alignLeft art-text artwork" id="section-3.2-7.1">
+<pre>
+UUID Long Encoding Block {
+  Sub-Variant Encoding (8),
+  Algorithm Encoding (8),
+  UUID Long Data Length Descriptor (16)
+}
+</pre>
 </div>
-<div id="subvariants">
-<section id="section-3.4">
-        <h3 id="name-sub-variants">
-<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-sub-variants" class="section-name selfRef">Sub-Variants</a>
-        </h3>
-<p id="section-3.4-1">UUID Long defines four starting sub-variant groupings as defined by <a href="#subVariant" class="auto internal xref">Table 3</a>.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
-<span id="name-uuid-long-sub-variants"></span><div id="subVariant">
+<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
+<a href="#name-example-uuid-long-encoding-" class="selfRef">Example UUID Long Encoding Block Bit and Field Layout</a>
+          </figcaption></figure>
+</div>
+<span id="name-uuid-long-encoding-block-an"></span><div id="ex-ul-block-layout">
+<figure id="figure-5">
+          <div class="alignLeft art-text artwork" id="section-3.2-8.1">
+<pre>
+SVAALLLL-xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-xx..zz
+</pre>
+</div>
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
+<a href="#name-uuid-long-encoding-block-an" class="selfRef">UUID Long Encoding Block and UUID Long Field Layout in Hex</a>
+          </figcaption></figure>
+</div>
+<span id="name-uuid-long-string-layout-desc"></span><div id="ex-ul-desc-layout">
 <table class="center" id="table-3">
           <caption>
 <a href="#table-3" class="selfRef">Table 3</a>:
+<a href="#name-uuid-long-string-layout-desc" class="selfRef">UUID Long String Layout Descriptors</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">ID</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Bits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">SV</td>
+              <td class="text-left" rowspan="1" colspan="1">One Byte Sub-Variant with 256 possible values</td>
+              <td class="text-left" rowspan="1" colspan="1">8</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">AA</td>
+              <td class="text-left" rowspan="1" colspan="1">One Byte Algorithm with 256 possible values</td>
+              <td class="text-left" rowspan="1" colspan="1">8</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">LLLL</td>
+              <td class="text-left" rowspan="1" colspan="1">Two Byte length descriptor of 496 max length describing the UUID Long data</td>
+              <td class="text-left" rowspan="1" colspan="1">16</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
+<div id="subvariants">
+<section id="section-3.3">
+        <h3 id="name-sub-variants">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-sub-variants" class="section-name selfRef">Sub-Variants</a>
+        </h3>
+<p id="section-3.3-1">UUID Long defines four starting sub-variant groupings as defined by <a href="#subVariant" class="auto internal xref">Table 4</a>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<span id="name-uuid-long-sub-variants"></span><div id="subVariant">
+<table class="center" id="table-4">
+          <caption>
+<a href="#table-4" class="selfRef">Table 4</a>:
 <a href="#name-uuid-long-sub-variants" class="selfRef">UUID Long Sub-Variants</a>
           </caption>
 <thead>
@@ -1804,58 +1836,220 @@ The Sub-Variant plus Algorithm (SV+A) serve as the identity behind a particular 
           </tbody>
         </table>
 </div>
-<p id="section-3.4-3">Future sub-variants in the space (sv4-sv255) can be allocated where a grouping of algorithms is required; but if a current sub-variant is applicable for a new algorithm, the new algorithm should be grouped under a given sub-variant.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
-<p id="section-3.4-4">The four starting sub-variant groupings mirror the four generic types of UUID algorithms observed in <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
+<p id="section-3.3-3">Future sub-variants in the space (sv4-sv255) can be allocated where a grouping of algorithms is required; but if a current sub-variant is applicable for a new algorithm, the new algorithm should be grouped under a given sub-variant.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.3-4">The four starting sub-variant groupings mirror the four generic types of UUID algorithms observed in <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
 </section>
+</div>
+<div id="encoding">
+<section id="section-3.4">
+        <h3 id="name-encoding">
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-encoding" class="section-name selfRef">Encoding</a>
+        </h3>
+<p id="section-3.4-1">The default, widely implemented, "hex and dash" text presentation format of 128 bit UUID short values is already inefficient at conveying the underlying bits of UUID.
+This problem is only exacerbated by creating 128+ bit UUIDs.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-2">Implementations generating or parsing UUID Long values <span class="bcp14">MUST</span> utilize at least one method defined in <span>[<a href="#ALT_UUID_ENCODING" class="cite xref">ALT_UUID_ENCODING</a>]</span> to create a more efficient UUID Long value.
+The "extended hex and dash" format <span class="bcp14">MAY</span> be utilized for UUID Long though it is discouraged.
+The usage of this format throughout this document is for illustrative purposes only.<a href="#section-3.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.4-3">For example the minimum and maximum UUID Long values using those found in <span>[<a href="#ALT_UUID_ENCODING" class="cite xref">ALT_UUID_ENCODING</a>]</span> are found in the table <a href="#lengthTable" class="auto internal xref">Table 5</a> found by computing the maximum character length of an all 1s value at each bit length.
+At Base32 and above the number of characters used by the minimum length of UUID Long is still less than the 128 bit hex and dash format of UUID Short without the UUID Long Encoding Block.<a href="#section-3.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.4-4">Applications <span class="bcp14">MUST</span> ensure that UUID Long values leverage natural boundaries and pad the least significant, right-most bits where required to achieve a proper value for encoding as various BaseXX Alphabets in <span>[<a href="#ALT_UUID_ENCODING" class="cite xref">ALT_UUID_ENCODING</a>]</span>.<a href="#section-3.4-4" class="pilcrow">¶</a></p>
+<span id="name-alt-uuid-encoding-length-co"></span><div id="lengthTable">
+<table class="center" id="table-5">
+          <caption>
+<a href="#table-5" class="selfRef">Table 5</a>:
+<a href="#name-alt-uuid-encoding-length-co" class="selfRef">Alt UUID Encoding Length Comparison</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Encoding</th>
+              <th class="text-left" rowspan="1" colspan="1">Variant</th>
+              <th class="text-left" rowspan="1" colspan="1">Min UUID Long (160 bits)</th>
+              <th class="text-left" rowspan="1" colspan="1">Max UUID Long (4096 bits)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base16</td>
+              <td class="text-left" rowspan="1" colspan="1">THIS DRAFT</td>
+              <td class="text-left" rowspan="1" colspan="1">8 + 45 (53)</td>
+              <td class="text-left" rowspan="1" colspan="1">8 + 1029 (1037)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base16</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-8" class="relref">Section 8</a></span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">8 + 40 (48)</td>
+              <td class="text-left" rowspan="1" colspan="1">8 + 1024 (1032)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base32</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-6" class="relref">Section 6</a></span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">7 + 32 (39)</td>
+              <td class="text-left" rowspan="1" colspan="1">7 + 820 (827)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base32</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-7" class="relref">Section 7</a></span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">7 + 32 (39)</td>
+              <td class="text-left" rowspan="1" colspan="1">7 + 820 (827)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base32</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#Base32human" class="cite xref">Base32human</a>]</span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">7 + 32 (39)</td>
+              <td class="text-left" rowspan="1" colspan="1">7 + 820 (827)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base36</td>
+              <td class="text-left" rowspan="1" colspan="1">---</td>
+              <td class="text-left" rowspan="1" colspan="1">7 + 31 (38)</td>
+              <td class="text-left" rowspan="1" colspan="1">7 + 793 (800)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base52</td>
+              <td class="text-left" rowspan="1" colspan="1">---</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 29 (35)</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 719 (725)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base58</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#Base58btc" class="cite xref">Base58btc</a>]</span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 28 (34)</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 700 (706)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base62</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#Base62ieee" class="cite xref">Base62ieee</a>]</span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 27 (33)</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 688 (694)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base62</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#Base62sort" class="cite xref">Base62sort</a>]</span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 27 (33)</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 688 (694)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base64</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-4" class="relref">Section 4</a></span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 27 (33)</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 683 (689)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base64</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-5" class="relref">Section 5</a></span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 27 (33)</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 683 (689)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base64</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#Base64sort" class="cite xref">Base64sort</a>]</span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 27 (33)</td>
+              <td class="text-left" rowspan="1" colspan="1">6 + 683 (689)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">Base85</td>
+              <td class="text-left" rowspan="1" colspan="1">
+                <span>[<a href="#Z85" class="cite xref">Z85</a>]</span>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">5 + 25 (30)</td>
+              <td class="text-left" rowspan="1" colspan="1">5 + 640 (645)</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="fixed-length">
+<section id="section-4">
+      <h2 id="name-fixed-length-192-256-bit-uu">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-fixed-length-192-256-bit-uu" class="section-name selfRef">Fixed-Length 192/256 bit UUID Long</a>
+      </h2>
+<p id="section-4-1">Although UUID Long is variable length and features a very large top end; implementations may end up generating fixed-length UUID Long Values as described in this section.
+See <a href="#security" class="auto internal xref">Section 7</a> for security discussion about this topic.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">A common UUID length requested by the community is 160, 192 and 256 bit UUID values.
+With UUID Long generating these values is a trivial task.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3">We can calculate the new bits by using the following logic (for completeness up to 2048 has been illustrated.)<a href="#section-4-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4-4">
+<pre>
+160 - UUID Short Length (128) = 32 bits of additional UUID Long data
+192 - UUID Short Length (128) = 64 bits of additional UUID Long data
+256 - UUID Short Length (128) = 128 bits of additional UUID Long data
+512 - UUID Short Length (128) = 384 bits of additional UUID Long data
+1024 - UUID Short Length (128) = 896 bits of additional UUID Long data
+2048 - UUID Short Length (128) = 1920 bits of additional UUID Long data
+</pre><a href="#section-4-4" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="algos">
-<section id="section-4">
+<section id="section-5">
       <h2 id="name-uuid-long-algorithms">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-uuid-long-algorithms" class="section-name selfRef">UUID Long Algorithms</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-uuid-long-algorithms" class="section-name selfRef">UUID Long Algorithms</a>
       </h2>
-<p id="section-4-1">As mentioned in <a href="#subtypes" class="auto internal xref">Section 3.3</a>, UUID Long Algorithms are grouped by at the Sub-Variant level.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">UUID Long first maps the <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> versions to algorithms in the appropriate sub-variant algorithm space.
-The sub-variant algorithm identifier has been 'smeared' for ease understanding when referencing the old values.
-For example: "UUIDv4 == UUIDsv1a4" and "UUIDv7 == UUIDsv2a7" where the final number in each abbreviation matches.<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3">The first 16 sub-variant algorithm values (a0-a15) in each sub-variant space are reserved for matching the appropriate <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> versions.
+<p id="section-5-1">As mentioned in <a href="#subtypes" class="auto internal xref">Section 3.2</a>, UUID Long Algorithms are grouped at the Sub-Variant level.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">UUID Long first maps the <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> versions to algorithms in the appropriate sub-variant algorithm space.
+The sub-variant algorithm identifier has been 'smeared' for ease of understanding when referencing the old values.
+For example: "UUIDv4 == UUIDsv1a4" and "UUIDv7 == UUIDsv2a7" where the final number in each abbreviation matches.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">The first 16 sub-variant algorithm values (a0-a15) in each sub-variant space are reserved for matching the appropriate <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> versions.
 This ensures that a future IETF spec can define both a UUID Short Version and UUID Long sub-variant algorithm that line up nicely to each other.
-With 65,536 possible sub-variant algorithms in each of the 256 sub-variant spaces; 16 reserved sub-variant algorithm identifiers should be no problem.<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4">When the time comes that all 16 <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> versions have allocated to their appropriate UUID Long SV+A IDs, or are no longer in need of the mapping space; outstanding sub-variant algorithm identifiers <span class="bcp14">MAY</span> be used by future UUID Long specifications.<a href="#section-4-4" class="pilcrow">¶</a></p>
-<p id="section-4-5">Other UUID sub-types that existing in other variant spaces <span class="bcp14">MAY</span> leverage unused sub-variant algorithm identifiers, starting at a16, for UUID Long versions of the existing algorithms.<a href="#section-4-5" class="pilcrow">¶</a></p>
-<p id="section-4-6">Generally speaking for sub-variant algorithms based on the RFC9562 versions; there are two main areas that need to be described:<a href="#section-4-6" class="pilcrow">¶</a></p>
+With 65,536 possible sub-variant algorithms in each of the 256 sub-variant spaces; 16 reserved sub-variant algorithm identifiers should be no problem.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<p id="section-5-4">When the time comes that all 16 <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> versions have been allocated to their appropriate UUID Long SV+A IDs, or are no longer in need of the mapping space; outstanding sub-variant algorithm identifiers <span class="bcp14">MAY</span> be used by future UUID Long specifications.<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-5">Other UUID sub-types that exist in other variant spaces <span class="bcp14">MAY</span> leverage unused sub-variant algorithm identifiers, starting at a16, for UUID Long versions of the existing algorithms.<a href="#section-5-5" class="pilcrow">¶</a></p>
+<p id="section-5-6">Generally speaking for sub-variant algorithms based on the RFC9562 versions; there are two main areas that need to be described:<a href="#section-5-6" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4-7.1">
-          <p id="section-4-7.1.1">How to leverage the new UUID Long bits.<a href="#section-4-7.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5-7.1">
+          <p id="section-5-7.1.1">How to leverage the new UUID Long bits.<a href="#section-5-7.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="compact" id="section-4-7.2">
-          <p id="section-4-7.2.1">Define the RFC9562 version bit handling.<a href="#section-4-7.2.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-5-7.2">
+          <p id="section-5-7.2.1">Define the RFC9562 version bit handling.<a href="#section-5-7.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-4-8">The following sections illustrates the current sub-variant algorithm mappings for UUID Long along with the methods for generating a UUID Long value for a given sub-variant algorithm.<a href="#section-4-8" class="pilcrow">¶</a></p>
-<p id="section-4-9">For all algorithms the following two statements apply, even if they are based on an RFC9562-based algorithm.<a href="#section-4-9" class="pilcrow">¶</a></p>
+<p id="section-5-8">The following sections illustrate the current sub-variant algorithm mappings for UUID Long along with the methods for generating a UUID Long value for a given sub-variant algorithm.<a href="#section-5-8" class="pilcrow">¶</a></p>
+<p id="section-5-9">For all algorithms the following two statements apply, even if they are based on an RFC9562-based algorithm.<a href="#section-5-9" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4-10.1">
-          <p id="section-4-10.1.1">The Variant bits are always overwritten to "F" as per <a href="#variant" class="auto internal xref">Section 3.2</a>.<a href="#section-4-10.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5-10.1">
+          <p id="section-5-10.1.1">The Variant bits are always overwritten to "F" as per <a href="#variant" class="auto internal xref">Section 3.1</a>.<a href="#section-5-10.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="compact" id="section-4-10.2">
-          <p id="section-4-10.2.1">The UUID Long Encoding Block is encoded with the sub-variant id, algorithm id and long data length descriptor as per <a href="#ex-ul-block" class="auto internal xref">Figure 3</a>.<a href="#section-4-10.2.1" class="pilcrow">¶</a></p>
+        <li class="compact" id="section-5-10.2">
+          <p id="section-5-10.2.1">The UUID Long Encoding Block is encoded with the sub-variant id, algorithm id and long data length descriptor as per <a href="#ex-ul-block" class="auto internal xref">Figure 4</a>.<a href="#section-5-10.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
+<p id="section-5-11">TODO: where to slot UUIDv2<a href="#section-5-11" class="pilcrow">¶</a></p>
 <div id="sv0-section">
-<section id="section-4.1">
-        <h3 id="name-sub-variant-0">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-sub-variant-0" class="section-name selfRef">Sub-Variant 0</a>
+<section id="section-5.1">
+        <h3 id="name-sub-variant-0-experimental-">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-sub-variant-0-experimental-" class="section-name selfRef">Sub-Variant 0 (Experimental/Custom)</a>
         </h3>
-<p id="section-4.1-1">Algorithm Identifiers in this sub-variant space <span class="bcp14">SHOULD</span> be used for custom, experimental or vendor-specific use cases.
-UUIDv8 has been mapped to UUIDsv0v8 in this document and is the only current algorithm in this space defined by <a href="#sv0" class="auto internal xref">Table 4</a>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-<p id="section-4.1-2">Vendor's are encouraged to use this space for testing and experimental algorithms before finalization into another sub-variant algorithm identifier.
-At which point the Algorithm Identifier in this sub-variant can be released for continued use.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+<p id="section-5.1-1">Algorithm Identifiers in this sub-variant space <span class="bcp14">SHOULD</span> be used for custom, experimental or vendor-specific use cases.
+UUIDv8 has been mapped to UUIDsv0a8 in this document and is the only current algorithm in this space defined by <a href="#sv0" class="auto internal xref">Table 6</a>.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1-2">Vendors are encouraged to use this space for testing and experimental algorithms before finalization into another sub-variant algorithm identifier.
+At which point the Algorithm Identifier in this sub-variant can be released for continued use.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
 <span id="name-sub-variant-0-algorithms"></span><div id="sv0">
-<table class="center" id="table-4">
+<table class="center" id="table-6">
           <caption>
-<a href="#table-4" class="selfRef">Table 4</a>:
+<a href="#table-6" class="selfRef">Table 6</a>:
 <a href="#name-sub-variant-0-algorithms" class="selfRef">Sub-Variant 0 Algorithms</a>
           </caption>
 <thead>
@@ -1874,30 +2068,30 @@ At which point the Algorithm Identifier in this sub-variant can be released for 
               <td class="text-left" rowspan="1" colspan="1">Custom</td>
               <td class="text-left" rowspan="1" colspan="1">UUIDv8</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#sv0a8-section" class="auto internal xref">Section 4.1.1</a>
+                <a href="#sv0a8-section" class="auto internal xref">Section 5.1.1</a>
 </td>
             </tr>
           </tbody>
         </table>
 </div>
 <div id="sv0a8-section">
-<section id="section-4.1.1">
+<section id="section-5.1.1">
           <h4 id="name-sv0a8">
-<a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-sv0a8" class="section-name selfRef">sv0a8</a>
+<a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-sv0a8" class="section-name selfRef">sv0a8</a>
           </h4>
-<p id="section-4.1.1-1">sv0a8 is based on UUIDv8 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.8" class="relref">Section 5.8</a></span> with the following deltas:<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-1">sv0a8 is based on UUIDv8 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.8" class="relref">Section 5.8</a></span> with the following deltas:<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4.1.1-2.1">
-              <p id="section-4.1.1-2.1.1">UUID Long Data can be leveraged as a new "custom_d" field of arbitrary size within the UUID Long data as shown in <a href="#sv0a8" class="auto internal xref">Figure 5</a>.
-The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-4.1.1-2.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5.1.1-2.1">
+              <p id="section-5.1.1-2.1.1">UUID Long Data can be leveraged as a new "custom_d" field of arbitrary size within the UUID Long data as shown in <a href="#sv0a8" class="auto internal xref">Figure 6</a>.
+The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-5.1.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.1.1-2.2">
-              <p id="section-4.1.1-2.2.1">The version behavior does not need to remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span> and can be set to whatever an implementation desires.<a href="#section-4.1.1-2.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.1.1-2.2">
+              <p id="section-5.1.1-2.2.1">The version behavior does not need to remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span> and can be set to whatever an implementation desires.<a href="#section-5.1.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <span id="name-example-sv0a8-bit-and-field"></span><div id="sv0a8">
-<figure id="figure-5">
-            <div class="alignLeft art-text artwork" id="section-4.1.1-3.1">
+<figure id="figure-6">
+            <div class="alignLeft art-text artwork" id="section-5.1.1-3.1">
 <pre>
 UUIDsv0a8 Structure {
   custom_a (48),
@@ -1905,32 +2099,31 @@ UUIDsv0a8 Structure {
   custom_b (12),
   UUID Variant (4) = 0xF,
   custom_c (60),
-  UUID Long Encoding Block (48),
-  custom_d (8..16777215),
+  custom_d (8..3936),
 }
 </pre>
 </div>
-<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
+<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
 <a href="#name-example-sv0a8-bit-and-field" class="selfRef">Example sv0a8 Bit and Field Layout</a>
             </figcaption></figure>
 </div>
-<p id="section-4.1.1-4">Note that where possible, for experimental use cases, implementation are encouraged to apply for a sub-variant algorithm for their UUID Long Algorithm.<a href="#section-4.1.1-4" class="pilcrow">¶</a></p>
-<p id="section-4.1.1-5">TODO: Link to process section if this is finalized.<a href="#section-4.1.1-5" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-4">Note that where possible, for experimental use cases, implementations are encouraged to apply for a sub-variant algorithm for their UUID Long Algorithm.<a href="#section-5.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-5">TODO: Link to process section if this is finalized.<a href="#section-5.1.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="sv1-section">
-<section id="section-4.2">
-        <h3 id="name-sub-variant-1">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-sub-variant-1" class="section-name selfRef">Sub-Variant 1</a>
+<section id="section-5.2">
+        <h3 id="name-sub-variant-1-random">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-sub-variant-1-random" class="section-name selfRef">Sub-Variant 1 (Random)</a>
         </h3>
-<p id="section-4.2-1">Algorithm Identifiers in this sub-variant space <span class="bcp14">MUST</span> be related to random, pseudorandom, or other similar methods of generating UUID Long values.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.2-2">UUIDv4 has been mapped to UUIDsv1a4 in this document and is the only current algorithm in this space defined by <a href="#sv1" class="auto internal xref">Table 5</a>.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">Algorithm Identifiers in this sub-variant space <span class="bcp14">MUST</span> be related to random, pseudorandom, or other similar methods of generating UUID Long values.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-2">UUIDv4 has been mapped to UUIDsv1a4 in this document and is the only current algorithm in this space defined by <a href="#sv1" class="auto internal xref">Table 7</a>.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 <span id="name-sub-variant-1-algorithms"></span><div id="sv1">
-<table class="center" id="table-5">
+<table class="center" id="table-7">
           <caption>
-<a href="#table-5" class="selfRef">Table 5</a>:
+<a href="#table-7" class="selfRef">Table 7</a>:
 <a href="#name-sub-variant-1-algorithms" class="selfRef">Sub-Variant 1 Algorithms</a>
           </caption>
 <thead>
@@ -1949,29 +2142,29 @@ UUIDsv0a8 Structure {
               <td class="text-left" rowspan="1" colspan="1">Random</td>
               <td class="text-left" rowspan="1" colspan="1">UUIDv4</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#sv1a4-section" class="auto internal xref">Section 4.2.1</a>
+                <a href="#sv1a4-section" class="auto internal xref">Section 5.2.1</a>
 </td>
             </tr>
           </tbody>
         </table>
 </div>
 <div id="sv1a4-section">
-<section id="section-4.2.1">
+<section id="section-5.2.1">
           <h4 id="name-sv1a4">
-<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-sv1a4" class="section-name selfRef">sv1a4</a>
+<a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-sv1a4" class="section-name selfRef">sv1a4</a>
           </h4>
-<p id="section-4.2.1-1">sv1a4 is based on UUIDv4 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.4" class="relref">Section 5.4</a></span> with the following deltas:<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-1">sv1a4 is based on UUIDv4 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.4" class="relref">Section 5.4</a></span> with the following deltas:<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4.2.1-2.1">
-              <p id="section-4.2.1-2.1.1">UUID Long Data can be leveraged as a new "random_d" field of arbitrary size within the UUID Long data as shown in <a href="#sv1a4" class="auto internal xref">Figure 6</a>. The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-4.2.1-2.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5.2.1-2.1">
+              <p id="section-5.2.1-2.1.1">UUID Long Data can be leveraged as a new "random_d" field of arbitrary size within the UUID Long data as shown in <a href="#sv1a4" class="auto internal xref">Figure 7</a>. The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-5.2.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.2.1-2.2">
-              <p id="section-4.2.1-2.2.1">The version behavior does not need to remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span> and these 4 version bits <span class="bcp14">MAY</span> also be randomized.<a href="#section-4.2.1-2.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.2.1-2.2">
+              <p id="section-5.2.1-2.2.1">The version behavior does not need to remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span> and these 4 version bits <span class="bcp14">MAY</span> also be randomized.<a href="#section-5.2.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <span id="name-example-sv1a4-bit-and-field"></span><div id="sv1a4">
-<figure id="figure-6">
-            <div class="alignLeft art-text artwork" id="section-4.2.1-3.1">
+<figure id="figure-7">
+            <div class="alignLeft art-text artwork" id="section-5.2.1-3.1">
 <pre>
 UUIDsv1a4 Structure {
   random_a (48),
@@ -1979,31 +2172,30 @@ UUIDsv1a4 Structure {
   random_b (12),
   UUID Variant (4) = 0xF,
   random_c (60),
-  UUID Long Encoding Block (48),
-  random_d (8..16777215),
+  random_d (8..3936),
 }
 </pre>
 </div>
-<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
+<figcaption><a href="#figure-7" class="selfRef">Figure 7</a>:
 <a href="#name-example-sv1a4-bit-and-field" class="selfRef">Example sv1a4 Bit and Field Layout</a>
             </figcaption></figure>
 </div>
-<p id="section-4.2.1-4">Examples of UUIDsv1a4 can be seen in <a href="#sv1a4-value" class="auto internal xref">Appendix B.1</a>.<a href="#section-4.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-4">Examples of UUIDsv1a4 can be seen in <a href="#sv1a4-value" class="auto internal xref">Appendix B.1</a>.<a href="#section-5.2.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="sv2-section">
-<section id="section-4.3">
-        <h3 id="name-sub-variant-2">
-<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-sub-variant-2" class="section-name selfRef">Sub-Variant 2</a>
+<section id="section-5.3">
+        <h3 id="name-sub-variant-2-time">
+<a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-sub-variant-2-time" class="section-name selfRef">Sub-Variant 2 (Time)</a>
         </h3>
-<p id="section-4.3-1">Algorithm Identifiers in this sub-variant space <span class="bcp14">MUST</span> be related to UUIDs which feature timestamps.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.3-2">UUIDv1, UUIDv6 and UUIDv7 have been mapped to UUIDsv2a1, UUIDsv2a6, UUIDsv2a7 where required as per <a href="#sv2" class="auto internal xref">Table 6</a>.<a href="#section-4.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.3-1">Algorithm Identifiers in this sub-variant space <span class="bcp14">MUST</span> be related to UUIDs which feature timestamps.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3-2">UUIDv1, UUIDv6 and UUIDv7 have been mapped to UUIDsv2a1, UUIDsv2a6, UUIDsv2a7 where required as per <a href="#sv2" class="auto internal xref">Table 8</a>.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
 <span id="name-sub-variant-2-algorithms"></span><div id="sv2">
-<table class="center" id="table-6">
+<table class="center" id="table-8">
           <caption>
-<a href="#table-6" class="selfRef">Table 6</a>:
+<a href="#table-8" class="selfRef">Table 8</a>:
 <a href="#name-sub-variant-2-algorithms" class="selfRef">Sub-Variant 2 Algorithms</a>
           </caption>
 <thead>
@@ -2022,7 +2214,7 @@ UUIDsv1a4 Structure {
               <td class="text-left" rowspan="1" colspan="1">Gregorian Time-based</td>
               <td class="text-left" rowspan="1" colspan="1">UUIDv1</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#sv2a1-section" class="auto internal xref">Section 4.3.1</a>
+                <a href="#sv2a1-section" class="auto internal xref">Section 5.3.1</a>
 </td>
             </tr>
             <tr>
@@ -2031,7 +2223,7 @@ UUIDsv1a4 Structure {
               <td class="text-left" rowspan="1" colspan="1">Reordered Gregorian Time-based</td>
               <td class="text-left" rowspan="1" colspan="1">UUIDv6</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#sv2a6-section" class="auto internal xref">Section 4.3.2</a>
+                <a href="#sv2a6-section" class="auto internal xref">Section 5.3.2</a>
 </td>
             </tr>
             <tr>
@@ -2040,35 +2232,38 @@ UUIDsv1a4 Structure {
               <td class="text-left" rowspan="1" colspan="1">Unix Time-based (MS)</td>
               <td class="text-left" rowspan="1" colspan="1">UUIDv7</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#sv2a7-section" class="auto internal xref">Section 4.3.3</a>
+                <a href="#sv2a7-section" class="auto internal xref">Section 5.3.3</a>
 </td>
             </tr>
           </tbody>
         </table>
 </div>
-<p id="section-4.3-4">TODO: Discuss if we want sv2a16 as Unix Time-based (Nanosecond time resolution)... this timestamp resolution was a big ask from the community.
-TODO: Reserve an sv2a17 for custom epoch time, also a big item that came from the community.<a href="#section-4.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3-4">TODO: Discuss if we want sv2a16 as Unix Time-based (Nanosecond time resolution)... this timestamp resolution was a big ask from the community.
+TODO: Reserve an sv2a17 for custom epoch time, also a big item that came from the community.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
 <div id="sv2a1-section">
-<section id="section-4.3.1">
+<section id="section-5.3.1">
           <h4 id="name-sv2a1">
-<a href="#section-4.3.1" class="section-number selfRef">4.3.1. </a><a href="#name-sv2a1" class="section-name selfRef">sv2a1</a>
+<a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-sv2a1" class="section-name selfRef">sv2a1</a>
           </h4>
-<p id="section-4.3.1-1">sv2a1 is based on UUIDv1 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.1" class="relref">Section 5.1</a></span> with the following deltas:<a href="#section-4.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-1">sv2a1 is based on UUIDv1 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.1" class="relref">Section 5.1</a></span> with the following deltas:<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4.3.1-2.1">
-              <p id="section-4.3.1-2.1.1">UUID Long Data can be leveraged to as an "extended_node" field within the UUID Long data as shown in <a href="#sv2a1" class="auto internal xref">Figure 7</a>.
-The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-4.3.1-2.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5.3.1-2.1">
+              <p id="section-5.3.1-2.1.1">UUID Long Data can be leveraged as an "extended_node" field within the UUID Long data as shown in <a href="#sv2a1" class="auto internal xref">Figure 8</a>.
+The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-5.3.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.3.1-2.2">
-              <p id="section-4.3.1-2.2.1">The node value <span class="bcp14">MAY</span> feature IEEE 802 MAC address and random data of arbitrary size or be fully randomized using portions of the original node bits and variable-length UUID Long data.<a href="#section-4.3.1-2.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.3.1-2.2">
+              <p id="section-5.3.1-2.2.1">The <code>node</code> value <span class="bcp14">MAY</span> feature IEEE 802 MAC address and random data of arbitrary size or be fully randomized using portions of the original <code>node</code> bits and variable-length UUID Long data.<a href="#section-5.3.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.3.1-2.3">
-              <p id="section-4.3.1-2.3.1">The version bits <span class="bcp14">MAY</span> also be randomized since this does not effect the sortability of this algorithm.<a href="#section-4.3.1-2.3.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.3.1-2.3">
+              <p id="section-5.3.1-2.3.1">The version bits <span class="bcp14">MAY</span> also be randomized since this does not affect the sortability of this algorithm.<a href="#section-5.3.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-5.3.1-2.4">
+              <p id="section-5.3.1-2.4.1">The <code>clock_seq</code> value is reduced by 2 bits to accommodate the new variant bits as per <a href="#variant" class="auto internal xref">Section 3.1</a>.<a href="#section-5.3.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <span id="name-example-sv2a1-bit-and-field"></span><div id="sv2a1">
-<figure id="figure-7">
-            <div class="alignLeft art-text artwork" id="section-4.3.1-3.1">
+<figure id="figure-8">
+            <div class="alignLeft art-text artwork" id="section-5.3.1-3.1">
 <pre>
 UUIDsv2a1 Structure {
   time_low (32),
@@ -2076,40 +2271,42 @@ UUIDsv2a1 Structure {
   9562 Version (4),
   time_high (12),
   UUID Variant (4) = 0xF,
-  clock_seq (14),
+  clock_seq (12),
   node (48),
-  UUID Long Encoding Block (48),
-  extended_node (8..16777215),
+  extended_node (8..3936),
 }
 </pre>
 </div>
-<figcaption><a href="#figure-7" class="selfRef">Figure 7</a>:
+<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
 <a href="#name-example-sv2a1-bit-and-field" class="selfRef">Example sv2a1 Bit and Field Layout</a>
             </figcaption></figure>
 </div>
 </section>
 </div>
 <div id="sv2a6-section">
-<section id="section-4.3.2">
+<section id="section-5.3.2">
           <h4 id="name-sv2a6">
-<a href="#section-4.3.2" class="section-number selfRef">4.3.2. </a><a href="#name-sv2a6" class="section-name selfRef">sv2a6</a>
+<a href="#section-5.3.2" class="section-number selfRef">5.3.2. </a><a href="#name-sv2a6" class="section-name selfRef">sv2a6</a>
           </h4>
-<p id="section-4.3.2-1">sv2a6 is based on UUIDv6 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.6" class="relref">Section 5.6</a></span> with the following deltas:<a href="#section-4.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.2-1">sv2a6 is based on UUIDv6 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.6" class="relref">Section 5.6</a></span> with the following deltas:<a href="#section-5.3.2-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4.3.2-2.1">
-              <p id="section-4.3.2-2.1.1">UUID Long Data can be leveraged to as an "extended_node" field within the UUID Long data as shown in <a href="#sv2a6" class="auto internal xref">Figure 8</a>.
-The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-4.3.2-2.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5.3.2-2.1">
+              <p id="section-5.3.2-2.1.1">UUID Long Data can be leveraged as an "extended_node" field within the UUID Long data as shown in <a href="#sv2a6" class="auto internal xref">Figure 9</a>.
+The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-5.3.2-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.3.2-2.2">
-              <p id="section-4.3.2-2.2.1">The node value <span class="bcp14">MAY</span> feature IEEE 802 MAC address and random data of arbitrary size or be fully randomized using portions of the original node bits and variable-length UUID Long data.<a href="#section-4.3.2-2.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.3.2-2.2">
+              <p id="section-5.3.2-2.2.1">The <code>node</code> value <span class="bcp14">MAY</span> feature IEEE 802 MAC address and random data of arbitrary size or be fully randomized using portions of the original <code>node</code> bits and variable-length UUID Long data.<a href="#section-5.3.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.3.2-2.3">
-              <p id="section-4.3.2-2.3.1">The version behavior <span class="bcp14">MUST</span> remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span> to ensures proper sortability which is a key feature of this UUID's algorithm.<a href="#section-4.3.2-2.3.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.3.2-2.3">
+              <p id="section-5.3.2-2.3.1">The <code>version</code> behavior <span class="bcp14">MUST</span> remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span> to ensure proper sortability, which is a key feature of this UUID's algorithm.<a href="#section-5.3.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-5.3.2-2.4">
+              <p id="section-5.3.2-2.4.1">The <code>clock_seq</code> value is reduced by 2 bits to accommodate the new variant bits as per <a href="#variant" class="auto internal xref">Section 3.1</a>.<a href="#section-5.3.2-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <span id="name-example-sv2a6-bit-and-field"></span><div id="sv2a6">
-<figure id="figure-8">
-            <div class="alignLeft art-text artwork" id="section-4.3.2-3.1">
+<figure id="figure-9">
+            <div class="alignLeft art-text artwork" id="section-5.3.2-3.1">
 <pre>
 UUIDsv2a6 Structure {
   time_high (32),
@@ -2117,37 +2314,36 @@ UUIDsv2a6 Structure {
   9562 Version (4) = 0x6,
   time_low (12),
   UUID Variant (4) = 0xF,
-  clock_seq (14),
+  clock_seq (12),
   node (48),
-  UUID Long Encoding Block (48),
-  extended_node (8..16777215),
+  extended_node (8..3936),
 }
 </pre>
 </div>
-<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
+<figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
 <a href="#name-example-sv2a6-bit-and-field" class="selfRef">Example sv2a6 Bit and Field Layout</a>
             </figcaption></figure>
 </div>
 </section>
 </div>
 <div id="sv2a7-section">
-<section id="section-4.3.3">
+<section id="section-5.3.3">
           <h4 id="name-sv2a7">
-<a href="#section-4.3.3" class="section-number selfRef">4.3.3. </a><a href="#name-sv2a7" class="section-name selfRef">sv2a7</a>
+<a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-sv2a7" class="section-name selfRef">sv2a7</a>
           </h4>
-<p id="section-4.3.3-1">sv2a7 is based on UUIDv7 <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.7" class="relref">Section 5.7</a></span> with the following deltas:<a href="#section-4.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.3.3-1">sv2a7 is based on UUIDv7 <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.7" class="relref">Section 5.7</a></span> with the following deltas:<a href="#section-5.3.3-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4.3.3-2.1">
-              <p id="section-4.3.3-2.1.1">UUID Long Data can be leveraged to as an "rand_c" field within the UUID Long data as shown in <a href="#sv2a7" class="auto internal xref">Figure 9</a>.
-The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-4.3.3-2.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5.3.3-2.1">
+              <p id="section-5.3.3-2.1.1">UUID Long Data can be leveraged as a "rand_c" field within the UUID Long data as shown in <a href="#sv2a7" class="auto internal xref">Figure 10</a>.
+The length of this new data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-5.3.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.3.3-2.2">
-              <p id="section-4.3.3-2.2.1">The version behavior <span class="bcp14">MUST</span> remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span> to ensures proper sortability which is a key feature of this UUID's algorithm.<a href="#section-4.3.3-2.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.3.3-2.2">
+              <p id="section-5.3.3-2.2.1">The version behavior <span class="bcp14">MUST</span> remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span> to ensure proper sortability, which is a key feature of this UUID's algorithm.<a href="#section-5.3.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <span id="name-example-sv2a7-bit-and-field"></span><div id="sv2a7">
-<figure id="figure-9">
-            <div class="alignLeft art-text artwork" id="section-4.3.3-3.1">
+<figure id="figure-10">
+            <div class="alignLeft art-text artwork" id="section-5.3.3-3.1">
 <pre>
 UUIDsv2a7 Structure {
   unix_ts_ms (48),
@@ -2155,31 +2351,30 @@ UUIDsv2a7 Structure {
   rand_a (12),
   UUID Variant (4) = 0xF,
   rand_b (60),
-  UUID Long Encoding Block (48),
-  rand_c (8..16777215),
+  rand_c (8..3936),
 }
 </pre>
 </div>
-<figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
+<figcaption><a href="#figure-10" class="selfRef">Figure 10</a>:
 <a href="#name-example-sv2a7-bit-and-field" class="selfRef">Example sv2a7 Bit and Field Layout</a>
             </figcaption></figure>
 </div>
-<p id="section-4.3.3-4">An Example of UUIDsv2a7 can be seen in <a href="#sv2a7-value" class="auto internal xref">Appendix B.2</a>.<a href="#section-4.3.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3.3-4">An Example of UUIDsv2a7 can be seen in <a href="#sv2a7-value" class="auto internal xref">Appendix B.2</a>.<a href="#section-5.3.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 <div id="sv3-section">
-<section id="section-4.4">
-        <h3 id="name-sub-variant-3">
-<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-sub-variant-3" class="section-name selfRef">Sub-Variant 3</a>
+<section id="section-5.4">
+        <h3 id="name-sub-variant-3-hashing">
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-sub-variant-3-hashing" class="section-name selfRef">Sub-Variant 3 (Hashing)</a>
         </h3>
-<p id="section-4.4-1">Algorithm Identifiers in this sub-variant space <span class="bcp14">MUST</span> be related to hash-based UUIDs computed using "names" and "namespaces" as defined by <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-6.5" class="relref">Section 6.5</a></span>.
-UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorithms a16 through a27.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.4-1">Algorithm Identifiers in this sub-variant space <span class="bcp14">MUST</span> be related to hash-based UUIDs computed using "names" and "namespaces" as defined by <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-6.5" class="relref">Section 6.5</a></span>.
+UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorithms a16 through a27.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
 <span id="name-sub-variant-3-algorithms"></span><div id="sv3">
-<table class="center" id="table-7">
+<table class="center" id="table-9">
           <caption>
-<a href="#table-7" class="selfRef">Table 7</a>:
+<a href="#table-9" class="selfRef">Table 9</a>:
 <a href="#name-sub-variant-3-algorithms" class="selfRef">Sub-Variant 3 Algorithms</a>
           </caption>
 <thead>
@@ -2199,7 +2394,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA-1</td>
               <td class="text-left" rowspan="1" colspan="1">UUIDv5</td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#sv3a5-section" class="auto internal xref">Section 4.4.1</a>
+                <a href="#sv3a5-section" class="auto internal xref">Section 5.4.1</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS180-4" class="cite xref">FIPS180-4</a>]</span>
@@ -2211,7 +2406,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA-224</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS180-4" class="cite xref">FIPS180-4</a>]</span>
@@ -2223,7 +2418,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA-256</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS180-4" class="cite xref">FIPS180-4</a>]</span>
@@ -2235,7 +2430,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA-384</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS180-4" class="cite xref">FIPS180-4</a>]</span>
@@ -2247,7 +2442,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA-512</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS180-4" class="cite xref">FIPS180-4</a>]</span>
@@ -2259,7 +2454,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA-512/224</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS180-4" class="cite xref">FIPS180-4</a>]</span>
@@ -2271,7 +2466,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA-512/256</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS180-4" class="cite xref">FIPS180-4</a>]</span>
@@ -2283,7 +2478,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA3-224</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>
@@ -2295,7 +2490,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA3-256</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>
@@ -2307,7 +2502,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA3-384</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>
@@ -2319,7 +2514,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHA3-512</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>
@@ -2331,7 +2526,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHAKE128</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>
@@ -2343,7 +2538,7 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
               <td class="text-left" rowspan="1" colspan="1">SHAKE256</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">
-                <a href="#nghb-section" class="auto internal xref">Section 4.4.2</a>
+                <a href="#nghb-section" class="auto internal xref">Section 5.4.2</a>
 </td>
               <td class="text-left" rowspan="1" colspan="1">
                 <span>[<a href="#FIPS202" class="cite xref">FIPS202</a>]</span>
@@ -2352,27 +2547,27 @@ UUIDv5 has been mapped to UUIDsv3a5 while new hashing protocols utilize algorith
           </tbody>
         </table>
 </div>
-<p id="section-4.4-3">Note that UUIDv3 has not been mapped to UUIDsv3a3 because the current MD5-based algorithm from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.3" class="relref">Section 5.3</a></span> does not have any requirements for bits past 128.
-Thus there is no need for a UUID Long equivalent of this algorithm.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
+<p id="section-5.4-3">Note that UUIDv3 has not been mapped to UUIDsv3a3 because the current MD5-based algorithm from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.3" class="relref">Section 5.3</a></span> does not have any requirements for bits past 128.
+Thus there is no need for a UUID Long equivalent of this algorithm.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
 <div id="sv3a5-section">
-<section id="section-4.4.1">
+<section id="section-5.4.1">
           <h4 id="name-sv3a5">
-<a href="#section-4.4.1" class="section-number selfRef">4.4.1. </a><a href="#name-sv3a5" class="section-name selfRef">sv3a5</a>
+<a href="#section-5.4.1" class="section-number selfRef">5.4.1. </a><a href="#name-sv3a5" class="section-name selfRef">sv3a5</a>
           </h4>
-<p id="section-4.4.1-1">sv3a5 is based on UUIDv5 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.5" class="relref">Section 5.5</a></span> with the following deltas:<a href="#section-4.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.4.1-1">sv3a5 is based on UUIDv5 from <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.5" class="relref">Section 5.5</a></span> with the following deltas:<a href="#section-5.4.1-1" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4.4.1-2.1">
-              <p id="section-4.4.1-2.1.1">The original algorithm requires that parts of the SHA-1 hash be truncated to fit the 128 bit layout however with UUID Long these extra bits can be embedded into the UUID Long Data as "sha1_discard" seen in <a href="#sv3a5" class="auto internal xref">Figure 10</a>.
-The length of this discarded data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-4.4.1-2.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5.4.1-2.1">
+              <p id="section-5.4.1-2.1.1">The original algorithm requires that parts of the SHA-1 hash be truncated to fit the 128 bit layout; however, with UUID Long these extra bits can be embedded into the UUID Long Data as "sha1_discard" seen in <a href="#sv3a5" class="auto internal xref">Figure 11</a>.
+The length of this discarded data is calculated and inserted into the UUID Long Encoding Block.<a href="#section-5.4.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.4.1-2.2">
-              <p id="section-4.4.1-2.2.1">The version <span class="bcp14">MUST NOT</span> remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span>.
-As a result the bits that would have been overwritten to a hard coded "5" are now left as the original portions of the hash.<a href="#section-4.4.1-2.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.4.1-2.2">
+              <p id="section-5.4.1-2.2.1">The version <span class="bcp14">MUST NOT</span> remain the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-4.2" class="relref">Section 4.2</a></span>.
+As a result, the bits that would have been overwritten to a hard coded "5" are now left as the original portions of the hash.<a href="#section-5.4.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <span id="name-example-sv3a5-bit-and-field"></span><div id="sv3a5">
-<figure id="figure-10">
-            <div class="alignLeft art-text artwork" id="section-4.4.1-3.1">
+<figure id="figure-11">
+            <div class="alignLeft art-text artwork" id="section-5.4.1-3.1">
 <pre>
 UUIDsv3a5 Structure {
   sha1_high (48),
@@ -2380,82 +2575,58 @@ UUIDsv3a5 Structure {
   sha1_mid (12),
   UUID Variant (4) = 0xF,
   sha1_low (60),
-  UUID Long Encoding Block (48),
-  sha1_discard (8..16777215),
+  sha1_discard (8..3936),
 }
 </pre>
 </div>
-<figcaption><a href="#figure-10" class="selfRef">Figure 10</a>:
+<figcaption><a href="#figure-11" class="selfRef">Figure 11</a>:
 <a href="#name-example-sv3a5-bit-and-field" class="selfRef">Example sv3a5 Bit and Field Layout</a>
             </figcaption></figure>
 </div>
-<p id="section-4.4.1-4">An Example of UUIDsv3a5 can be seen in <a href="#sv3a5-value" class="auto internal xref">Appendix B.3</a>.<a href="#section-4.4.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.4.1-4">An Example of UUIDsv3a5 can be seen in <a href="#sv3a5-value" class="auto internal xref">Appendix B.3</a>.<a href="#section-5.4.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="nghb-section">
-<section id="section-4.4.2">
-          <h4 id="name-sv3a16-sv3a23">
-<a href="#section-4.4.2" class="section-number selfRef">4.4.2. </a><a href="#name-sv3a16-sv3a23" class="section-name selfRef">sv3a16 - sv3a23</a>
+<section id="section-5.4.2">
+          <h4 id="name-sv3a16-sv3a27">
+<a href="#section-5.4.2" class="section-number selfRef">5.4.2. </a><a href="#name-sv3a16-sv3a27" class="section-name selfRef">sv3a16 - sv3a27</a>
           </h4>
-<p id="section-4.4.2-1">sv3a16 - sv3a23 describe Name-Based UUID generation using new hashing algorithms.
+<p id="section-5.4.2-1">sv3a16 - sv3a27 describe Name-Based UUID generation using new hashing algorithms.
 From an operational standpoint the same fields are described for all of these algorithms.
-This is shown in <a href="#ulhb" class="auto internal xref">Figure 11</a>.<a href="#section-4.4.2-1" class="pilcrow">¶</a></p>
-<p id="section-4.4.2-2">The algorithm and creation of these UUID Long values is the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.5" class="relref">Section 5.5</a></span> with the following deltas:<a href="#section-4.4.2-2" class="pilcrow">¶</a></p>
+This is shown in <a href="#ulhb" class="auto internal xref">Figure 12</a>.<a href="#section-5.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.4.2-2">The algorithm and creation of these UUID Long values is the same as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.5" class="relref">Section 5.5</a></span> with the following deltas:<a href="#section-5.4.2-2" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="section-4.4.2-3.1">
-              <p id="section-4.4.2-3.1.1">The desired hash algorithm is used in place of SHA-1.<a href="#section-4.4.2-3.1.1" class="pilcrow">¶</a></p>
+<li class="compact" id="section-5.4.2-3.1">
+              <p id="section-5.4.2-3.1.1">The desired hash algorithm is used in place of SHA-1.<a href="#section-5.4.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.4.2-3.2">
-              <p id="section-4.4.2-3.2.1">The 9562 Version is not used and those 4 bits retain their value from the hash.<a href="#section-4.4.2-3.2.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.4.2-3.2">
+              <p id="section-5.4.2-3.2.1">The 9562 Version is not used and those 4 bits retain their value from the hash.<a href="#section-5.4.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="compact" id="section-4.4.2-3.3">
-              <p id="section-4.4.2-3.3.1">The bits beyond 128 are placed in "hash_low" with the length calculated and inserted into the UUID Long Encoding Block.<a href="#section-4.4.2-3.3.1" class="pilcrow">¶</a></p>
+            <li class="compact" id="section-5.4.2-3.3">
+              <p id="section-5.4.2-3.3.1">The bits beyond 128 are placed in "hash_low" with the length calculated and inserted into the UUID Long Encoding Block.<a href="#section-5.4.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <span id="name-example-uuid-long-hash-base"></span><div id="ulhb">
-<figure id="figure-11">
-            <div class="alignLeft art-text artwork" id="section-4.4.2-4.1">
+<figure id="figure-12">
+            <div class="alignLeft art-text artwork" id="section-5.4.2-4.1">
 <pre>
 UUID Long Hash-Based Structure {
   hash_high (64),
   UUID Variant (4) = 0xF,
   hash_middle (60),
-  UUID Long Encoding Block (48),
-  hash_low (8..16777215),
+  hash_low (8..3936),
 }
 </pre>
 </div>
-<figcaption><a href="#figure-11" class="selfRef">Figure 11</a>:
+<figcaption><a href="#figure-12" class="selfRef">Figure 12</a>:
 <a href="#name-example-uuid-long-hash-base" class="selfRef">Example UUID Long Hash-Based Bit and Field Layout</a>
             </figcaption></figure>
 </div>
-<p id="section-4.4.2-5">Example of UUIDsv3a17, using SHA-256, can be seen in <a href="#sv3a17-value" class="auto internal xref">Appendix B.4</a>.<a href="#section-4.4.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.4.2-5">Example of UUIDsv3a17, using SHA-256, can be seen in <a href="#sv3a17-value" class="auto internal xref">Appendix B.4</a>.<a href="#section-5.4.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-</section>
-</div>
-<div id="fixed-length">
-<section id="section-5">
-      <h2 id="name-fixed-length-192-256-bit-uu">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-fixed-length-192-256-bit-uu" class="section-name selfRef">Fixed-Length 192/256 bit UUID Long</a>
-      </h2>
-<p id="section-5-1">Although UUID Long is variable length and features a very, very large top end; implementations may end up generating fixed-length UUID Long Values as described in this section.
-See <a href="#security" class="auto internal xref">Section 7</a> for security discussion about this topic.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">A common UUID length requested by the community is 192 bit or 256 bit UUID values.<a href="#section-5-2" class="pilcrow">¶</a></p>
-<p id="section-5-3">With UUID long generating fixed-length 192 bit or 256 bit values is a trivial task.<a href="#section-5-3" class="pilcrow">¶</a></p>
-<p id="section-5-4">We can calculate the new bits by using the following logic (for completeness up to 2048 has been illustrated.)<a href="#section-5-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-5-5">
-<pre>
-192 - UUID Short Length (128) + UUID Encoding Block (48) = 16 bits of additional UUID Long data
-256 - UUID Short Length (128) + UUID Encoding Block (48) = 80 bits of additional UUID Long data
-512 - UUID Short Length (128) + UUID Encoding Block (48) = 336 bits of additional UUID Long data
-1024 - UUID Short Length (128) + UUID Encoding Block (48) = 848 bits of additional UUID Long data
-2048 - UUID Short Length (128) + UUID Encoding Block (48) = 1872 bits of additional UUID Long data
-</pre><a href="#section-5-5" class="pilcrow">¶</a>
-</div>
-<p id="section-5-6">The appendix, <a href="#sv1a4-value" class="auto internal xref">Appendix B.1</a>, details fixed length 192 bit and 256 UUIDs with Random data to further illustrate the examples above.<a href="#section-5-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="compatibility">
@@ -2463,10 +2634,16 @@ See <a href="#security" class="auto internal xref">Section 7</a> for security di
       <h2 id="name-compatibility-with-128-bit-">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-compatibility-with-128-bit-" class="section-name selfRef">Compatibility with 128 Bit UUIDs</a>
       </h2>
-<p id="section-6-1">Since the first 128 bits are a valid UUID Short, if some device does not understand UUID Long they can read the first 128 bit and still gleam a valid 128 bit UUID value.
-Though some system may have a problem reading or accepting the F Variant; this approach ensures that a given UUID Long value can be easily transposed into a smaller value where required.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">Note that the version bit-space is not a requirement in UUID Long thus some UUID sub-variant algorithms may have varying data at this position.
-The bits still exist, so for systems that do not read the variant bit first, they may see inconsistent results if trying to read only the version or version and then variant.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-1">UUID Long values are prefixed with a 32-bit UUID Long Encoding Block followed by the UUID value itself.
+The UUID portion (bits 33 through 160 at minimum) is structured identically to a UUID Short in the first 128 bits.
+However, because UUID Long uses the "F" variant (b1111), many existing UUID parsers and database UUID types will reject the UUID portion during variant validation.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2">To derive a compatible 128-bit UUID from a UUID Long value, an implementation <span class="bcp14">MUST</span> first strip the 32-bit encoding block prefix to isolate the 128-bit UUID Short portion.
+Stripping the prefix alone does NOT produce a value that is generally accepted as a valid <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> UUID because the F variant is not recognized by existing parsers.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">Implementations that need a valid 128-bit UUID <span class="bcp14">SHOULD</span> then actively transform the isolated value by overwriting the variant bits to produce a valid "OSF DCE / IETF" variant (b10xx) UUID.
+For example, an implementation could clear the two most significant variant bits to produce a valid RFC 9562 variant before passing the value to downstream systems.
+Implementations <span class="bcp14">MUST</span> document any such transformation and be aware that the resulting 128-bit value will differ from the original UUID Long's UUID Short portion.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<p id="section-6-4">Note that the version bit-space is not a requirement in UUID Long thus some UUID long algorithms may have varying data at this position.
+The bits still exist, so for systems that do not read the variant bit first, they may see inconsistent results if trying to read only the version or version and then variant.<a href="#section-6-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security">
@@ -2474,18 +2651,52 @@ The bits still exist, so for systems that do not read the variant bit first, the
       <h2 id="name-security-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-7-1">UUID Long shared many of the same security considerations as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.
+<p id="section-7-1">UUID Long shares many of the same security considerations as <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.
 The main security consideration with UUID Long is the maximum length of data and possible buffer overflows which lead to other vulnerabilities.
-Implementations that only expect 128 bit UUIDs should not read beyond 128 bits.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">Implementations that plan to work with UUID Long values should use the UUID Long Data Length Descriptor field within the UUID Long Encoding block to gleam the total length of the UUID Long Data Field.
-Implementations should also program safeguards as to not read more data than is available in memory.
-For example, it is encouraged to set an arbitrary maximum on the amount of UUID Long data that is parsed based on the application or implementation requirements.<a href="#section-7-2" class="pilcrow">¶</a></p>
-<p id="section-7-3">Further, an implementation may choose to put limits on the length of a UUID long values that are generated to protect from using UUID Long as a conveyance mechanism to retrieve buffer overflowed data exploited by other means.
+Implementations that only expect 128 bit UUIDs <span class="bcp14">MUST NOT</span> read beyond 128 bits.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<div id="parsing">
+<section id="section-7.1">
+        <h3 id="name-parsing-and-length-validati">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-parsing-and-length-validati" class="section-name selfRef">Parsing and Length Validation</a>
+        </h3>
+<p id="section-7.1-1">Implementations that parse UUID Long values <span class="bcp14">MUST</span> validate the UUID Long Data Length Descriptor field before allocating memory or reading data.
+Specifically, a parser <span class="bcp14">MUST</span>:<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-7.1-2.1">
+            <p id="section-7.1-2.1.1">Verify that the length descriptor does not exceed an implementation-defined maximum.<a href="#section-7.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-7.1-2.2">
+            <p id="section-7.1-2.2.1">Verify that the length descriptor does not exceed the number of remaining input bytes.<a href="#section-7.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-7.1-2.3">
+            <p id="section-7.1-2.3.1">Reject any UUID Long value where either check fails.<a href="#section-7.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-7.1-3">General-purpose UUID libraries that do not have application-specific requirements <span class="bcp14">SHOULD</span> default to a maximum UUID Long Data length of 128 bytes (1024 bits).
+This default <span class="bcp14">SHOULD</span> be configurable to allow applications with different requirements to adjust the limit as needed.<a href="#section-7.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="generation-limits">
+<section id="section-7.2">
+        <h3 id="name-generation-limits">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-generation-limits" class="section-name selfRef">Generation Limits</a>
+        </h3>
+<p id="section-7.2-1">An implementation may choose to put limits on the length of UUID Long values that are generated to protect from using UUID Long as a conveyance mechanism to retrieve buffer overflowed data exploited by other means.
 For example, an implementation may choose to generate UUID Long values of a maximum length of 1024 bits and no more.
-Thus limiting the potential for side-channel exploits that may try to take advantage of the variable-length properties of UUID Long.<a href="#section-7-3" class="pilcrow">¶</a></p>
-<p id="section-7-4">By default the UUID Long value (and UUID short) do not feature any hash/signature method. An attacker could modify the UUID Long Data Length Descriptor bits and include new data in an attempt to force some buffer overflow condition or append data that was not part of the original algorithm.
-An algorithm <span class="bcp14">MAY</span> choose create a hash/digital signature on the final UUID Long value and provide this hash to a peer in order to provide some levels data integrity.<a href="#section-7-4" class="pilcrow">¶</a></p>
-<p id="section-7-5">Further, where possible introspection into the UUID is discouraged as per <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-6.12" class="relref">Section 6.12</a></span>.<a href="#section-7-5" class="pilcrow">¶</a></p>
+Thus limiting the potential for side-channel exploits that may try to take advantage of the variable-length properties of UUID Long.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="data-integrity">
+<section id="section-7.3">
+        <h3 id="name-data-integrity">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-data-integrity" class="section-name selfRef">Data Integrity</a>
+        </h3>
+<p id="section-7.3-1">By default the UUID Long value (and UUID Short) do not feature any hash/signature method.
+An attacker could modify the UUID Long Data Length Descriptor bits and include new data in an attempt to force some buffer overflow condition or append data that was not part of the original algorithm.
+An algorithm <span class="bcp14">MAY</span> choose to create a hash/digital signature on the final UUID Long value and provide this hash to a peer in order to provide some level of data integrity.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<p id="section-7.3-2">Further, where possible introspection into the UUID is discouraged as per <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-6.12" class="relref">Section 6.12</a></span>.<a href="#section-7.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="iana">
@@ -2534,6 +2745,26 @@ https://www.iana.org/assignments/uuid/uuid.xhtml#uuid-subtypes<a href="#section-
 <a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="Base32human">[Base32human]</dt>
+        <dd>
+<span class="refAuthor">Crockford, D.</span> and <span class="refAuthor">K. Davis</span>, <span class="refTitle">"Base32 for Humans"</span>, <time datetime="2026-04" class="refDate">April 2026</time>, <span>&lt;<a href="https://github.com/douglascrockford/Base32">https://github.com/douglascrockford/Base32</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Base58btc">[Base58btc]</dt>
+        <dd>
+<span class="refAuthor">Bitcoin</span>, <span class="refTitle">"Bitcoin Base58 Implementation"</span>, <span class="seriesInfo">commit fae71d3</span>, <time datetime="2008-11" class="refDate">November 2008</time>, <span>&lt;<a href="https://github.com/bitcoin/bitcoin/blob/master/src/base58.cpp">https://github.com/bitcoin/bitcoin/blob/master/src/base58.cpp</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Base62ieee">[Base62ieee]</dt>
+        <dd>
+<span class="refAuthor">IEEE</span>, <span class="refTitle">"A secure, lossless, and compressed Base62 encoding"</span>, <time datetime="2008-11" class="refDate">November 2008</time>, <span>&lt;<a href="https://ieeexplore.ieee.org/document/4737287">https://ieeexplore.ieee.org/document/4737287</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Base62sort">[Base62sort]</dt>
+        <dd>
+<span class="refAuthor">Wu, P.-C.</span>, <span class="refTitle">"A base62 transformation format of ISO 10646 for multilingual identifiers"</span>, <time datetime="2001-08" class="refDate">August 2001</time>, <span>&lt;<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/spe.408">https://onlinelibrary.wiley.com/doi/abs/10.1002/spe.408</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Base64sort">[Base64sort]</dt>
+        <dd>
+<span class="refAuthor">Davis, K.</span>, <span class="refTitle">"A Sortable Base64 Alphabet"</span>, <time datetime="2025-12" class="refDate">December 2025</time>, <span>&lt;<a href="https://github.com/kyzer-davis/base64-sort-ietf-draft">https://github.com/kyzer-davis/base64-sort-ietf-draft</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="FIPS180-4">[FIPS180-4]</dt>
         <dd>
 <span class="refAuthor">National Institute of Standards and Technology</span>, <span class="refTitle">"Secure Hash Standard"</span>, <span class="seriesInfo">FIPS PUB 180-4</span>, <time datetime="2015-08" class="refDate">August 2015</time>, <span>&lt;<a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a>&gt;</span>. </dd>
@@ -2542,9 +2773,21 @@ https://www.iana.org/assignments/uuid/uuid.xhtml#uuid-subtypes<a href="#section-
         <dd>
 <span class="refAuthor">National Institute of Standards and Technology</span>, <span class="refTitle">"SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions"</span>, <span class="seriesInfo">FIPS PUB 202</span>, <time datetime="2015-08" class="refDate">August 2015</time>, <span>&lt;<a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf">https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="OrderlyID">[OrderlyID]</dt>
+        <dd>
+<span class="refAuthor">piljoong</span>, <span class="refTitle">"Distributed ID Formats Are Architectural Commitments, Not Just Data Types"</span>, <time datetime="2025-12" class="refDate">December 2025</time>, <span>&lt;<a href="https://piljoong.dev/posts/distributed-id-generation-complicated/">https://piljoong.dev/posts/distributed-id-generation-complicated/</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC4648">[RFC4648]</dt>
+        <dd>
+<span class="refAuthor">Josefsson, S.</span>, <span class="refTitle">"The Base16, Base32, and Base64 Data Encodings"</span>, <span class="seriesInfo">RFC 4648</span>, <span class="seriesInfo">DOI 10.17487/RFC4648</span>, <time datetime="2006-10" class="refDate">October 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4648">https://www.rfc-editor.org/rfc/rfc4648</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9000">[RFC9000]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Iyengar, J., Ed.</span> and <span class="refAuthor">M. Thomson, Ed.</span>, <span class="refTitle">"QUIC: A UDP-Based Multiplexed and Secure Transport"</span>, <span class="seriesInfo">RFC 9000</span>, <span class="seriesInfo">DOI 10.17487/RFC9000</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9000">https://www.rfc-editor.org/rfc/rfc9000</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Z85">[Z85]</dt>
+      <dd>
+<span class="refAuthor">iMatix Corporation</span>, <span class="refTitle">"32/Z85"</span>, <time datetime="2013" class="refDate">2013</time>, <span>&lt;<a href="https://rfc.zeromq.org/spec/32/">https://rfc.zeromq.org/spec/32/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -2582,27 +2825,27 @@ The sections below attempt to summarize the key points of the sub-variant algori
         <h3 id="name-example-sv1a4-values">
 <a href="#appendix-B.1" class="section-number selfRef">B.1. </a><a href="#name-example-sv1a4-values" class="section-name selfRef">Example sv1a4 values</a>
         </h3>
-<p id="appendix-B.1-1">The table, <a href="#random" class="auto internal xref">Table 8</a>, details varying levels of random bits, as well as commonly requested UUID Long lengths (192/256) in attempt to illustrate the difference between UUID length and Embedded Data Length.
+<p id="appendix-B.1-1">The table, <a href="#random" class="auto internal xref">Table 10</a>, details varying levels of random bits, as well as commonly requested UUID Long lengths (160/192/256) in an attempt to illustrate the difference between UUID length and Embedded Data Length.
 This is all compared to UUIDv4 as seen in the first row of the table.<a href="#appendix-B.1-1" class="pilcrow">¶</a></p>
-<p id="appendix-B.1-2">For example, one can generate a fixed 256 bit UUID Long value with random data and this UUID Long value will contain 204 bits of random.
-Alternatively, One could generate 256 bits of random data and then insert the UUID Long Encoding Block and Frozen Variant to create a UUID Long of length 308 bits.<a href="#appendix-B.1-2" class="pilcrow">¶</a></p>
+<p id="appendix-B.1-2">For example, one can generate a fixed 256 bit UUID Long value with random data and this UUID Long value will contain 252 bits of random.
+Alternatively, one could generate 256 bits of random data and then insert the UUID Long Encoding Block and Frozen Variant to create a UUID Long of length 260 bits.<a href="#appendix-B.1-2" class="pilcrow">¶</a></p>
 <p id="appendix-B.1-3">Neither option is more correct than the other but largely depends on the requirements of the application.
-256 bit length with 204 bits of random data is much larger than UUIDv2 122 bits of random data.
-However, if guarantees are required around randomness and size of the outputs are not a problem, then generating a 308 bit UUID which features 256 bits of random data can also solve an applications needs.<a href="#appendix-B.1-3" class="pilcrow">¶</a></p>
+256 bit length with 252 bits of random data is much larger than UUIDv4's 122 bits of random data.
+However, if guarantees are required around randomness and size of the outputs are not a problem, then generating a 512 bit UUID which features 508 bits of random data can also solve an applications needs.<a href="#appendix-B.1-3" class="pilcrow">¶</a></p>
 <span id="name-uuid-random-example"></span><div id="random">
-<table class="center" id="table-8">
+<table class="center" id="table-10">
           <caption>
-<a href="#table-8" class="selfRef">Table 8</a>:
+<a href="#table-10" class="selfRef">Table 10</a>:
 <a href="#name-uuid-random-example" class="selfRef">UUID Random Example</a>
           </caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">DOC</th>
               <th class="text-left" rowspan="1" colspan="1">Type</th>
-              <th class="text-left" rowspan="1" colspan="1">Random</th>
-              <th class="text-left" rowspan="1" colspan="1">Variant</th>
-              <th class="text-left" rowspan="1" colspan="1">Sub-Typing</th>
               <th class="text-left" rowspan="1" colspan="1">UUID Length</th>
+              <th class="text-left" rowspan="1" colspan="1">Variant</th>
+              <th class="text-left" rowspan="1" colspan="1">Sub-Type</th>
+              <th class="text-left" rowspan="1" colspan="1">Total Random</th>
               <th class="text-left" rowspan="1" colspan="1">Long Data</th>
               <th class="text-left" rowspan="1" colspan="1">Example</th>
             </tr>
@@ -2611,62 +2854,52 @@ However, if guarantees are required around randomness and size of the outputs ar
             <tr>
               <td class="text-left" rowspan="1" colspan="1">RFC9562</td>
               <td class="text-left" rowspan="1" colspan="1">UUIDv4</td>
-              <td class="text-left" rowspan="1" colspan="1">122</td>
+              <td class="text-left" rowspan="1" colspan="1">128</td>
               <td class="text-left" rowspan="1" colspan="1">2</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
-              <td class="text-left" rowspan="1" colspan="1">128</td>
+              <td class="text-left" rowspan="1" colspan="1">122</td>
               <td class="text-left" rowspan="1" colspan="1">n/a</td>
               <td class="text-left" rowspan="1" colspan="1">73e94fe0-e951-4153-aaf3-50e4e6089d9d</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
               <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
-              <td class="text-left" rowspan="1" colspan="1">140</td>
-              <td class="text-left" rowspan="1" colspan="1">4</td>
-              <td class="text-left" rowspan="1" colspan="1">48</td>
-              <td class="text-left" rowspan="1" colspan="1">192</td>
-              <td class="text-left" rowspan="1" colspan="1">16  (x10)</td>
-              <td class="text-left" rowspan="1" colspan="1">36eeb319-2ec5-5339-f300-31081e389258-010004000010-304e</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
-              <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
               <td class="text-left" rowspan="1" colspan="1">160</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
-              <td class="text-left" rowspan="1" colspan="1">48</td>
-              <td class="text-left" rowspan="1" colspan="1">210</td>
-              <td class="text-left" rowspan="1" colspan="1">36  (x24)</td>
-              <td class="text-left" rowspan="1" colspan="1">81783312-54db-bef3-f722-2515c8f3aceb-010004000024-54cd24e09</td>
+              <td class="text-left" rowspan="1" colspan="1">32</td>
+              <td class="text-left" rowspan="1" colspan="1">156</td>
+              <td class="text-left" rowspan="1" colspan="1">32  (x0020)</td>
+              <td class="text-left" rowspan="1" colspan="1">01040020-3ed8afd7-4a31-e2c5-f9c2-63e65cee20ee-0bb665e0</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
               <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
               <td class="text-left" rowspan="1" colspan="1">192</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
-              <td class="text-left" rowspan="1" colspan="1">48</td>
-              <td class="text-left" rowspan="1" colspan="1">244</td>
-              <td class="text-left" rowspan="1" colspan="1">68  (x44)</td>
-              <td class="text-left" rowspan="1" colspan="1">b6debb20-db1e-cdc7-f65f-c266fd5e25e9-010004000044-b1150e08ab9e81a11</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
-              <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
-              <td class="text-left" rowspan="1" colspan="1">204</td>
-              <td class="text-left" rowspan="1" colspan="1">4</td>
-              <td class="text-left" rowspan="1" colspan="1">48</td>
-              <td class="text-left" rowspan="1" colspan="1">256</td>
-              <td class="text-left" rowspan="1" colspan="1">80  (x50)</td>
-              <td class="text-left" rowspan="1" colspan="1">ea001d59-655d-39d8-f23f-1de701e267f1-010004000050-1fa43595a8ddaf0b1d8e</td>
+              <td class="text-left" rowspan="1" colspan="1">32</td>
+              <td class="text-left" rowspan="1" colspan="1">188</td>
+              <td class="text-left" rowspan="1" colspan="1">64  (x0040)</td>
+              <td class="text-left" rowspan="1" colspan="1">01040040-2f70cb74-91e5-f901-fe27-9d9d9704a625-aea06e67af31c3ef</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
               <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
               <td class="text-left" rowspan="1" colspan="1">256</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
-              <td class="text-left" rowspan="1" colspan="1">48</td>
-              <td class="text-left" rowspan="1" colspan="1">308</td>
-              <td class="text-left" rowspan="1" colspan="1">132 (x84)</td>
-              <td class="text-left" rowspan="1" colspan="1">d0fda74d-59a7-76c9-fd30-587ea76c99e9-010004000084-7dc3f499bb12772984e9169bf521a8492</td>
+              <td class="text-left" rowspan="1" colspan="1">32</td>
+              <td class="text-left" rowspan="1" colspan="1">252</td>
+              <td class="text-left" rowspan="1" colspan="1">128 (x0080)</td>
+              <td class="text-left" rowspan="1" colspan="1">01040080-35225f5c-78a0-50ba-f1c0-4ea2d181b096-7560113a765de7610e33d2aa69142289</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
+              <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
+              <td class="text-left" rowspan="1" colspan="1">512</td>
+              <td class="text-left" rowspan="1" colspan="1">4</td>
+              <td class="text-left" rowspan="1" colspan="1">32</td>
+              <td class="text-left" rowspan="1" colspan="1">508</td>
+              <td class="text-left" rowspan="1" colspan="1">384 (x0180)</td>
+              <td class="text-left" rowspan="1" colspan="1">01040180-2e675f90-fc04-b5ae-f687-4eb094c7c24e-649756dcee4b980e674f9ff0bed1c0a996b1b9fae89ea0107bc703e8cb64ccb58d7e8ad573747beb32f6c73d91b4d2ca</td>
             </tr>
           </tbody>
         </table>
@@ -2678,28 +2911,25 @@ However, if guarantees are required around randomness and size of the outputs ar
         <h3 id="name-example-sv2a7-value">
 <a href="#appendix-B.2" class="section-number selfRef">B.2. </a><a href="#name-example-sv2a7-value" class="section-name selfRef">Example sv2a7 Value</a>
         </h3>
-<p id="appendix-B.2-1">This example UUIDsv2a7 test vector utilizes a well-known Unix epoch timestamp with
-millisecond precision to fill the first 48 bits.<a href="#appendix-B.2-1" class="pilcrow">¶</a></p>
+<p id="appendix-B.2-1">This example UUIDsv2a7 test vector utilizes a well-known Unix epoch timestamp with millisecond precision to fill the first 48 bits.<a href="#appendix-B.2-1" class="pilcrow">¶</a></p>
 <p id="appendix-B.2-2">rand_a, rand_b, rand_c are filled with random data.<a href="#appendix-B.2-2" class="pilcrow">¶</a></p>
-<p id="appendix-B.2-3">The timestamp is Tuesday, February 22, 2022 2:22:22.00 PM GMT-05:00 represented
-as 0x017F22E279B0 or 1645557742000<a href="#appendix-B.2-3" class="pilcrow">¶</a></p>
+<p id="appendix-B.2-3">The timestamp is Tuesday, February 22, 2022 2:22:22.00 PM GMT-05:00 represented as 0x017F22E279B0 or 1645557742000<a href="#appendix-B.2-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-B.2-4">
 <pre>
 UUIDsv2a7 Test Vector {
+  UUID Long Encoding Block (32) = 0x02070040,
   unix_ts_ms (48) = 0x017F22E279B0,
   9562 Version (4) = 0x7,
   rand_a (12) = 0xFE6,
   UUID Variant (4) = 0xF,
   rand_b (60) = 0x76E2B86F151FB04,
-  UUID Long Encoding Block (48) = 0x020007000040,
   rand_c (64) = 0xE6B4400B21E888CD,
 }
 </pre><a href="#appendix-B.2-4" class="pilcrow">¶</a>
 </div>
 <div class="alignLeft art-text artwork" id="appendix-B.2-5">
 <pre>
-Final:
-017F22E2-79B0-7FE6-F76E-2B86F151FB04-020007000040-E6B4400B21E888CD
+02070040-017F22E2-79B0-7FE6-F76E-2B86F151FB04-E6B4400B21E888CD
 </pre><a href="#appendix-B.2-5" class="pilcrow">¶</a>
 </div>
 </section>
@@ -2719,12 +2949,12 @@ SHA-1: 2ed6657de927468b55e12665a8aea6a22dee3e35
 </div>
 <div class="alignLeft art-text artwork" id="appendix-B.3-2">
 <pre>
-A: 2ed6657d-e927-468b-55e1-2665a8aea6a2-2dee3e35
-B: xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx
-C: 2ed6657d-e927-468b-f5e1-2665a8aea6a2
-D:                                     -2dee3e35
-E: 2ed6657d-e927-468b-f5e1-2665a8aea6a2-030005000020
-F: 2ed6657d-e927-468b-f5e1-2665a8aea6a2-030005000020-2dee3e35
+A:          2ed6657d-e927-468b-55e1-2665a8aea6a2-2dee3e35
+B:          xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx
+C:          2ed6657d-e927-468b-f5e1-2665a8aea6a2
+D:                                              -2dee3e35
+E:          2ed6657d-e927-468b-f5e1-2665a8aea6a2-2dee3e35
+F: 03050020-2ed6657d-e927-468b-f5e1-2665a8aea6a2-2dee3e35
 </pre><a href="#appendix-B.3-2" class="pilcrow">¶</a>
 </div>
 <ul class="compact">
@@ -2741,10 +2971,10 @@ F: 2ed6657d-e927-468b-f5e1-2665a8aea6a2-030005000020-2dee3e35
             <p id="appendix-B.3-3.4.1">Line D details the leftover values from the original SHA-1 computation (Note that these have a length of 32 bits)<a href="#appendix-B.3-3.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="compact" id="appendix-B.3-3.5">
-            <p id="appendix-B.3-3.5.1">Line E details adding the UUID Long encoding block of Sub-Variant 3, and algorithm 5 (RFC 9562's version 5), and long data length of 32 bits as hex (x20) with leading 0s included.<a href="#appendix-B.3-3.5.1" class="pilcrow">¶</a></p>
+            <p id="appendix-B.3-3.5.1">Line E details the leftover values appended to form the full UUID Long of form sv3a5 without the encoding block.<a href="#appendix-B.3-3.5.1" class="pilcrow">¶</a></p>
 </li>
           <li class="compact" id="appendix-B.3-3.6">
-            <p id="appendix-B.3-3.6.1">Line F details the leftover values appended to form the full UUID Long of form sv3a5.<a href="#appendix-B.3-3.6.1" class="pilcrow">¶</a></p>
+            <p id="appendix-B.3-3.6.1">Line F details the full UUID Long of form sv3a5 with the encoding block prefixed.<a href="#appendix-B.3-3.6.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -2764,12 +2994,12 @@ SHA-256: 5c146b143c524afd938a375d0df1fbf6fe12a66b645f72f6158759387e51f3c8
 </div>
 <div class="alignLeft art-text artwork" id="appendix-B.4-2">
 <pre>
-A: 5c146b14-3c52-4afd-938a-375d0df1fbf6-fe12a66b645f72f6158759387e51f3c8
-B: xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx
-C: 5c146b14-3c52-4afd-f38a-375d0df1fbf6
-D:                                     -fe12a66b645f72f6158759387e51f3c8
-E: 5c146b14-3c52-4afd-f38a-375d0df1fbf6-030011000080
-F: 5c146b14-3c52-4afd-f38a-375d0df1fbf6-030011000080-fe12a66b645f72f6158759387e51f3c8
+A:          5c146b14-3c52-4afd-938a-375d0df1fbf6-fe12a66b645f72f6158759387e51f3c8
+B:          xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx
+C:          5c146b14-3c52-4afd-f38a-375d0df1fbf6
+D:                                              -fe12a66b645f72f6158759387e51f3c8
+E:          5c146b14-3c52-4afd-f38a-375d0df1fbf6-fe12a66b645f72f6158759387e51f3c8
+F: 03110080-5c146b14-3c52-4afd-f38a-375d0df1fbf6-fe12a66b645f72f6158759387e51f3c8
 </pre><a href="#appendix-B.4-2" class="pilcrow">¶</a>
 </div>
 <ul class="compact">
@@ -2786,12 +3016,255 @@ F: 5c146b14-3c52-4afd-f38a-375d0df1fbf6-030011000080-fe12a66b645f72f6158759387e5
             <p id="appendix-B.4-3.4.1">Line D details the leftover values from the original SHA-256 computation (Note that these have a length of 128 bits)<a href="#appendix-B.4-3.4.1" class="pilcrow">¶</a></p>
 </li>
           <li class="compact" id="appendix-B.4-3.5">
-            <p id="appendix-B.4-3.5.1">Line E details adding the UUID Long encoding block of Sub-Variant 3, and algorithm 7 (SHA-256), and long data length of 128 bits as hex (x80) with leading 0s included.<a href="#appendix-B.4-3.5.1" class="pilcrow">¶</a></p>
+            <p id="appendix-B.4-3.5.1">Line E details the leftover values appended to form the full UUID Long of form sv3a17 without the encoding block.<a href="#appendix-B.4-3.5.1" class="pilcrow">¶</a></p>
 </li>
           <li class="compact" id="appendix-B.4-3.6">
-            <p id="appendix-B.4-3.6.1">Line F details the leftover values appended to form the full UUID Long of form sv3a17.<a href="#appendix-B.4-3.6.1" class="pilcrow">¶</a></p>
+            <p id="appendix-B.4-3.6.1">Line F details the full UUID Long of form sv3a17 with the encoding block prefixed.<a href="#appendix-B.4-3.6.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
+</section>
+</div>
+<div id="boundary-encoding">
+<section id="appendix-B.5">
+        <h3 id="name-boundary-encoding-examples">
+<a href="#appendix-B.5" class="section-number selfRef">B.5. </a><a href="#name-boundary-encoding-examples" class="section-name selfRef">Boundary Encoding Examples</a>
+        </h3>
+<p id="appendix-B.5-1">The following test vectors illustrate the minimum (160-bit) UUID Long values encoded as all 0s and all 1s across the various BaseXX alphabets from <a href="#lengthTable" class="auto internal xref">Table 5</a>.<a href="#appendix-B.5-1" class="pilcrow">¶</a></p>
+<p id="appendix-B.5-2">The encoding block for these examples uses sv0a0 (SV=<code>0x00</code>, AA=<code>0x00</code>) with LLLL value <code>0x0004</code> (4 bytes of long data).<a href="#appendix-B.5-2" class="pilcrow">¶</a></p>
+<p id="appendix-B.5-3">All 0s values have the F variant set at the appropriate position; all 1s values are entirely <code>0xFF</code>.<a href="#appendix-B.5-3" class="pilcrow">¶</a></p>
+<div id="min-all-0s">
+<section id="appendix-B.5.1">
+          <h4 id="name-minimum-uuid-long-160-bits-">
+<a href="#appendix-B.5.1" class="section-number selfRef">B.5.1. </a><a href="#name-minimum-uuid-long-160-bits-" class="section-name selfRef">Minimum UUID Long (160 bits) All 0s</a>
+          </h4>
+<span id="name-160-bit-all-0s-boundary-enc"></span><div id="min-all-0s-table">
+<table class="center" id="table-11">
+            <caption>
+<a href="#table-11" class="selfRef">Table 11</a>:
+<a href="#name-160-bit-all-0s-boundary-enc" class="selfRef">160-bit All 0s Boundary Encoding</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Encoding</th>
+                <th class="text-left" rowspan="1" colspan="1">Variant</th>
+                <th class="text-left" rowspan="1" colspan="1">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base16</td>
+                <td class="text-left" rowspan="1" colspan="1">THIS DRAFT</td>
+                <td class="text-left" rowspan="1" colspan="1">00000004-00000000-0000-0000-f000-000000000000-00000000</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base16</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-8" class="relref">Section 8</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">000000040000000000000000f00000000000000000000000</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base32</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-6" class="relref">Section 6</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">AAAAAAEAAAAAAAAAAAAB4AAAAAAAAAAAAAAAAAA</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base32</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-7" class="relref">Section 7</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">00000040000000000001S000000000000000000</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base32</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base32human" class="cite xref">Base32human</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">00000040000000000001W000000000000000000</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base36</td>
+                <td class="text-left" rowspan="1" colspan="1">---</td>
+                <td class="text-left" rowspan="1" colspan="1">0000004000000000000778rxuo7mqegxp0fcao</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base52</td>
+                <td class="text-left" rowspan="1" colspan="1">---</td>
+                <td class="text-left" rowspan="1" colspan="1">AAAAAEAAAAAAAAAAAAZzXatxaqveqUnXJFs</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base58</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base58btc" class="cite xref">Base58btc</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">111115111111111115XgaZChk8x2RpiFTD</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base62</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base62ieee" class="cite xref">Base62ieee</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">00000400000000001YbB1W92hKBNBJ9iy</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base62</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base62sort" class="cite xref">Base62sort</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">00000400000000001YbB1W92hKBNBJ9iy</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base64</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-4" class="relref">Section 4</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">AAAAAEAAAAAAAAAAA8AAAAAAAAAAAAAAA</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base64</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-5" class="relref">Section 5</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">AAAAAEAAAAAAAAAAA8AAAAAAAAAAAAAAA</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base64</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base64sort" class="cite xref">Base64sort</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">-----3-----------w---------------</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base85</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Z85" class="cite xref">Z85</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">000040000000000&amp;ntjHu1d=1an-h*</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
+<div id="min-all-1s">
+<section id="appendix-B.5.2">
+          <h4 id="name-minimum-uuid-long-160-bits-a">
+<a href="#appendix-B.5.2" class="section-number selfRef">B.5.2. </a><a href="#name-minimum-uuid-long-160-bits-a" class="section-name selfRef">Minimum UUID Long (160 bits) All 1s</a>
+          </h4>
+<span id="name-160-bit-all-1s-boundary-enc"></span><div id="min-all-1s-table">
+<table class="center" id="table-12">
+            <caption>
+<a href="#table-12" class="selfRef">Table 12</a>:
+<a href="#name-160-bit-all-1s-boundary-enc" class="selfRef">160-bit All 1s Boundary Encoding</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Encoding</th>
+                <th class="text-left" rowspan="1" colspan="1">Variant</th>
+                <th class="text-left" rowspan="1" colspan="1">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base16</td>
+                <td class="text-left" rowspan="1" colspan="1">THIS DRAFT</td>
+                <td class="text-left" rowspan="1" colspan="1">00000004-ffffffff-ffff-ffff-ffff-ffffffffffff-ffffffff</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base16</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-8" class="relref">Section 8</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">00000004ffffffffffffffffffffffffffffffffffffffff</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base32</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-6" class="relref">Section 6</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">AAAAAAE77777777777777777777777777777777</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base32</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-7" class="relref">Section 7</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">0000004VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base32</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base32human" class="cite xref">Base32human</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">0000004ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base36</td>
+                <td class="text-left" rowspan="1" colspan="1">---</td>
+                <td class="text-left" rowspan="1" colspan="1">0000004twj4yidkw7a8pn4g709kzmfoaol3x8f</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base52</td>
+                <td class="text-left" rowspan="1" colspan="1">---</td>
+                <td class="text-left" rowspan="1" colspan="1">AAAAAEBQBgmlPXkFMhxLjXnmwANGzikNDAP</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base58</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base58btc" class="cite xref">Base58btc</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">1111154ZrjxJnU1LA5xSyrWMNuXTvSYKwt</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base62</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base62ieee" class="cite xref">Base62ieee</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">000004aWgEPTl1tmebfsQzFP4bxwgy80V</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base62</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base62sort" class="cite xref">Base62sort</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">000004aWgEPTl1tmebfsQzFP4bxwgy80V</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base64</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-4" class="relref">Section 4</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">AAAAAEP//////////////////////////</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base64</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-5" class="relref">Section 5</a></span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">AAAAAEP__<strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base64</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Base64sort" class="cite xref">Base64sort</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">-----3Ezzzzzzzzzzzzzzzzzzzzzzzzzz</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Base85</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span>[<a href="#Z85" class="cite xref">Z85</a>]</span>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">00004&amp;j{+1Vmjq.eU!hqMq17MmuaY0</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
 </section>
 </div>
 </section>

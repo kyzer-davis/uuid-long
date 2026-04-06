@@ -1,0 +1,7 @@
+kdrfc -rthv ./draft-davis-uuidrev-uuid-long.md
+
+mv ./draft-davis-uuidrev-uuid-long.txt ./docs/
+mv ./draft-davis-uuidrev-uuid-long.html ./docs/
+mv ./draft-davis-uuidrev-uuid-long.xml ./docs/
+
+git add docs/draft-davis-uuidrev-uuid-long.txt docs/draft-davis-uuidrev-uuid-long.html docs/draft-davis-uuidrev-uuid-long.xml

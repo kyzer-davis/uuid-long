@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "prepare": "husky && kdrfc -rthv ./draft-davis-uuidrev-uuid-long.md && mv ./draft-davis-uuidrev-uuid-long.txt ./docs/ && mv ./draft-davis-uuidrev-uuid-long.html ./docs/ && mv ./draft-davis-uuidrev-uuid-long.xml ./docs/",
+    "lint": "kdrfc -ir ./draft-davis-uuidrev-uuid-long.md > idnits.txt && rm -f ./draft-davis-uuidrev-uuid-long.txt ./draft-davis-uuidrev-uuid-long.xml"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
