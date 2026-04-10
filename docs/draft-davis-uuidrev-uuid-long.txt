@@ -41,7 +41,7 @@ About This Document
    https://www.ietf.org/mailman/listinfo/uuidrev/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/kyzer-davis/uuid-long/.
+   https://github.com/kyzer-davis/uuid-long.
 
 Status of This Memo
 
@@ -1249,8 +1249,8 @@ Internet-Draft                  UUID Long                     April 2026
 
    [ALT_UUID_ENCODING]
               "Alternate UUID Encoding Methods", n.d.,
-              <https://github.com/uuid6/new-uuid-encoding-techniques-
-              ietf-draft>.
+              <https://datatracker.ietf.org/doc/draft-davis-uuidrev-alt-
+              uuid-encoding-methods/>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1269,7 +1269,8 @@ Internet-Draft                  UUID Long                     April 2026
 
    [Base32human]
               Crockford, D. and K. Davis, "Base32 for Humans", April
-              2026, <https://github.com/douglascrockford/Base32>.
+              2026, <https://datatracker.ietf.org/doc/draft-crockford-
+              davis-base32-for-humans/>.
 
    [Base58btc]
               Bitcoin, "Bitcoin Base58 Implementation", commit fae71d3,
@@ -1281,7 +1282,6 @@ Internet-Draft                  UUID Long                     April 2026
               IEEE, "A secure, lossless, and compressed Base62
               encoding", November 2008,
               <https://ieeexplore.ieee.org/document/4737287>.
-
 
 
 
@@ -1297,7 +1297,8 @@ Internet-Draft                  UUID Long                     April 2026
 
    [Base64sort]
               Davis, K., "A Sortable Base64 Alphabet", December 2025,
-              <https://github.com/kyzer-davis/base64-sort-ietf-draft>.
+              <https://datatracker.ietf.org/doc/draft-brown-davis-
+              base64-sort/>.
 
    [FIPS180-4]
               National Institute of Standards and Technology, "Secure
@@ -1333,7 +1334,6 @@ Appendix A.  Changelog
 
    draft-00:
       *  Initial Release
-
 
 
 

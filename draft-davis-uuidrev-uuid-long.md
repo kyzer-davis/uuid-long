@@ -17,7 +17,7 @@ venue:
   type: "Working Group"
   mail: "uuidrev@ietf.org"
   arch: https://mailarchive.ietf.org/arch/browse/uuidrev/
-  github: kyzer-davis/uuid-long/
+  github: kyzer-davis/uuid-long
   latest: https://github.com/kyzer-davis/uuid-long/blob/main/draft-davis-uuidrev-uuid-long.md
 
 author:
@@ -30,7 +30,7 @@ author:
 normative:
   RFC9562: RFC9562
   ALT_UUID_ENCODING:
-    target: https://github.com/uuid6/new-uuid-encoding-techniques-ietf-draft
+    target: https://datatracker.ietf.org/doc/draft-davis-uuidrev-alt-uuid-encoding-methods/
     title: Alternate UUID Encoding Methods
 
 informative:
@@ -73,7 +73,7 @@ informative:
     seriesinfo:
       commit: fae71d3
   Base64sort:
-    target: https://github.com/kyzer-davis/base64-sort-ietf-draft
+    target: https://datatracker.ietf.org/doc/draft-brown-davis-base64-sort/
     title: A Sortable Base64 Alphabet
     author:
     - name: Kyzer Davis
@@ -91,7 +91,7 @@ informative:
     - name: Pei-Chi Wu
     date: 2001-08
   Base32human:
-    target: https://github.com/douglascrockford/Base32
+    target: https://datatracker.ietf.org/doc/draft-crockford-davis-base32-for-humans/
     title: Base32 for Humans
     author:
     - name: Douglas Crockford
