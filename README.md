@@ -2,7 +2,7 @@
 * [Editor's HTML Copy](https://kyzer-davis.github.io/uuid-long/draft-davis-uuidrev-uuid-long.html)
 * [Editor's TXT Copy](https://kyzer-davis.github.io/uuid-long/draft-davis-uuidrev-uuid-long.txt)
 
-# Latest
+# Latest IETF Draft:
 ```
 n/a
 ```

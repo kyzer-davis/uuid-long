@@ -4,7 +4,7 @@ abbrev: "UUID Long"
 category: std
 updates: '9562'
 
-docname: draft-davis-uuidrev-uuid-long
+docname: draft-davis-uuidrev-uuid-long-00
 submissiontype: IETF
 date: {DATE}
 consensus: true

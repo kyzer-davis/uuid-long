@@ -10,7 +10,7 @@ Expires: 12 October 2026
 
 
              Longer Universally Unique IDentifiers (UUIDs)
-                     draft-davis-uuidrev-uuid-long
+                    draft-davis-uuidrev-uuid-long-00
 
 Abstract
 
@@ -32,7 +32,7 @@ About This Document
    The latest revision of this draft can be found at https://github.com/
    kyzer-davis/uuid-long/blob/main/draft-davis-uuidrev-uuid-long.md.
    Status information for this document may be found at
-   https://datatracker.ietf.org/doc/draft-davis-uuidrev-uuid/.
+   https://datatracker.ietf.org/doc/draft-davis-uuidrev-uuid-long/.
 
    Discussion of this document takes place on the Revise Universally
    Unique Identifier Definitions (uuidrev) Working Group mailing list
