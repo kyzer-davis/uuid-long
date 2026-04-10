@@ -11,23 +11,23 @@
        These longer variable-length UUIDs ("UUID Long") leverage a previously unused variant bit "F" and feature a new sub-typing mechanism created to ensure there is enough space to define many future UUID algorithms within this new variant of UUIDs. 
        This document updates RFC9562. 
     ' name="description">
-<meta content="xml2rfc 3.32.0" name="generator">
+<meta content="xml2rfc 3.33.0" name="generator">
 <meta content="uuid" name="keyword">
 <meta content="draft-davis-uuidrev-uuid-long" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.32.0
+  xml2rfc 3.33.0
     Python 3.12.3
-    ConfigArgParse 1.7.1
+    ConfigArgParse 1.7.5
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.0.2
-    platformdirs 4.9.2
+    platformdirs 4.9.6
     pycountry 26.2.16
     PyYAML 6.0.3
-    requests 2.32.5
+    requests 2.33.1
     wcwidth 0.6.0
-    weasyprint 65.0
+    weasyprint 68.0
 -->
 <link href="draft-davis-uuidrev-uuid-long.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1222,7 +1222,7 @@ li > p:last-of-type:only-child {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Davis</td>
-<td class="center">Expires 8 October 2026</td>
+<td class="center">Expires 12 October 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1238,12 +1238,12 @@ li > p:last-of-type:only-child {
 <a href="https://www.rfc-editor.org/rfc/rfc9562" class="eref">9562</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-04-06" class="published">6 April 2026</time>
+<time datetime="2026-04-10" class="published">10 April 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-10-08">8 October 2026</time></dd>
+<dd class="expires"><time datetime="2026-10-12">12 October 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1295,7 +1295,7 @@ li > p:last-of-type:only-child {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 12 October 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1336,6 +1336,9 @@ li > p:last-of-type:only-child {
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
                 <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-a-better-uuid-sub-typing-sy" class="internal xref">A better UUID sub-typing system</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.4">
+                <p id="section-toc.1-1.1.2.4.1"><a href="#section-1.4" class="auto internal xref">1.4</a>.  <a href="#name-beyond-fixed-length" class="internal xref">Beyond Fixed-Length</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
@@ -1364,7 +1367,7 @@ li > p:last-of-type:only-child {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-fixed-length-192-256-bit-uu" class="internal xref">Fixed-Length 192/256 bit UUID Long</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-fixed-length-160-192-256-bi" class="internal xref">Fixed-Length 160/192/256 bit UUID Long</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-uuid-long-algorithms" class="internal xref">UUID Long Algorithms</a></p>
@@ -1462,7 +1465,7 @@ li > p:last-of-type:only-child {
                 <p id="section-toc.1-1.11.2.4.1"><a href="#appendix-B.4" class="auto internal xref">B.4</a>.  <a href="#name-example-sv3a17-value" class="internal xref">Example sv3a17 Value</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.5">
-                <p id="section-toc.1-1.11.2.5.1"><a href="#appendix-B.5" class="auto internal xref">B.5</a>.  <a href="#name-boundary-encoding-examples" class="internal xref">Boundary Encoding Examples</a></p>
+                <p id="section-toc.1-1.11.2.5.1"><a href="#appendix-B.5" class="auto internal xref">B.5</a>.  <a href="#name-further-encoding-examples" class="internal xref">Further Encoding Examples</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.5.2.1">
                     <p id="section-toc.1-1.11.2.5.2.1.1"><a href="#appendix-B.5.1" class="auto internal xref">B.5.1</a>.  <a href="#name-minimum-uuid-long-160-bits-" class="internal xref">Minimum UUID Long (160 bits) All 0s</a></p>
@@ -1521,6 +1524,20 @@ This version limit artificially inhibits innovation of new UUID algorithms (a pr
 <p id="section-1.3-2">This drawback of the "OSF DCE / IETF" variant space was observed while working on <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>, in particular to future name-based UUID layouts that replace "UUIDv3" and "UUIDv5".
 With the number of hashing algorithms available and the possibility that at any point one may be deprecated; there was little chance of getting consensus on leveraging one of the few remaining versions for such an algorithm.<a href="#section-1.3-2" class="pilcrow">¶</a></p>
 <p id="section-1.3-3">With UUID Long, as per section <a href="#subtypes" class="auto internal xref">Section 3.2</a>, there is ample room for future UUID Long Algorithms.<a href="#section-1.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="fixed-length">
+<section id="section-1.4">
+        <h3 id="name-beyond-fixed-length">
+<a href="#section-1.4" class="section-number selfRef">1.4. </a><a href="#name-beyond-fixed-length" class="section-name selfRef">Beyond Fixed-Length</a>
+        </h3>
+<p id="section-1.4-1">With a fixed-length UUID, there is no room to grow as future protocols change and severely limits the ability to innovate in the space.<a href="#section-1.4-1" class="pilcrow">¶</a></p>
+<p id="section-1.4-2">A point of contention that has come up many times across the community is that 128 bits is not enough for modern protocols and applications.
+Common alternate unique identifier lengths are 160 bits, 192 bits and 256 bits.<a href="#section-1.4-2" class="pilcrow">¶</a></p>
+<p id="section-1.4-3">UUID Long provides these fixed length values and the flexibility to accommodate future needs via the variable-length design.<a href="#section-1.4-3" class="pilcrow">¶</a></p>
+<p id="section-1.4-4">Some example items that may change over time are, but not limited to, hashing algorithms, signature algorithms, and post-quantum computing related algorithms.
+Any of these could exceed a limit if UUID Long does not select a large enough maximum value.<a href="#section-1.4-4" class="pilcrow">¶</a></p>
+<p id="section-1.4-5">See <a href="#security" class="auto internal xref">Section 7</a> for more considerations around generating and parsing UUID Long values.<a href="#section-1.4-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1664,13 +1681,11 @@ xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-yy..zz
       </table>
 </div>
 <p id="section-3-8">A properly constructed UUID Long value will be, at a minimum, 160 bits or 20 octets.
-The maximum value for a UUID Long is computed as UUID Short Length (128) + Maximum UUID Long Data Length (3,968) which is 4,096 bits (512 octets).<a href="#section-3-8" class="pilcrow">¶</a></p>
+The maximum value for a UUID Long is computed as UUID Short Length (128) + Maximum UUID Long Data Length (3,968) which is 4,096 bits (512 octets).
+Note that these calculations do not take into account the UUID Long Encoding Block (4 bytes or 32 bits) described in <a href="#subtypes" class="auto internal xref">Section 3.2</a> which is placed at the start of the variable-length UUID Long data.<a href="#section-3-8" class="pilcrow">¶</a></p>
 <p id="section-3-9">While it is theoretically possible to extend UUID Long beyond the maximum total length of 4,096 bits; this value was chosen to be sufficiently large to allow for any type of data that needs to be implemented.
 If the time comes when UUID Long needs to be extended beyond 4,096 bits; this specification can easily be updated to allow for larger values due to the nature of the variable-length design of UUID Long.<a href="#section-3-9" class="pilcrow">¶</a></p>
-<p id="section-3-10">With a fixed-length UUID, there is no room to grow as future protocols change.
-Some example items that may change over time are, but not limited to, hashing algorithms, signature algorithms, and post-quantum computing related algorithms.
-Any of these could exceed a limit if UUID Long does not select a big enough maximum value.
-See <a href="#security" class="auto internal xref">Section 7</a> for more considerations around generating and parsing UUID Long values.<a href="#section-3-10" class="pilcrow">¶</a></p>
+<p id="section-3-10">This would be accomplished by updating the UUID Encoding Block definition (which already supports describing UUID Longs beyond 4096 bits via the two byte field) and updating the maximum length of the UUID Long Data field in the layout definitions above.<a href="#section-3-10" class="pilcrow">¶</a></p>
 <div id="variant">
 <section id="section-3.1">
         <h3 id="name-variant-field">
@@ -1731,8 +1746,9 @@ The first is a "Sub-Variant" abbreviated "sv" which indicates the grouping of UU
 The second level of UUID Long sub-typing is defined as simply the "algorithm" which can be abbreviated "a".
 The Sub-Variant plus Algorithm (SV+A) serve as the identity behind a particular UUID Long value.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.2-4">With this in mind "Sub-Variant 1, Algorithm 4" can be expressed as "sv1a4" or "UUIDsv1a4" throughout this document.  Note that "UUIDv4" or "UUID Version 4" is usually used to reference a UUID algorithm as specified by <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>], <a href="https://rfc-editor.org/rfc/rfc9562#section-5.4" class="relref">Section 5.4</a></span> and does not represent UUID Long algorithms in this document.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
-<p id="section-3.2-5">The final 2 bytes of the UUID Long Encoding Block include a descriptor for the length of the variable-length UUID Long data which can be used by applications in order to understand where a UUID Long value ends.
-The length descriptor <span class="bcp14">MUST NOT</span> take into account the UUID Long Encoding Block itself and only describe the length of the variable-length UUID Long data.<a href="#section-3.2-5" class="pilcrow">¶</a></p>
+<p id="section-3.2-5">The final 2 bytes of the UUID Long Encoding Block include a length descriptor, expressed in octets (bytes), for the variable-length UUID Long data which can be used by applications in order to understand where a UUID Long value ends.
+The value stored in this field represents the number of octets of UUID Long data following the UUID Short portion, not a bit count or character count.
+The length descriptor <span class="bcp14">MUST NOT</span> take into account the UUID Long Encoding Block itself and only describe the octet length of the variable-length UUID Long data.<a href="#section-3.2-5" class="pilcrow">¶</a></p>
 <p id="section-3.2-6">The full 4 byte UUID Encoding block can be observed in <a href="#ex-ul-block" class="auto internal xref">Figure 4</a> or <a href="#ex-ul-block-layout" class="auto internal xref">Figure 5</a> and described succinctly in <a href="#ex-ul-desc-layout" class="auto internal xref">Table 3</a>.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
 <span id="name-example-uuid-long-encoding-"></span><div id="ex-ul-block">
 <figure id="figure-4">
@@ -1786,7 +1802,7 @@ SVAALLLL-xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-xx..zz
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">LLLL</td>
-              <td class="text-left" rowspan="1" colspan="1">Two Byte length descriptor of 496 max length describing the UUID Long data</td>
+              <td class="text-left" rowspan="1" colspan="1">Two Byte length descriptor in octets with a max value of 496 describing the UUID Long data</td>
               <td class="text-left" rowspan="1" colspan="1">16</td>
             </tr>
           </tbody>
@@ -1981,16 +1997,18 @@ At Base32 and above the number of characters used by the minimum length of UUID 
 </div>
 </section>
 </div>
-<div id="fixed-length">
+<div id="fixed-length-sizes">
 <section id="section-4">
-      <h2 id="name-fixed-length-192-256-bit-uu">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-fixed-length-192-256-bit-uu" class="section-name selfRef">Fixed-Length 192/256 bit UUID Long</a>
+      <h2 id="name-fixed-length-160-192-256-bi">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-fixed-length-160-192-256-bi" class="section-name selfRef">Fixed-Length 160/192/256 bit UUID Long</a>
       </h2>
 <p id="section-4-1">Although UUID Long is variable length and features a very large top end; implementations may end up generating fixed-length UUID Long Values as described in this section.
 See <a href="#security" class="auto internal xref">Section 7</a> for security discussion about this topic.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">A common UUID length requested by the community is 160, 192 and 256 bit UUID values.
 With UUID Long generating these values is a trivial task.<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3">We can calculate the new bits by using the following logic (for completeness up to 2048 has been illustrated.)<a href="#section-4-3" class="pilcrow">¶</a></p>
+<p id="section-4-3">We can easily calculate the new bits by using the following logic (for completeness up to 2048 has been illustrated.)
+Once calculated these can be filled with the appropriate application specific data.
+Apply the Variant bits as per <a href="#variant" class="auto internal xref">Section 3.1</a> and the appropriate sub-variant algorithm encoding as per <a href="#subtypes" class="auto internal xref">Section 3.2</a> and then build the UUID Long Encoding Block and you now have a fixed-length UUID Long value of the required length.<a href="#section-4-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-4">
 <pre>
 160 - UUID Short Length (128) = 32 bits of additional UUID Long data
@@ -2014,18 +2032,18 @@ The sub-variant algorithm identifier has been 'smeared' for ease of understandin
 For example: "UUIDv4 == UUIDsv1a4" and "UUIDv7 == UUIDsv2a7" where the final number in each abbreviation matches.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <p id="section-5-3">The first 16 sub-variant algorithm values (a0-a15) in each sub-variant space are reserved for matching the appropriate <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> versions.
 This ensures that a future IETF spec can define both a UUID Short Version and UUID Long sub-variant algorithm that line up nicely to each other.
-With 65,536 possible sub-variant algorithms in each of the 256 sub-variant spaces; 16 reserved sub-variant algorithm identifiers should be no problem.<a href="#section-5-3" class="pilcrow">¶</a></p>
+With 256 possible sub-variant algorithms in each of the 256 sub-variant spaces; 16 reserved sub-variant algorithm identifiers should be no problem.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <p id="section-5-4">When the time comes that all 16 <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> versions have been allocated to their appropriate UUID Long SV+A IDs, or are no longer in need of the mapping space; outstanding sub-variant algorithm identifiers <span class="bcp14">MAY</span> be used by future UUID Long specifications.<a href="#section-5-4" class="pilcrow">¶</a></p>
 <p id="section-5-5">Other UUID sub-types that exist in other variant spaces <span class="bcp14">MAY</span> leverage unused sub-variant algorithm identifiers, starting at a16, for UUID Long versions of the existing algorithms.<a href="#section-5-5" class="pilcrow">¶</a></p>
 <p id="section-5-6">Generally speaking for sub-variant algorithms based on the RFC9562 versions; there are two main areas that need to be described:<a href="#section-5-6" class="pilcrow">¶</a></p>
-<ul class="compact">
-<li class="compact" id="section-5-7.1">
+<ol start="1" type="1" class="compact type-1" id="section-5-7">
+<li id="section-5-7.1">
           <p id="section-5-7.1.1">How to leverage the new UUID Long bits.<a href="#section-5-7.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="compact" id="section-5-7.2">
+        <li id="section-5-7.2">
           <p id="section-5-7.2.1">Define the RFC9562 version bit handling.<a href="#section-5-7.2.1" class="pilcrow">¶</a></p>
 </li>
-      </ul>
+      </ol>
 <p id="section-5-8">The following sections illustrate the current sub-variant algorithm mappings for UUID Long along with the methods for generating a UUID Long value for a given sub-variant algorithm.<a href="#section-5-8" class="pilcrow">¶</a></p>
 <p id="section-5-9">For all algorithms the following two statements apply, even if they are based on an RFC9562-based algorithm.<a href="#section-5-9" class="pilcrow">¶</a></p>
 <ul class="compact">
@@ -2238,8 +2256,8 @@ UUIDsv1a4 Structure {
           </tbody>
         </table>
 </div>
-<p id="section-5.3-4">TODO: Discuss if we want sv2a16 as Unix Time-based (Nanosecond time resolution)... this timestamp resolution was a big ask from the community.
-TODO: Reserve an sv2a17 for custom epoch time, also a big item that came from the community.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3-4">TODO: Discuss if we want sv2a16 as Unix Time-based (Nanosecond time resolution)... this timestamp resolution was a big ask from the community.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3-5">TODO: Reserve an sv2a17 for custom epoch time, also a big item that came from the community.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
 <div id="sv2a1-section">
 <section id="section-5.3.1">
           <h4 id="name-sv2a1">
@@ -2638,7 +2656,7 @@ UUID Long Hash-Based Structure {
 The UUID portion (bits 33 through 160 at minimum) is structured identically to a UUID Short in the first 128 bits.
 However, because UUID Long uses the "F" variant (b1111), many existing UUID parsers and database UUID types will reject the UUID portion during variant validation.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <p id="section-6-2">To derive a compatible 128-bit UUID from a UUID Long value, an implementation <span class="bcp14">MUST</span> first strip the 32-bit encoding block prefix to isolate the 128-bit UUID Short portion.
-Stripping the prefix alone does NOT produce a value that is generally accepted as a valid <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> UUID because the F variant is not recognized by existing parsers.<a href="#section-6-2" class="pilcrow">¶</a></p>
+Stripping the prefix alone does NOT produce a value that is generally accepted as a valid <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span> UUID because the F variant may not be recognized by existing parsers.<a href="#section-6-2" class="pilcrow">¶</a></p>
 <p id="section-6-3">Implementations that need a valid 128-bit UUID <span class="bcp14">SHOULD</span> then actively transform the isolated value by overwriting the variant bits to produce a valid "OSF DCE / IETF" variant (b10xx) UUID.
 For example, an implementation could clear the two most significant variant bits to produce a valid RFC 9562 variant before passing the value to downstream systems.
 Implementations <span class="bcp14">MUST</span> document any such transformation and be aware that the resulting 128-bit value will differ from the original UUID Long's UUID Short portion.<a href="#section-6-3" class="pilcrow">¶</a></p>
@@ -2827,11 +2845,9 @@ The sections below attempt to summarize the key points of the sub-variant algori
         </h3>
 <p id="appendix-B.1-1">The table, <a href="#random" class="auto internal xref">Table 10</a>, details varying levels of random bits, as well as commonly requested UUID Long lengths (160/192/256) in an attempt to illustrate the difference between UUID length and Embedded Data Length.
 This is all compared to UUIDv4 as seen in the first row of the table.<a href="#appendix-B.1-1" class="pilcrow">¶</a></p>
-<p id="appendix-B.1-2">For example, one can generate a fixed 256 bit UUID Long value with random data and this UUID Long value will contain 252 bits of random.
-Alternatively, one could generate 256 bits of random data and then insert the UUID Long Encoding Block and Frozen Variant to create a UUID Long of length 260 bits.<a href="#appendix-B.1-2" class="pilcrow">¶</a></p>
-<p id="appendix-B.1-3">Neither option is more correct than the other but largely depends on the requirements of the application.
-256 bit length with 252 bits of random data is much larger than UUIDv4's 122 bits of random data.
-However, if guarantees are required around randomness and size of the outputs are not a problem, then generating a 512 bit UUID which features 508 bits of random data can also solve an applications needs.<a href="#appendix-B.1-3" class="pilcrow">¶</a></p>
+<p id="appendix-B.1-2">For example, one can generate a fixed 256 bit UUID Long value with random data and this UUID Long value will contain 252 bits of random after applying the 0xF variant and 0x010400 encoding block for sv1a4 with 32 bits of long data bringing the total length of the UUID Long to 288 bits.<a href="#appendix-B.1-2" class="pilcrow">¶</a></p>
+<p id="appendix-B.1-3">256 bit length with 252 bits of random data is far larger than UUIDv4's 122 bits of random data.<a href="#appendix-B.1-3" class="pilcrow">¶</a></p>
+<p id="appendix-B.1-4">However, if further guarantees are required around randomness and size of the outputs are not a problem, then generating a 512 bit UUID which features 508 bits of random data can also solve an applications needs.<a href="#appendix-B.1-4" class="pilcrow">¶</a></p>
 <span id="name-uuid-random-example"></span><div id="random">
 <table class="center" id="table-10">
           <caption>
@@ -2842,7 +2858,7 @@ However, if guarantees are required around randomness and size of the outputs ar
             <tr>
               <th class="text-left" rowspan="1" colspan="1">DOC</th>
               <th class="text-left" rowspan="1" colspan="1">Type</th>
-              <th class="text-left" rowspan="1" colspan="1">UUID Length</th>
+              <th class="text-left" rowspan="1" colspan="1">UUID Length (with encoding block)</th>
               <th class="text-left" rowspan="1" colspan="1">Variant</th>
               <th class="text-left" rowspan="1" colspan="1">Sub-Type</th>
               <th class="text-left" rowspan="1" colspan="1">Total Random</th>
@@ -2864,7 +2880,7 @@ However, if guarantees are required around randomness and size of the outputs ar
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
               <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
-              <td class="text-left" rowspan="1" colspan="1">160</td>
+              <td class="text-left" rowspan="1" colspan="1">160 (192)</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
               <td class="text-left" rowspan="1" colspan="1">32</td>
               <td class="text-left" rowspan="1" colspan="1">156</td>
@@ -2874,7 +2890,7 @@ However, if guarantees are required around randomness and size of the outputs ar
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
               <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
-              <td class="text-left" rowspan="1" colspan="1">192</td>
+              <td class="text-left" rowspan="1" colspan="1">192 (224)</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
               <td class="text-left" rowspan="1" colspan="1">32</td>
               <td class="text-left" rowspan="1" colspan="1">188</td>
@@ -2884,7 +2900,7 @@ However, if guarantees are required around randomness and size of the outputs ar
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
               <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
-              <td class="text-left" rowspan="1" colspan="1">256</td>
+              <td class="text-left" rowspan="1" colspan="1">256 (288)</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
               <td class="text-left" rowspan="1" colspan="1">32</td>
               <td class="text-left" rowspan="1" colspan="1">252</td>
@@ -2894,7 +2910,7 @@ However, if guarantees are required around randomness and size of the outputs ar
             <tr>
               <td class="text-left" rowspan="1" colspan="1">DRAFT</td>
               <td class="text-left" rowspan="1" colspan="1">sv1a4</td>
-              <td class="text-left" rowspan="1" colspan="1">512</td>
+              <td class="text-left" rowspan="1" colspan="1">512 (544)</td>
               <td class="text-left" rowspan="1" colspan="1">4</td>
               <td class="text-left" rowspan="1" colspan="1">32</td>
               <td class="text-left" rowspan="1" colspan="1">508</td>
@@ -2912,7 +2928,7 @@ However, if guarantees are required around randomness and size of the outputs ar
 <a href="#appendix-B.2" class="section-number selfRef">B.2. </a><a href="#name-example-sv2a7-value" class="section-name selfRef">Example sv2a7 Value</a>
         </h3>
 <p id="appendix-B.2-1">This example UUIDsv2a7 test vector utilizes a well-known Unix epoch timestamp with millisecond precision to fill the first 48 bits.<a href="#appendix-B.2-1" class="pilcrow">¶</a></p>
-<p id="appendix-B.2-2">rand_a, rand_b, rand_c are filled with random data.<a href="#appendix-B.2-2" class="pilcrow">¶</a></p>
+<p id="appendix-B.2-2">rand_a, rand_b, rand_c are filled with 64 bits of random data.<a href="#appendix-B.2-2" class="pilcrow">¶</a></p>
 <p id="appendix-B.2-3">The timestamp is Tuesday, February 22, 2022 2:22:22.00 PM GMT-05:00 represented as 0x017F22E279B0 or 1645557742000<a href="#appendix-B.2-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-B.2-4">
 <pre>
@@ -3024,10 +3040,10 @@ F: 03110080-5c146b14-3c52-4afd-f38a-375d0df1fbf6-fe12a66b645f72f6158759387e51f3c
         </ul>
 </section>
 </div>
-<div id="boundary-encoding">
+<div id="further-encoding">
 <section id="appendix-B.5">
-        <h3 id="name-boundary-encoding-examples">
-<a href="#appendix-B.5" class="section-number selfRef">B.5. </a><a href="#name-boundary-encoding-examples" class="section-name selfRef">Boundary Encoding Examples</a>
+        <h3 id="name-further-encoding-examples">
+<a href="#appendix-B.5" class="section-number selfRef">B.5. </a><a href="#name-further-encoding-examples" class="section-name selfRef">Further Encoding Examples</a>
         </h3>
 <p id="appendix-B.5-1">The following test vectors illustrate the minimum (160-bit) UUID Long values encoded as all 0s and all 1s across the various BaseXX alphabets from <a href="#lengthTable" class="auto internal xref">Table 5</a>.<a href="#appendix-B.5-1" class="pilcrow">¶</a></p>
 <p id="appendix-B.5-2">The encoding block for these examples uses sv0a0 (SV=<code>0x00</code>, AA=<code>0x00</code>) with LLLL value <code>0x0004</code> (4 bytes of long data).<a href="#appendix-B.5-2" class="pilcrow">¶</a></p>
@@ -3279,7 +3295,7 @@ F: 03110080-5c146b14-3c52-4afd-f38a-375d0df1fbf6-fe12a66b645f72f6158759387e51f3c
 <div dir="auto" class="left"><span class="org">Cisco Systems</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:kydavis@cisco.com" class="email">kydavis@cisco.com</a>
+<a href="mailto:kydavis@cisco.com" class="email">kydavis@cisco.com</a>, <a href="mailto:kyzer.davis@outlook.com" class="email">kyzer.davis@outlook.com</a>
 </div>
 </address>
 </section>

@@ -22,7 +22,9 @@ venue:
 
 author:
 - name: Kyzer R. Davis
-  email: kydavis@cisco.com
+  email:
+    - kydavis@cisco.com
+    - kyzer.davis@outlook.com
   org: Cisco Systems
 
 normative:
@@ -139,6 +141,20 @@ With the number of hashing algorithms available and the possibility that at any 
 
 With UUID Long, as per section {{subtypes}}, there is ample room for future UUID Long Algorithms.
 
+## Beyond Fixed-Length {#fixed-length}
+
+With a fixed-length UUID, there is no room to grow as future protocols change and severely limits the ability to innovate in the space.
+
+A point of contention that has come up many times across the community is that 128 bits is not enough for modern protocols and applications.
+Common alternate unique identifier lengths are 160 bits, 192 bits and 256 bits.
+
+UUID Long provides these fixed length values and the flexibility to accommodate future needs via the variable-length design.
+
+Some example items that may change over time are, but not limited to, hashing algorithms, signature algorithms, and post-quantum computing related algorithms.
+Any of these could exceed a limit if UUID Long does not select a large enough maximum value.
+
+See {{security}} for more considerations around generating and parsing UUID Long values.
+
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
@@ -229,14 +245,12 @@ xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-yy..zz
 
 A properly constructed UUID Long value will be, at a minimum, 160 bits or 20 octets.
 The maximum value for a UUID Long is computed as UUID Short Length (128) + Maximum UUID Long Data Length (3,968) which is 4,096 bits (512 octets).
+Note that these calculations do not take into account the UUID Long Encoding Block (4 bytes or 32 bits) described in {{subtypes}} which is placed at the start of the variable-length UUID Long data.
 
 While it is theoretically possible to extend UUID Long beyond the maximum total length of 4,096 bits; this value was chosen to be sufficiently large to allow for any type of data that needs to be implemented.
 If the time comes when UUID Long needs to be extended beyond 4,096 bits; this specification can easily be updated to allow for larger values due to the nature of the variable-length design of UUID Long.
 
-With a fixed-length UUID, there is no room to grow as future protocols change.
-Some example items that may change over time are, but not limited to, hashing algorithms, signature algorithms, and post-quantum computing related algorithms.
-Any of these could exceed a limit if UUID Long does not select a big enough maximum value.
-See {{security}} for more considerations around generating and parsing UUID Long values.
+This would be accomplished by updating the UUID Encoding Block definition (which already supports describing UUID Longs beyond 4096 bits via the two byte field) and updating the maximum length of the UUID Long Data field in the layout definitions above.
 
 ## Variant Field {#variant}
 
@@ -267,8 +281,9 @@ The Sub-Variant plus Algorithm (SV+A) serve as the identity behind a particular 
 
 With this in mind "Sub-Variant 1, Algorithm 4" can be expressed as "sv1a4" or "UUIDsv1a4" throughout this document.  Note that "UUIDv4" or "UUID Version 4" is usually used to reference a UUID algorithm as specified by {{RFC9562, Section 5.4}} and does not represent UUID Long algorithms in this document.
 
-The final 2 bytes of the UUID Long Encoding Block include a descriptor for the length of the variable-length UUID Long data which can be used by applications in order to understand where a UUID Long value ends.
-The length descriptor MUST NOT take into account the UUID Long Encoding Block itself and only describe the length of the variable-length UUID Long data.
+The final 2 bytes of the UUID Long Encoding Block include a length descriptor, expressed in octets (bytes), for the variable-length UUID Long data which can be used by applications in order to understand where a UUID Long value ends.
+The value stored in this field represents the number of octets of UUID Long data following the UUID Short portion, not a bit count or character count.
+The length descriptor MUST NOT take into account the UUID Long Encoding Block itself and only describe the octet length of the variable-length UUID Long data.
 
 The full 4 byte UUID Encoding block can be observed in {{ex-ul-block}} or {{ex-ul-block-layout}} and described succinctly in {{ex-ul-desc-layout}}.
 
@@ -289,7 +304,7 @@ SVAALLLL-xxxxxxxx-xxxx-xxxx-Fxxx-xxxxxxxxxxxx-xx..zz
 | ID      | Description                                                                                                | Bits     |
 | SV      | One Byte Sub-Variant with 256 possible values                                                              | 8        |
 | AA      | One Byte Algorithm with 256 possible values                                                                | 8        |
-| LLLL    | Two Byte length descriptor of 496 max length describing the UUID Long data                                 | 16       |
+| LLLL    | Two Byte length descriptor in octets with a max value of 496 describing the UUID Long data                 | 16       |
 {: #ex-ul-desc-layout title='UUID Long String Layout Descriptors'}
 
 ## Sub-Variants {#subvariants}
@@ -339,7 +354,7 @@ Applications MUST ensure that UUID Long values leverage natural boundaries and p
 | Base85   | {{Z85}}                | 5 + 25 (30)              | 5 + 640 (645)             |
 {: #lengthTable title='Alt UUID Encoding Length Comparison'}
 
-# Fixed-Length 192/256 bit UUID Long {#fixed-length}
+# Fixed-Length 160/192/256 bit UUID Long {#fixed-length-sizes}
 
 Although UUID Long is variable length and features a very large top end; implementations may end up generating fixed-length UUID Long Values as described in this section.
 See {{security}} for security discussion about this topic.
@@ -347,7 +362,9 @@ See {{security}} for security discussion about this topic.
 A common UUID length requested by the community is 160, 192 and 256 bit UUID values.
 With UUID Long generating these values is a trivial task.
 
-We can calculate the new bits by using the following logic (for completeness up to 2048 has been illustrated.)
+We can easily calculate the new bits by using the following logic (for completeness up to 2048 has been illustrated.)
+Once calculated these can be filled with the appropriate application specific data.
+Apply the Variant bits as per {{variant}} and the appropriate sub-variant algorithm encoding as per {{subtypes}} and then build the UUID Long Encoding Block and you now have a fixed-length UUID Long value of the required length.
 
 ~~~
 160 - UUID Short Length (128) = 32 bits of additional UUID Long data
@@ -368,7 +385,7 @@ For example: "UUIDv4 == UUIDsv1a4" and "UUIDv7 == UUIDsv2a7" where the final num
 
 The first 16 sub-variant algorithm values (a0-a15) in each sub-variant space are reserved for matching the appropriate {{RFC9562}} versions.
 This ensures that a future IETF spec can define both a UUID Short Version and UUID Long sub-variant algorithm that line up nicely to each other.
-With 65,536 possible sub-variant algorithms in each of the 256 sub-variant spaces; 16 reserved sub-variant algorithm identifiers should be no problem.
+With 256 possible sub-variant algorithms in each of the 256 sub-variant spaces; 16 reserved sub-variant algorithm identifiers should be no problem.
 
 When the time comes that all 16 {{RFC9562}} versions have been allocated to their appropriate UUID Long SV+A IDs, or are no longer in need of the mapping space; outstanding sub-variant algorithm identifiers MAY be used by future UUID Long specifications.
 
@@ -378,8 +395,8 @@ Generally speaking for sub-variant algorithms based on the RFC9562 versions; the
 
 {: spacing="compact"}
 
-- How to leverage the new UUID Long bits.
-- Define the RFC9562 version bit handling.
+1. How to leverage the new UUID Long bits.
+2. Define the RFC9562 version bit handling.
 
 The following sections illustrate the current sub-variant algorithm mappings for UUID Long along with the methods for generating a UUID Long value for a given sub-variant algorithm.
 
@@ -476,6 +493,7 @@ UUIDv1, UUIDv6 and UUIDv7 have been mapped to UUIDsv2a1, UUIDsv2a6, UUIDsv2a7 wh
 {: #sv2 title='Sub-Variant 2 Algorithms'}
 
 TODO: Discuss if we want sv2a16 as Unix Time-based (Nanosecond time resolution)... this timestamp resolution was a big ask from the community.
+
 TODO: Reserve an sv2a17 for custom epoch time, also a big item that came from the community.
 
 ### sv2a1 {#sv2a1-section}
@@ -635,7 +653,7 @@ The UUID portion (bits 33 through 160 at minimum) is structured identically to a
 However, because UUID Long uses the "F" variant (b1111), many existing UUID parsers and database UUID types will reject the UUID portion during variant validation.
 
 To derive a compatible 128-bit UUID from a UUID Long value, an implementation MUST first strip the 32-bit encoding block prefix to isolate the 128-bit UUID Short portion.
-Stripping the prefix alone does NOT produce a value that is generally accepted as a valid {{RFC9562}} UUID because the F variant is not recognized by existing parsers.
+Stripping the prefix alone does NOT produce a value that is generally accepted as a valid {{RFC9562}} UUID because the F variant may not be recognized by existing parsers.
 
 Implementations that need a valid 128-bit UUID SHOULD then actively transform the isolated value by overwriting the variant bits to produce a valid "OSF DCE / IETF" variant (b10xx) UUID.
 For example, an implementation could clear the two most significant variant bits to produce a valid RFC 9562 variant before passing the value to downstream systems.
@@ -704,26 +722,25 @@ TODO: Add other test vectors as things are finalized.
 The table, {{random}}, details varying levels of random bits, as well as commonly requested UUID Long lengths (160/192/256) in an attempt to illustrate the difference between UUID length and Embedded Data Length.
 This is all compared to UUIDv4 as seen in the first row of the table.
 
-For example, one can generate a fixed 256 bit UUID Long value with random data and this UUID Long value will contain 252 bits of random.
-Alternatively, one could generate 256 bits of random data and then insert the UUID Long Encoding Block and Frozen Variant to create a UUID Long of length 260 bits.
+For example, one can generate a fixed 256 bit UUID Long value with random data and this UUID Long value will contain 252 bits of random after applying the 0xF variant and 0x010400 encoding block for sv1a4 with 32 bits of long data bringing the total length of the UUID Long to 288 bits.
 
-Neither option is more correct than the other but largely depends on the requirements of the application.
-256 bit length with 252 bits of random data is much larger than UUIDv4's 122 bits of random data.
-However, if guarantees are required around randomness and size of the outputs are not a problem, then generating a 512 bit UUID which features 508 bits of random data can also solve an applications needs.
+256 bit length with 252 bits of random data is far larger than UUIDv4's 122 bits of random data.
 
-| DOC     | Type    | UUID Length | Variant | Sub-Type | Total Random | Long Data    | Example |
+However, if further guarantees are required around randomness and size of the outputs are not a problem, then generating a 512 bit UUID which features 508 bits of random data can also solve an applications needs.
+
+| DOC     | Type    | UUID Length (with encoding block) | Variant | Sub-Type | Total Random | Long Data    | Example |
 | RFC9562 | UUIDv4  | 128         | 2       | 4        | 122          | n/a          | 73e94fe0-e951-4153-aaf3-50e4e6089d9d |
-| DRAFT   | sv1a4   | 160         | 4       | 32       | 156          | 32  (x0020)  | 01040020-3ed8afd7-4a31-e2c5-f9c2-63e65cee20ee-0bb665e0 |
-| DRAFT   | sv1a4   | 192         | 4       | 32       | 188          | 64  (x0040)  | 01040040-2f70cb74-91e5-f901-fe27-9d9d9704a625-aea06e67af31c3ef |
-| DRAFT   | sv1a4   | 256         | 4       | 32       | 252          | 128 (x0080)  | 01040080-35225f5c-78a0-50ba-f1c0-4ea2d181b096-7560113a765de7610e33d2aa69142289 |
-| DRAFT   | sv1a4   | 512         | 4       | 32       | 508          | 384 (x0180)  | 01040180-2e675f90-fc04-b5ae-f687-4eb094c7c24e-649756dcee4b980e674f9ff0bed1c0a996b1b9fae89ea0107bc703e8cb64ccb58d7e8ad573747beb32f6c73d91b4d2ca |
+| DRAFT   | sv1a4   | 160 (192)         | 4       | 32       | 156          | 32  (x0020)  | 01040020-3ed8afd7-4a31-e2c5-f9c2-63e65cee20ee-0bb665e0 |
+| DRAFT   | sv1a4   | 192 (224)         | 4       | 32       | 188          | 64  (x0040)  | 01040040-2f70cb74-91e5-f901-fe27-9d9d9704a625-aea06e67af31c3ef |
+| DRAFT   | sv1a4   | 256 (288)         | 4       | 32       | 252          | 128 (x0080)  | 01040080-35225f5c-78a0-50ba-f1c0-4ea2d181b096-7560113a765de7610e33d2aa69142289 |
+| DRAFT   | sv1a4   | 512 (544)         | 4       | 32       | 508          | 384 (x0180)  | 01040180-2e675f90-fc04-b5ae-f687-4eb094c7c24e-649756dcee4b980e674f9ff0bed1c0a996b1b9fae89ea0107bc703e8cb64ccb58d7e8ad573747beb32f6c73d91b4d2ca |
 {: #random title="UUID Random Example"}
 
 ## Example sv2a7 Value {#sv2a7-value}
 
 This example UUIDsv2a7 test vector utilizes a well-known Unix epoch timestamp with millisecond precision to fill the first 48 bits.
 
-rand_a, rand_b, rand_c are filled with random data.
+rand_a, rand_b, rand_c are filled with 64 bits of random data.
 
 The timestamp is Tuesday, February 22, 2022 2:22:22.00 PM GMT-05:00 represented as 0x017F22E279B0 or 1645557742000
 
@@ -797,7 +814,7 @@ F: 03110080-5c146b14-3c52-4afd-f38a-375d0df1fbf6-fe12a66b645f72f6158759387e51f3c
 - Line E details the leftover values appended to form the full UUID Long of form sv3a17 without the encoding block.
 - Line F details the full UUID Long of form sv3a17 with the encoding block prefixed.
 
-## Boundary Encoding Examples {#boundary-encoding}
+## Further Encoding Examples {#further-encoding}
 
 The following test vectors illustrate the minimum (160-bit) UUID Long values encoded as all 0s and all 1s across the various BaseXX alphabets from {{lengthTable}}.
 
